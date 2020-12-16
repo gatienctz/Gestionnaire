@@ -79,7 +79,7 @@ namespace Gestionnaire
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(168, 22);
             this.tbLogin.TabIndex = 1;
-            this.tbLogin.Validated += new System.EventHandler(this.tbLogin_Validated);
+            this.tbLogin.Validating += new System.ComponentModel.CancelEventHandler(this.tbLogin_Validating);
             // 
             // label1
             // 

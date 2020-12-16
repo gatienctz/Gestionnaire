@@ -79,12 +79,5 @@ namespace Gestionnaire
         {
             return isLoginValide() && isPasswordValide();
         }
-        
-
-        private void tbLogin_Validated(object sender, EventArgs e)
-        {
-            isLoginValide();
-            btnValidate.Enabled = isFormValide();
-        }
     }
 }
