@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestionnaire", "Gestionnaire\Gestionnaire.csproj", "{546B2EAA-1F7F-4486-8242-0B73D5E7EF9D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{546B2EAA-1F7F-4486-8242-0B73D5E7EF9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{546B2EAA-1F7F-4486-8242-0B73D5E7EF9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{546B2EAA-1F7F-4486-8242-0B73D5E7EF9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{546B2EAA-1F7F-4486-8242-0B73D5E7EF9D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
