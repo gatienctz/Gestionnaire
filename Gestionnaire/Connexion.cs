@@ -20,7 +20,16 @@ namespace Gestionnaire
 
         private void btnConnecte_Click(object sender, EventArgs e)
         {
-            
+            bool connecte = Profil.isConnectionCorrect(tbLogin.Text, Profil.encryptMD5(tbPassword.Text));
+            if (connecte)
+            {
+                MessageBox.Show("Connecté !", "Connection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Erreur, nom d'utilisateur ou mot de passe incorrect !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void linklCreateProfil_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

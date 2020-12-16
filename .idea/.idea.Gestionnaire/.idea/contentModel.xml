@@ -13,7 +13,9 @@
         <e p="DialogForm_Profil.Designer.cs" t="Include" />
         <e p="DialogForm_Profil.resx" t="Include" />
         <e p="Gestionnaire.csproj" t="IncludeRecursive" />
-        <e p="manager" t="Include" />
+        <e p="manager" t="Include">
+          <e p="FileManager.cs" t="Include" />
+        </e>
         <e p="model" t="Include">
           <e p="Profil.cs" t="Include" />
         </e>

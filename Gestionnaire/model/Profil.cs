@@ -11,6 +11,8 @@ namespace Gestionnaire.model
         private string _login;
         private string _password;
         
+        public static string path = "C:\\Users\\gatin\\Documents\\Cours OPSIE\\Programmation avancée\\Projet\\Gestionnaire\\profil.pdb";
+        
         public string login
         {
             get => _login;
@@ -53,7 +55,7 @@ namespace Gestionnaire.model
 
         public void writeProfilToFile()
         {
-            using (StreamWriter sw = new StreamWriter("C:\\Users\\gatin\\Documents\\Cours OPSIE\\Programmation avancée\\Projet\\Gestionnaire\\profil.pdb",true))
+            using (StreamWriter sw = new StreamWriter(path,true))
             {
                 sw.WriteLine(login + ";" + password);
             }
@@ -61,22 +63,41 @@ namespace Gestionnaire.model
 
         public static bool isLoginExist(string login)
         {
-            bool isLoginExist = false;
-            string path =
-                "C:\\Users\\gatin\\Documents\\Cours OPSIE\\Programmation avancée\\Projet\\Gestionnaire\\profil.pdb";
+            bool isLoginExist = false; 
             if (!File.Exists(path))
                 return isLoginExist;
             
-            using (StreamReader sr = new StreamReader("C:\\Users\\gatin\\Documents\\Cours OPSIE\\Programmation avancée\\Projet\\Gestionnaire\\profil.pdb"))
+            using (StreamReader sr = new StreamReader(path))
             {
                 while (!sr.EndOfStream)
                 {
-                    string[] profil = sr.ReadLine().Split(';');
+                    string[] profil = sr.ReadLine()!.Split(';');
                     isLoginExist = profil[0].Equals(login);
                 }
             }
 
             return isLoginExist;
+        }
+
+        public static bool isConnectionCorrect(string login, string password)
+        {
+            bool correct; 
+            if (!File.Exists(path))
+                return false;
+            
+            using (StreamReader sr = new StreamReader(path))
+            {
+                while (!sr.EndOfStream)
+                {
+                    string[] profil = sr.ReadLine()!.Split(';');
+                    Console.WriteLine(profil[0]+";"+profil[1]+";"+login+";"+password);
+                    correct = profil[0].Equals(login) && profil[1].Equals(password);
+                    if (correct)
+                        return true;
+                }
+            }
+
+            return false;
         }
         
         public static bool isLoginRegexValide(string login)
@@ -111,5 +132,7 @@ namespace Gestionnaire.model
 
             return encryptedPassword;
         }
+        
+        
     }
 }

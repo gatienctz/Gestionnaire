@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using Gestionnaire.model;
 
@@ -11,26 +12,79 @@ namespace Gestionnaire
             InitializeComponent();
         }
 
-        public bool isValide()
+        private ErrorProvider _errorProvider = new ErrorProvider();
+
+        private void tbLogin_Validating(object sender, CancelEventArgs e)
         {
-            bool userValide = Profil.isLoginValide(tbLogin.Text);
-            bool passValide = Profil.isPasswordValide(tbPassword.Text);
-            bool USBValide = lbUSBDevices.SelectedIndex == -1;
-            return userValide && passValide && USBValide;
+            isLoginValide();
+            btnValidate.Enabled = isFormValide();
         }
 
-        private void DialogForm_Profil_FormClosing(object sender, FormClosingEventArgs e)
+        private bool isLoginValide()
         {
-            /*if (!isValide())
+            bool status = true;
+            if (tbLogin.Text == "")
             {
-                e.Cancel = true;
-                MessageBox.Show("Erreur !", "Le formulaire n'est pas valide !", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                _errorProvider.SetError(tbLogin, "Veuillez saisir un nom d'utilisateur.");
+                return false;
+            }
+            
+            if (!Profil.isLoginValide(tbLogin.Text))
+            {
+                _errorProvider.SetError(tbLogin, "Le nom d'utilisateur doit contenir entre 3 et 20 caractères alpha numériques (a-zA-Z0-9)");
+                return false;
+            }
+            if (Profil.isLoginExist(tbLogin.Text))
+            {
+                _errorProvider.SetError(tbLogin,
+                    "Le nom d'utilisateur existe déjà, veuillez en choisir un nouveau.");
+                return false;
+            }
+            _errorProvider.SetError(tbLogin, "");
+            
+
+            return status;
+        }
+
+        private void tbPassword_Validating(object sender, CancelEventArgs e)
+        {
+            isPasswordValide();
+            btnValidate.Enabled = isFormValide();
+        }
+
+        private bool isPasswordValide()
+        {
+            bool status = true;
+            if (tbPassword.Text == "")
+            {
+                _errorProvider.SetError(tbPassword, "Veuillez saisir un mot de passe.");
+                status = false;
             }
             else
             {
-                e.Cancel = false;
-            }*/
+                if (!Profil.isLoginValide(tbPassword.Text))
+                {
+                    _errorProvider.SetError(tbPassword, "Le mot de passe est mal formaté.");
+                    status = false;
+                }
+                else {
+                    _errorProvider.SetError(tbPassword, "");
+                }
+            }
+
+            return status;
+        }
+
+        private bool isFormValide()
+        {
+            return isLoginValide() && isPasswordValide();
+        }
+        
+
+        private void tbLogin_Validated(object sender, EventArgs e)
+        {
+            isLoginValide();
+            btnValidate.Enabled = isFormValide();
         }
     }
 }

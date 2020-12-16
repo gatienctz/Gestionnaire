@@ -58,15 +58,16 @@ namespace Gestionnaire
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(6, 132);
+            this.tbPassword.Location = new System.Drawing.Point(6, 139);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(168, 22);
             this.tbPassword.TabIndex = 3;
             this.tbPassword.UseSystemPasswordChar = true;
+            this.tbPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbPassword_Validating);
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(6, 106);
+            this.label2.Location = new System.Drawing.Point(6, 113);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(168, 23);
             this.label2.TabIndex = 2;
@@ -78,6 +79,7 @@ namespace Gestionnaire
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(168, 22);
             this.tbLogin.TabIndex = 1;
+            this.tbLogin.Validated += new System.EventHandler(this.tbLogin_Validated);
             // 
             // label1
             // 
@@ -100,6 +102,7 @@ namespace Gestionnaire
             // btnValidate
             // 
             this.btnValidate.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnValidate.Enabled = false;
             this.btnValidate.Location = new System.Drawing.Point(12, 408);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(91, 31);
