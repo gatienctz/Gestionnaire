@@ -22,8 +22,7 @@ namespace Gestionnaire
 
         private bool isLoginValide()
         {
-            bool status = true;
-            if (tbLogin.Text == "")
+            if (String.IsNullOrEmpty(tbLogin.Text))
             {
                 _errorProvider.SetError(tbLogin, "Veuillez saisir un nom d'utilisateur.");
                 return false;
@@ -43,7 +42,7 @@ namespace Gestionnaire
             _errorProvider.SetError(tbLogin, "");
             
 
-            return status;
+            return true;
         }
 
         private void tbPassword_Validating(object sender, CancelEventArgs e)
@@ -55,7 +54,7 @@ namespace Gestionnaire
         private bool isPasswordValide()
         {
             bool status = true;
-            if (tbPassword.Text == "")
+            if (String.IsNullOrEmpty(tbPassword.Text))
             {
                 _errorProvider.SetError(tbPassword, "Veuillez saisir un mot de passe.");
                 status = false;
