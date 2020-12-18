@@ -14,10 +14,15 @@ namespace Gestionnaire
 
         private ErrorProvider _errorProvider = new ErrorProvider();
 
-        private void tbLogin_Validating(object sender, CancelEventArgs e)
+        private void loginValidating()
         {
             isLoginValide();
             btnValidate.Enabled = isFormValide();
+        }
+        
+        private void tbLogin_Validating(object sender, CancelEventArgs e)
+        {
+            loginValidating();
         }
 
         private bool isLoginValide()
@@ -45,10 +50,15 @@ namespace Gestionnaire
             return true;
         }
 
-        private void tbPassword_Validating(object sender, CancelEventArgs e)
+        private void passwordValidating()
         {
             isPasswordValide();
             btnValidate.Enabled = isFormValide();
+        }
+
+        private void tbPassword_Validating(object sender, CancelEventArgs e)
+        {
+            passwordValidating();
         }
 
         private bool isPasswordValide()
@@ -77,6 +87,16 @@ namespace Gestionnaire
         private bool isFormValide()
         {
             return isLoginValide() && isPasswordValide();
+        }
+
+        private void tbLogin_TextChanged(object sender, EventArgs e)
+        {
+            //loginValidating();
+        }
+
+        private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+            //passwordValidating();
         }
     }
 }

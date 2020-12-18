@@ -63,6 +63,7 @@ namespace Gestionnaire
             this.tbPassword.Size = new System.Drawing.Size(168, 22);
             this.tbPassword.TabIndex = 3;
             this.tbPassword.UseSystemPasswordChar = true;
+            this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
             this.tbPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbPassword_Validating);
             // 
             // label2
@@ -79,6 +80,7 @@ namespace Gestionnaire
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(168, 22);
             this.tbLogin.TabIndex = 1;
+            this.tbLogin.TextChanged += new System.EventHandler(this.tbLogin_TextChanged);
             this.tbLogin.Validating += new System.ComponentModel.CancelEventHandler(this.tbLogin_Validating);
             // 
             // label1
