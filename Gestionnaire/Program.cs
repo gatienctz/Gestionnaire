@@ -15,11 +15,12 @@ namespace Gestionnaire
         [STAThread]
         static void Main()
         {
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            //TEST COMMIT Cédric
+            /*Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-            //ManagedAesFile.t();
+            Application.Run(new Form1());*/
+            ManagedAesFile.t();
         }
     }
 }
