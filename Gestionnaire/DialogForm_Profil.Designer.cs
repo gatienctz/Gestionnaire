@@ -131,6 +131,7 @@ namespace Gestionnaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(400, 460);
             this.Controls.Add(this.lbUSBDevices);
             this.Controls.Add(this.label3);

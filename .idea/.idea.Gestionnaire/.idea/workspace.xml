@@ -24,8 +24,8 @@
         <option value="$PROJECT_DIR$/Gestionnaire/model/Profil.cs" />
         <option value="$PROJECT_DIR$/Gestionnaire/Connexion.cs" />
         <option value="$PROJECT_DIR$/Gestionnaire/DialogForm_Profil.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/Program.cs" />
         <option value="$PROJECT_DIR$/Gestionnaire/manager/ManagedAesFile.cs" />
+        <option value="$PROJECT_DIR$/Gestionnaire/Program.cs" />
       </list>
     </option>
   </component>
@@ -71,6 +71,7 @@
       <updated>1608107918481</updated>
       <workItem from="1608107932067" duration="21799000" />
       <workItem from="1608229781590" duration="2104000" />
+      <workItem from="1608326781546" duration="376000" />
     </task>
     <servers />
   </component>
