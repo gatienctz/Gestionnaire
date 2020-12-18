@@ -15,6 +15,7 @@ namespace Gestionnaire
         [STAThread]
         static void Main()
         {
+            //TEST COMMIT Cédric
             /*Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
