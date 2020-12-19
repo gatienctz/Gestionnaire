@@ -111,10 +111,16 @@ namespace Gestionnaire.model
             return isLoginRegexValide(login);
         }
 
+        public static bool isPasswordRegexValide(string password)
+        {
+            Match isRegexValide = Regex.Match(password, @"\b(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,15})$
+");
+            return isRegexValide.Success;
+        }
+
         public static bool isPasswordValide(string password)
         {
-            bool isLengthValide = password.Length > 3 && password.Length < 16;
-            return isLengthValide;
+            return isPasswordRegexValide(password);
         }
         
         public static string encryptMD5(string password)
