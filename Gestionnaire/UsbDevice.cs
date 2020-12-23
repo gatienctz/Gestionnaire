@@ -11,6 +11,10 @@ namespace Gestionnaire
         {
             InitializeComponent();
             
+            var bgwDriveDetector = new BackgroundWorker();
+            bgwDriveDetector.DoWork += bgwDriveDetector_DoWork;
+            bgwDriveDetector.RunWorkerAsync();
+            
            
         }
         private void DeviceInsertedEvent(object sender, EventArrivedEventArgs e)
