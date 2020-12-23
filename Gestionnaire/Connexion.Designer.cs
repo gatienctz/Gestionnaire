@@ -1,4 +1,6 @@
-﻿namespace Gestionnaire
+﻿using System.Windows.Forms;
+
+namespace Gestionnaire
 {
     partial class Form1
     {
@@ -61,6 +63,7 @@
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(228, 22);
             this.tbLogin.TabIndex = 2;
+            this.tbLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             // 
             // label2
             // 
@@ -78,6 +81,7 @@
             this.tbPassword.Size = new System.Drawing.Size(228, 22);
             this.tbPassword.TabIndex = 4;
             this.tbPassword.UseSystemPasswordChar = true;
+            this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             // 
             // linklCreateProfil
             // 
@@ -89,7 +93,7 @@
             this.linklCreateProfil.Text = "Créer un profil";
             this.linklCreateProfil.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklCreateProfil_LinkClicked);
             // 
-            // Form1
+            // ConnexionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -100,8 +104,9 @@
             this.Controls.Add(this.tbLogin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConnecte);
-            this.Name = "Form1";
+            this.Name = "ConnexionForm";
             this.Text = "Connexion";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
         }

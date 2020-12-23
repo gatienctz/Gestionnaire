@@ -10,6 +10,9 @@
       <Compile Update="DialogForm_Profil.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="Gestionnaire.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>

@@ -3,6 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using Gestionnaire.manager;
 
 namespace Gestionnaire.model
 {
@@ -34,9 +35,9 @@ namespace Gestionnaire.model
             get => _password;
             set
             {
-                if (isPasswordValide(value))
+                if (PasswordManager.IsPasswordValide(value))
                 {
-                    _password = encryptMD5(value);
+                    _password = PasswordManager.EncryptMd5(value);
                 }
                 else
                 {
@@ -110,35 +111,5 @@ namespace Gestionnaire.model
         {
             return isLoginRegexValide(login);
         }
-
-        public static bool isPasswordRegexValide(string password)
-        {
-            Match isRegexValide = Regex.Match(password, @"\b(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,15})$
-");
-            return isRegexValide.Success;
-        }
-
-        public static bool isPasswordValide(string password)
-        {
-            return isPasswordRegexValide(password);
-        }
-        
-        public static string encryptMD5(string password)
-        {
-            string encryptedPassword;
-            byte[] hashByte = Encoding.Unicode.GetBytes(password);
-            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
-            {
-                hashByte = md5.ComputeHash(hashByte);
-                StringBuilder stringBuilder = new StringBuilder();
-                foreach (byte b in hashByte)
-                    stringBuilder.Append(b.ToString("X2"));
-                encryptedPassword = stringBuilder.ToString();
-            }
-
-            return encryptedPassword;
-        }
-        
-        
     }
 }

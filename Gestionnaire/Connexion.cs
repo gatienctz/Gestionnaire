@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gestionnaire.manager;
 using Gestionnaire.model;
 
 namespace Gestionnaire
@@ -18,18 +12,29 @@ namespace Gestionnaire
             InitializeComponent();
         }
 
-        private void btnConnecte_Click(object sender, EventArgs e)
+        private void connection()
         {
-            bool connecte = Profil.isConnectionCorrect(tbLogin.Text, Profil.encryptMD5(tbPassword.Text));
+            bool connecte = Profil.isConnectionCorrect(tbLogin.Text, PasswordManager.EncryptMd5(tbPassword.Text));
             if (connecte)
             {
-                MessageBox.Show("Connecté !", "Connection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Connecté !", "Connection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Hide();
+                Gestionnaire gest = new Gestionnaire();
+                var dialogResult = gest.ShowDialog();
+                if (dialogResult == DialogResult.Cancel)
+                {
+                    Close();
+                }
             }
             else
             {
                 MessageBox.Show("Erreur, nom d'utilisateur ou mot de passe incorrect !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+        private void btnConnecte_Click(object sender, EventArgs e)
+        {
+            connection();
         }
 
         private void linklCreateProfil_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -41,6 +46,14 @@ namespace Gestionnaire
             {
                 Profil newProfil = new Profil(dfProfil.tbLogin.Text, dfProfil.tbPassword.Text);
                 newProfil.writeProfilToFile();
+            }
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                connection();
             }
         }
     }
