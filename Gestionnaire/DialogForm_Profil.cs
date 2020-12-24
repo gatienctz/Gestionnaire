@@ -97,7 +97,7 @@ namespace Gestionnaire
 
         private bool isFormValide()
         {
-            return isLoginValide() && isPasswordValide();
+            return isLoginValide() && isPasswordValide() && lbUSBDevices.SelectedItems.Count==1;
         }
 
         private void tbLogin_TextChanged(object sender, EventArgs e)
