@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+﻿/*using System.ComponentModel;
 
 namespace Gestionnaire
 {
@@ -39,4 +39,4 @@ namespace Gestionnaire
 
         #endregion
     }
-}
+}*/

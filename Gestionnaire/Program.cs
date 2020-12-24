@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gestionnaire.manager;
+using Gestionnaire.model;
 
 namespace Gestionnaire
 {
@@ -15,10 +16,12 @@ namespace Gestionnaire
         [STAThread]
         static void Main()
         {
+            UsbDeviceInfoMain.Test();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            
         }
     }
 }

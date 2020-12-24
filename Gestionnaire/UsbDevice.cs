@@ -1,5 +1,5 @@
-﻿using System.Windows.Forms;
-using System.Management;
+﻿/*
+using System.Windows.Forms;
 using System.ComponentModel;
 
 
@@ -15,7 +15,6 @@ namespace Gestionnaire
             bgwDriveDetector.DoWork += bgwDriveDetector_DoWork;
             bgwDriveDetector.RunWorkerAsync();
             
-           
         }
         private void DeviceInsertedEvent(object sender, EventArrivedEventArgs e)
         {
@@ -53,3 +52,4 @@ namespace Gestionnaire
 
     }
 }
+*/

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿/*using System.Collections.Generic;
 using System.Linq;
 using System.Management;
 
@@ -65,4 +65,4 @@ namespace Gestionnaire
         public override string ToString() => $"DeviceId: {DeviceId}; SerialNr: {SerialNr}; DriveLetter: {DriveLetter}";
     }
     
-}
+}*/
