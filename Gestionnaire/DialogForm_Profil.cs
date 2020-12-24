@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using Gestionnaire.model;
@@ -10,6 +11,16 @@ namespace Gestionnaire
         public DialogForm_Profil()
         {
             InitializeComponent();
+            List<USBDeviceInfo> listUSB=UsbDeviceInfoMain.GetUSBDevices();
+            int cmp = 0;
+            int selected_item = -1; //Ici on va prendre le dernier ayant Disposotif de stockage de masse USB comme description
+            foreach (var entry in listUSB)
+            {
+                lbUSBDevices.Items.Add("Device ID:"+entry.DeviceID+" , PNP Device ID: "+entry.PnpDeviceID+", Description: "+entry.Description);
+                if (entry.Description == "Dispositif de stockage de masse USB") selected_item = cmp;
+                cmp++;
+            }
+            if (selected_item!=-1) lbUSBDevices.SetSelected(selected_item, true);
         }
 
         private ErrorProvider _errorProvider = new ErrorProvider();
@@ -97,6 +108,11 @@ namespace Gestionnaire
         private void tbPassword_TextChanged(object sender, EventArgs e)
         {
             //passwordValidating();
+        }
+
+        private void lbUSBDevices_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //throw new System.NotImplementedException();
         }
     }
 }

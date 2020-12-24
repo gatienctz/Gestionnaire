@@ -123,11 +123,13 @@ namespace Gestionnaire
             // lbUSBDevices
             // 
             this.lbUSBDevices.FormattingEnabled = true;
+            this.lbUSBDevices.HorizontalScrollbar = true;
             this.lbUSBDevices.ItemHeight = 16;
             this.lbUSBDevices.Location = new System.Drawing.Point(12, 245);
             this.lbUSBDevices.Name = "lbUSBDevices";
             this.lbUSBDevices.Size = new System.Drawing.Size(376, 148);
             this.lbUSBDevices.TabIndex = 5;
+            this.lbUSBDevices.SelectedIndexChanged += new System.EventHandler(this.lbUSBDevices_SelectedIndexChanged);
             // 
             // DialogForm_Profil
             // 

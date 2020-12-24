@@ -16,10 +16,10 @@
                     usbDevice.DeviceID, usbDevice.PnpDeviceID, usbDevice.Description);
             }
 
-            Console.Read();
+            //Console.Read();
         }
 
-        static List<USBDeviceInfo> GetUSBDevices()
+        public static List<USBDeviceInfo> GetUSBDevices()
         {
             List<USBDeviceInfo> devices = new List<USBDeviceInfo>();
 
