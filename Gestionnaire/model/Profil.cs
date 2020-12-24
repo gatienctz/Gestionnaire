@@ -11,8 +11,8 @@ namespace Gestionnaire.model
     {
         private string _login;
         private string _password;
-        
-        public static string path = "C:\\Users\\gatin\\Documents\\Cours OPSIE\\Programmation avancée\\Projet\\Gestionnaire\\profil.pdb";
+        //SURTOUT TE CASSE PAS LES COUILLES A FAIRE UN CHEMIN RELATIF,C'EST PAS COMME SI ON TRAVAILLAIT EN GROUPE FDP
+        public static string path = "..\\..\\..\\Data\\profil.pdb";
         
         public string login
         {
@@ -50,14 +50,17 @@ namespace Gestionnaire.model
 
         public Profil(string login, string password)
         {
+            Console.WriteLine("=CC=");
             this.login = login;
             this.password = password;
         }
 
         public void writeProfilToFile()
         {
+            Console.WriteLine("===");
             using (StreamWriter sw = new StreamWriter(path,true))
             {
+                Console.WriteLine("=AAA==");
                 sw.WriteLine(login + ";" + password);
             }
         }

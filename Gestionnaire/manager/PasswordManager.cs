@@ -12,6 +12,7 @@ namespace Gestionnaire.manager
             Match isRegexValide = Regex.Match(password, @"\b(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,15})$
 ");
             return isRegexValide.Success;
+           //REGEX qui ne fonctionne pas pour mon mdp
         }
 
         public static bool IsPasswordValide(string password)
