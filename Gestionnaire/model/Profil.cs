@@ -11,8 +11,10 @@ namespace Gestionnaire.model
     {
         private string _login;
         private string _password;
+        private string _idUSB;
         //SURTOUT TE CASSE PAS LES COUILLES A FAIRE UN CHEMIN RELATIF,C'EST PAS COMME SI ON TRAVAILLAIT EN GROUPE FDP
-        public static string path = "..\\..\\..\\Data\\profil.pdb";
+        public static string path = "..\\..\\..\\Data\\base2profil.txt";
+        
         
         public string login
         {
@@ -27,6 +29,16 @@ namespace Gestionnaire.model
                 {
                     throw new FormatException("Login mal formé");
                 }
+            }
+        }
+        
+        public string idUSB
+        {
+            get => _idUSB;
+            set
+            {
+              
+               _idUSB = value;
             }
         }
 
@@ -48,20 +60,18 @@ namespace Gestionnaire.model
 
         public Profil() {}
 
-        public Profil(string login, string password)
+        public Profil(string login, string password,string idUSB)
         {
-            Console.WriteLine("=CC=");
             this.login = login;
             this.password = password;
+            this.idUSB = idUSB;
         }
 
         public void writeProfilToFile()
         {
-            Console.WriteLine("===");
             using (StreamWriter sw = new StreamWriter(path,true))
             {
-                Console.WriteLine("=AAA==");
-                sw.WriteLine(login + ";" + password);
+                sw.WriteLine(login + ";" + password + ";" + idUSB);
             }
         }
 
@@ -96,7 +106,16 @@ namespace Gestionnaire.model
                     string[] profil = sr.ReadLine()!.Split(';');
                     Console.WriteLine(profil[0]+";"+profil[1]+";"+login+";"+password);
                     correct = profil[0].Equals(login) && profil[1].Equals(password);
-                    if (correct)
+                    //On rajoute la vérif de la clé
+                    var usbDevices = UsbDeviceInfoMain.GetUSBDevices();
+                    bool cleInsert = false;
+                    foreach (var entry in usbDevices)
+                    {
+                        if (profil[2].Equals("Device ID:" + entry.DeviceID + " , PNP Device ID: " + entry.PnpDeviceID +
+                                             ", Description: " + entry.Description)) cleInsert = true;
+                    }
+                    
+                    if (correct && cleInsert)
                         return true;
                 }
             }

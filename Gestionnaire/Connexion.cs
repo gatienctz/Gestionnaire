@@ -44,7 +44,7 @@ namespace Gestionnaire
 
             if (dialogResult == DialogResult.OK)
             {
-                Profil newProfil = new Profil(dfProfil.tbLogin.Text, dfProfil.tbPassword.Text);
+                Profil newProfil = new Profil(dfProfil.tbLogin.Text, dfProfil.tbPassword.Text,dfProfil.lbUSBDevices.SelectedItems[0].ToString());
                 newProfil.writeProfilToFile();
             }
         }
