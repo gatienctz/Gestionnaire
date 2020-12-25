@@ -45,10 +45,13 @@ namespace Gestionnaire
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.PapayaWhip;
+            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.groupBox1.Controls.Add(this.tbPassword);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tbLogin);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(376, 195);
@@ -60,7 +63,7 @@ namespace Gestionnaire
             // 
             this.tbPassword.Location = new System.Drawing.Point(6, 139);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(168, 22);
+            this.tbPassword.Size = new System.Drawing.Size(168, 26);
             this.tbPassword.TabIndex = 3;
             this.tbPassword.UseSystemPasswordChar = true;
             this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
@@ -78,7 +81,7 @@ namespace Gestionnaire
             // 
             this.tbLogin.Location = new System.Drawing.Point(6, 67);
             this.tbLogin.Name = "tbLogin";
-            this.tbLogin.Size = new System.Drawing.Size(168, 22);
+            this.tbLogin.Size = new System.Drawing.Size(168, 26);
             this.tbLogin.TabIndex = 1;
             this.tbLogin.TextChanged += new System.EventHandler(this.tbLogin_TextChanged);
             this.tbLogin.Validating += new System.ComponentModel.CancelEventHandler(this.tbLogin_Validating);
@@ -93,41 +96,49 @@ namespace Gestionnaire
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(297, 408);
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnCancel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCancel.Location = new System.Drawing.Point(217, 408);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(91, 31);
+            this.btnCancel.Size = new System.Drawing.Size(171, 40);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Annuler";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // btnValidate
             // 
+            this.btnValidate.BackColor = System.Drawing.Color.LimeGreen;
             this.btnValidate.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnValidate.Enabled = false;
+            this.btnValidate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnValidate.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnValidate.Location = new System.Drawing.Point(12, 408);
             this.btnValidate.Name = "btnValidate";
-            this.btnValidate.Size = new System.Drawing.Size(91, 31);
+            this.btnValidate.Size = new System.Drawing.Size(174, 40);
             this.btnValidate.TabIndex = 2;
             this.btnValidate.Text = "Valider";
-            this.btnValidate.UseVisualStyleBackColor = true;
+            this.btnValidate.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
+            this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label3.Location = new System.Drawing.Point(18, 219);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(182, 23);
+            this.label3.Size = new System.Drawing.Size(293, 23);
             this.label3.TabIndex = 4;
             this.label3.Text = "Clé USB de dévérouillage : ";
             // 
             // lbUSBDevices
             // 
+            this.lbUSBDevices.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lbUSBDevices.FormattingEnabled = true;
             this.lbUSBDevices.HorizontalScrollbar = true;
-            this.lbUSBDevices.ItemHeight = 16;
+            this.lbUSBDevices.ItemHeight = 19;
             this.lbUSBDevices.Location = new System.Drawing.Point(12, 245);
             this.lbUSBDevices.Name = "lbUSBDevices";
-            this.lbUSBDevices.Size = new System.Drawing.Size(376, 148);
+            this.lbUSBDevices.Size = new System.Drawing.Size(376, 137);
             this.lbUSBDevices.TabIndex = 5;
             this.lbUSBDevices.SelectedIndexChanged += new System.EventHandler(this.lbUSBDevices_SelectedIndexChanged);
             // 
@@ -136,6 +147,7 @@ namespace Gestionnaire
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.BackColor = System.Drawing.Color.Moccasin;
             this.ClientSize = new System.Drawing.Size(400, 460);
             this.Controls.Add(this.lbUSBDevices);
             this.Controls.Add(this.label3);

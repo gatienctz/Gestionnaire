@@ -49,6 +49,7 @@ namespace Gestionnaire
             // 
             // treeView1
             // 
+            this.treeView1.BackColor = System.Drawing.Color.PapayaWhip;
             this.treeView1.Location = new System.Drawing.Point(12, 73);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "Nœud3";
@@ -67,7 +68,7 @@ namespace Gestionnaire
             // 
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.col_Title, this.col_Username, this.col_URL, this.col_password});
             this.dataGridView1.Location = new System.Drawing.Point(205, 73);
@@ -122,6 +123,7 @@ namespace Gestionnaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Moccasin;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.treeView1);
