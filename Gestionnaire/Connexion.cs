@@ -12,10 +12,11 @@ namespace Gestionnaire
             InitializeComponent();
         }
 
-        private void connection()
+        private void Connection()
         {
-            bool connecte = Profil.IsConnectionCorrect(tbLogin.Text, PasswordManager.EncryptMd5(tbPassword.Text));
-            if (connecte)
+            bool connected = Profil.IsConnectionCorrect(tbLogin.Text, PasswordManager.EncryptMd5(tbPassword.Text));
+            //Ici il suffit pas de savoir si il est connecté, mais aussi avec quel compte
+            if (connected)
             {
                 //MessageBox.Show("Connecté !", "Connection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Hide();
@@ -26,15 +27,10 @@ namespace Gestionnaire
                     Close();
                 }
             }
-            else
-            {
-                MessageBox.Show("Erreur, nom d'utilisateur ou mot de passe incorrect !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
         }
-        private void btnConnecte_Click(object sender, EventArgs e)
+        private void btnConnected_Click(object sender, EventArgs e)
         {
-            connection();
+            Connection();
         }
 
         private void linklCreateProfil_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -53,7 +49,7 @@ namespace Gestionnaire
         {
             if (e.KeyCode == Keys.Enter)
             {
-                connection();
+                Connection();
             }
         }
     }

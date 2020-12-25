@@ -3,6 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using Gestionnaire.manager;
 
 namespace Gestionnaire.model
@@ -97,28 +98,33 @@ namespace Gestionnaire.model
             bool correct; 
             if (!File.Exists(path))
                 return false;
-            
+
             using (StreamReader sr = new StreamReader(path))
             {
                 while (!sr.EndOfStream)
                 {
                     string[] profil = sr.ReadLine()!.Split(';');
-                    Console.WriteLine(profil[0]+";"+profil[1]+";"+login+";"+password);
+                    Console.WriteLine(profil[0] + ";" + profil[1] + ";" + login + ";" + password);
                     correct = profil[0].Equals(login) && profil[1].Equals(password);
                     //On rajoute la vérif de la clé
                     var usbDevices = UsbDeviceInfoMain.GetUSBDevices();
-                    bool cleInsert = false;
-                    foreach (var entry in usbDevices)
+
+
+                    if (correct)
                     {
-                        if (profil[2].Equals("Device ID:" + entry.DeviceID + " , PNP Device ID: " + entry.PnpDeviceID +
-                                             ", Description: " + entry.Description)) cleInsert = true;
+                        bool cleInsert = false;
+                        foreach (var entry in usbDevices)
+                        {
+                            if (profil[2].Equals("Device ID:" + entry.DeviceID + " , PNP Device ID: " +
+                                                 entry.PnpDeviceID +
+                                                 ", Description: " + entry.Description)) cleInsert = true;
+                        }
+                        if(!cleInsert) MessageBox.Show("Erreur, clé non connectée !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return cleInsert;
                     }
-                    
-                    if (correct && cleInsert)
-                        return true;
                 }
             }
-
+            MessageBox.Show("Erreur, nom d'utilisateur ou mot de passe incorrect !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         

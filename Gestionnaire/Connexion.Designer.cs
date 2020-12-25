@@ -50,7 +50,7 @@ namespace Gestionnaire
             this.btnConnecte.TabIndex = 0;
             this.btnConnecte.Text = "Connexion";
             this.btnConnecte.UseVisualStyleBackColor = false;
-            this.btnConnecte.Click += new System.EventHandler(this.btnConnecte_Click);
+            this.btnConnecte.Click += new System.EventHandler(this.btnConnected_Click);
             // 
             // label1
             // 
