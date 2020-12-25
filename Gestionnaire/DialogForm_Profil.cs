@@ -44,7 +44,7 @@ namespace Gestionnaire
                 return false;
             }
             
-            if (!Profil.IsLoginValide(tbLogin.Text))
+            if (!Profil.IsValidLogin(tbLogin.Text))
             {
                 _errorProvider.SetError(tbLogin, "Le nom d'utilisateur doit contenir entre 3 et 20 caractères alpha numériques (a-zA-Z0-9)");
                 return false;
@@ -82,7 +82,7 @@ namespace Gestionnaire
             }
             else
             {
-                if (!Profil.IsLoginValide(tbPassword.Text))
+                if (!Profil.IsValidLogin(tbPassword.Text))
                 {
                     _errorProvider.SetError(tbPassword, "Le mot de passe est mal formaté.");
                     status = false;

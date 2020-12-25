@@ -95,7 +95,7 @@ namespace Gestionnaire
             this.linklCreateProfil.Size = new System.Drawing.Size(159, 23);
             this.linklCreateProfil.TabIndex = 5;
             this.linklCreateProfil.TabStop = true;
-            this.linklCreateProfil.Text = "Créer un profil";
+            this.linklCreateProfil.Text = "Nouveau? Créer votre profil";
             this.linklCreateProfil.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklCreateProfil_LinkClicked);
             // 
             // Form1

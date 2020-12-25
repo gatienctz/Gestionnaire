@@ -22,7 +22,7 @@ namespace Gestionnaire.model
             get => _login;
             set
             {
-                if (IsLoginValide(value))
+                if (IsValidLogin(value))
                 {
                     _login = value;
                 }
@@ -101,15 +101,13 @@ namespace Gestionnaire.model
 
             using (StreamReader sr = new StreamReader(path))
             {
+                var usbDevices = UsbDeviceInfoMain.GetUSBDevices();
                 while (!sr.EndOfStream)
                 {
                     string[] profil = sr.ReadLine()!.Split(';');
-                    Console.WriteLine(profil[0] + ";" + profil[1] + ";" + login + ";" + password);
                     correct = profil[0].Equals(login) && profil[1].Equals(password);
+                    
                     //On rajoute la vérif de la clé
-                    var usbDevices = UsbDeviceInfoMain.GetUSBDevices();
-
-
                     if (correct)
                     {
                         bool cleInsert = false;
@@ -128,15 +126,15 @@ namespace Gestionnaire.model
             return false;
         }
         
-        public static bool IsLoginRegexValide(string login)
+        public static bool IsValidLoginRegex(string login)
         {
-            Match isRegexValide = Regex.Match(login, @"\b[A-Za-z]\w{2,19}$");
-            return isRegexValide.Success;
+            Match isValidRegex = Regex.Match(login, @"\b[A-Za-z]\w{2,19}$");
+            return isValidRegex.Success;
         }
         
-        public static bool IsLoginValide(string login)
+        public static bool IsValidLogin(string login)
         {
-            return IsLoginRegexValide(login);
+            return IsValidLoginRegex(login);
         }
     }
 }
