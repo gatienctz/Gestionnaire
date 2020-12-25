@@ -64,7 +64,7 @@ namespace Gestionnaire
             this.tbPassword.TabIndex = 3;
             this.tbPassword.UseSystemPasswordChar = true;
             this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
-            this.tbPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbPassword_Validating);
+            this.tbPassword.Validating += new System.ComponentModel.CancelEventHandler(this.TbPassword_Validating);
             // 
             // label2
             // 

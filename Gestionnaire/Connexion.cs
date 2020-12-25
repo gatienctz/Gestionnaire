@@ -14,7 +14,7 @@ namespace Gestionnaire
 
         private void connection()
         {
-            bool connecte = Profil.isConnectionCorrect(tbLogin.Text, PasswordManager.EncryptMd5(tbPassword.Text));
+            bool connecte = Profil.IsConnectionCorrect(tbLogin.Text, PasswordManager.EncryptMd5(tbPassword.Text));
             if (connecte)
             {
                 //MessageBox.Show("Connecté !", "Connection", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -45,7 +45,7 @@ namespace Gestionnaire
             if (dialogResult == DialogResult.OK)
             {
                 Profil newProfil = new Profil(dfProfil.tbLogin.Text, dfProfil.tbPassword.Text,dfProfil.lbUSBDevices.SelectedItems[0].ToString());
-                newProfil.writeProfilToFile();
+                newProfil.WriteProfilToFile();
             }
         }
 

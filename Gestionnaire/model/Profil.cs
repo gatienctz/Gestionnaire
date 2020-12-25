@@ -21,7 +21,7 @@ namespace Gestionnaire.model
             get => _login;
             set
             {
-                if (isLoginValide(value))
+                if (IsLoginValide(value))
                 {
                     _login = value;
                 }
@@ -37,7 +37,6 @@ namespace Gestionnaire.model
             get => _idUSB;
             set
             {
-              
                _idUSB = value;
             }
         }
@@ -67,7 +66,7 @@ namespace Gestionnaire.model
             this.idUSB = idUSB;
         }
 
-        public void writeProfilToFile()
+        public void WriteProfilToFile()
         {
             using (StreamWriter sw = new StreamWriter(path,true))
             {
@@ -75,7 +74,7 @@ namespace Gestionnaire.model
             }
         }
 
-        public static bool isLoginExist(string login)
+        public static bool IsLoginExist(string login)
         {
             bool isLoginExist = false; 
             if (!File.Exists(path))
@@ -93,7 +92,7 @@ namespace Gestionnaire.model
             return isLoginExist;
         }
 
-        public static bool isConnectionCorrect(string login, string password)
+        public static bool IsConnectionCorrect(string login, string password)
         {
             bool correct; 
             if (!File.Exists(path))
@@ -123,15 +122,15 @@ namespace Gestionnaire.model
             return false;
         }
         
-        public static bool isLoginRegexValide(string login)
+        public static bool IsLoginRegexValide(string login)
         {
             Match isRegexValide = Regex.Match(login, @"\b[A-Za-z]\w{2,19}$");
             return isRegexValide.Success;
         }
         
-        public static bool isLoginValide(string login)
+        public static bool IsLoginValide(string login)
         {
-            return isLoginRegexValide(login);
+            return IsLoginRegexValide(login);
         }
     }
 }

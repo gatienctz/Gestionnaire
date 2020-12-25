@@ -25,18 +25,18 @@ namespace Gestionnaire
 
         private ErrorProvider _errorProvider = new ErrorProvider();
 
-        private void loginValidating()
+        private void LoginValidating()
         {
-            isLoginValide();
-            btnValidate.Enabled = isFormValide();
+            IsLoginValid();
+            btnValidate.Enabled = IsFormValid();
         }
         
         private void tbLogin_Validating(object sender, CancelEventArgs e)
         {
-            loginValidating();
+            LoginValidating();
         }
 
-        private bool isLoginValide()
+        private bool IsLoginValid()
         {
             if (String.IsNullOrEmpty(tbLogin.Text))
             {
@@ -44,12 +44,12 @@ namespace Gestionnaire
                 return false;
             }
             
-            if (!Profil.isLoginValide(tbLogin.Text))
+            if (!Profil.IsLoginValide(tbLogin.Text))
             {
                 _errorProvider.SetError(tbLogin, "Le nom d'utilisateur doit contenir entre 3 et 20 caractères alpha numériques (a-zA-Z0-9)");
                 return false;
             }
-            if (Profil.isLoginExist(tbLogin.Text))
+            if (Profil.IsLoginExist(tbLogin.Text))
             {
                 _errorProvider.SetError(tbLogin,
                     "Le nom d'utilisateur existe déjà, veuillez en choisir un nouveau.");
@@ -61,18 +61,18 @@ namespace Gestionnaire
             return true;
         }
 
-        private void passwordValidating()
+        private void PasswordValidating()
         {
-            isPasswordValide();
-            btnValidate.Enabled = isFormValide();
+            IsPasswordValid();
+            btnValidate.Enabled = IsFormValid();
         }
 
-        private void tbPassword_Validating(object sender, CancelEventArgs e)
+        private void TbPassword_Validating(object sender, CancelEventArgs e)
         {
-            passwordValidating();
+            PasswordValidating();
         }
 
-        private bool isPasswordValide()
+        private bool IsPasswordValid()
         {
             bool status = true;
             if (String.IsNullOrEmpty(tbPassword.Text))
@@ -82,7 +82,7 @@ namespace Gestionnaire
             }
             else
             {
-                if (!Profil.isLoginValide(tbPassword.Text))
+                if (!Profil.IsLoginValide(tbPassword.Text))
                 {
                     _errorProvider.SetError(tbPassword, "Le mot de passe est mal formaté.");
                     status = false;
@@ -95,9 +95,9 @@ namespace Gestionnaire
             return status;
         }
 
-        private bool isFormValide()
+        private bool IsFormValid()
         {
-            return isLoginValide() && isPasswordValide() && lbUSBDevices.SelectedItems.Count==1;
+            return IsLoginValid() && IsPasswordValid() && lbUSBDevices.SelectedItems.Count==1;
         }
 
         private void tbLogin_TextChanged(object sender, EventArgs e)
