@@ -1,4 +1,4 @@
-﻿/*using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Management;
 
@@ -11,7 +11,7 @@ namespace Gestionnaire
             
         }
 
-        public string GetDriveLetter(string serialNr)
+        public static string GetDriveLetter(string serialNr)
         {
             return SelectDeviceInformation()
                 .Single(a =>
@@ -46,13 +46,13 @@ namespace Gestionnaire
                 .Cast<ManagementObject>();
         }
     }
-    public struct USBDeviceInfo
+    public struct USBDeviceInfo1
     {
-        public USBDeviceInfo(string deviceId, string SerialNr)
+        public USBDeviceInfo1(string deviceId, string SerialNr, char driveLetter)
         {
             DeviceId = deviceId;
             this.SerialNr = SerialNr;
-           
+            DriveLetter = driveLetter;
         }
 
         public string DeviceId { get; }
@@ -65,4 +65,4 @@ namespace Gestionnaire
         public override string ToString() => $"DeviceId: {DeviceId}; SerialNr: {SerialNr}; DriveLetter: {DriveLetter}";
     }
     
-}*/
+}

@@ -1,16 +1,15 @@
-﻿/*
+﻿using System;
 using System.Windows.Forms;
 using System.ComponentModel;
-
+using System.Linq;
+using System.Management;
 
 namespace Gestionnaire
 {
-    public partial class UsbDevice : Form 
+    public class UsbDevice 
     {
         public UsbDevice()
         {
-            InitializeComponent();
-            
             var bgwDriveDetector = new BackgroundWorker();
             bgwDriveDetector.DoWork += bgwDriveDetector_DoWork;
             bgwDriveDetector.RunWorkerAsync();
@@ -19,12 +18,12 @@ namespace Gestionnaire
         private void DeviceInsertedEvent(object sender, EventArrivedEventArgs e)
         {
             string driveName = e.NewEvent.Properties["DriveName"].Value.ToString();
-            MessageBox.Show(driveName + " inserted");
+            Console.WriteLine(driveName + " inserted");
         }
         private void DeviceRemovedEvent(object sender, EventArrivedEventArgs e)
         {
              string driveName = e.NewEvent.Properties["DriveName"].Value.ToString();
-             MessageBox.Show(driveName + " removed");
+             Console.WriteLine(driveName + " removed");
         }
         void bgwDriveDetector_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -39,17 +38,17 @@ namespace Gestionnaire
              removeWatcher.Start();
         }
         
-        private static USBDeviceInfo MapEventArgs(EventArrivedEventArgs e)
-        {
+        private static USBDeviceInfo1 MapEventArgs(EventArrivedEventArgs e)
+        { 
              ManagementBaseObject instance = (ManagementBaseObject)e.NewEvent["TargetInstance"];
         
              string deviceId = (string)instance.GetPropertyValue("DeviceID");
              string serialNr = deviceId.Substring(deviceId.LastIndexOf('\\')).Replace("\\", "");
-             char driveLetter = GetDriveLetter(serialNr).First();
+             char driveLetter = DeviceInfo.GetDriveLetter(serialNr).First();
         
-             return new USBDeviceInfo(deviceId, serialNr, driveLetter);
+             return new USBDeviceInfo1(deviceId, serialNr, driveLetter);
         }
 
     }
 }
-*/
+

@@ -9,6 +9,11 @@
         <e p="Connexion.cs" t="Include" />
         <e p="Connexion.Designer.cs" t="Include" />
         <e p="Connexion.resx" t="Include" />
+        <e p="Data" t="Include">
+          <e p="base2profil.txt" t="Include" />
+          <e p="Logo_Université_Lumière_Lyon_2.png" t="Include" />
+          <e p="profil.pdb" t="Include" />
+        </e>
         <e p="DeviceInfo.cs" t="Include" />
         <e p="DialogForm_Profil.cs" t="Include" />
         <e p="DialogForm_Profil.Designer.cs" t="Include" />

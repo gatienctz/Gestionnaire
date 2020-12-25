@@ -14,6 +14,7 @@ namespace Gestionnaire.model
         private string _password;
         private string _idUSB;
         //SURTOUT TE CASSE PAS LES COUILLES A FAIRE UN CHEMIN RELATIF,C'EST PAS COMME SI ON TRAVAILLAIT EN GROUPE FDP
+        //PAS DE SOUCIS FDP JAVAIS OUBLIE
         public static string path = "..\\..\\..\\Data\\base2profil.txt";
         
         
