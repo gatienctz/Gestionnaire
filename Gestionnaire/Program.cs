@@ -16,8 +16,6 @@ namespace Gestionnaire
         [STAThread]
         static void Main()
         {
-            UsbDevice usb = new UsbDevice();
-            UsbDeviceInfoMain.Test();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

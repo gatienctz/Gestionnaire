@@ -7,6 +7,8 @@ namespace Gestionnaire
 {
     public partial class Form1 : Form
     {
+
+        private Profil _myProfil;
         public Form1()
         {
             InitializeComponent();
@@ -14,17 +16,17 @@ namespace Gestionnaire
 
         private void Connection()
         {
-            bool connected = Profil.IsConnectionCorrect(tbLogin.Text, PasswordManager.EncryptMd5(tbPassword.Text));
-            //Ici il suffit pas de savoir si il est connecté, mais aussi avec quel compte
-            if (connected)
-            {
-                //MessageBox.Show("Connecté !", "Connection", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Hide();
-                Gestionnaire gest = new Gestionnaire();
+            Profil? user;
+            //Vérification des informations de connection.
+            if ((user = Profil.Connection(tbLogin.Text, PasswordManager.EncryptMd5(tbPassword.Text))) != null)
+            {//Si l'utilisateur à rentré les bonnes informations, son profil est connecté au gestionnaire.
+                
+                Hide();//On cache la fenêtre de connexion.
+                Gestionnaire gest = new Gestionnaire(user);//Création de la fenêtre du gestionnaire.
                 var dialogResult = gest.ShowDialog();
                 if (dialogResult == DialogResult.Cancel)
                 {
-                    Close();
+                    Close();//Lorsque l'on ferme la fenêtre du gestionnaire, on ferme aussi la fenêtre de connexion.
                 }
             }
         }
@@ -40,8 +42,8 @@ namespace Gestionnaire
 
             if (dialogResult == DialogResult.OK)
             {
-                Profil newProfil = new Profil(dfProfil.tbLogin.Text, dfProfil.tbPassword.Text,dfProfil.lbUSBDevices.SelectedItems[0].ToString());
-                newProfil.WriteProfilToFile();
+                _myProfil = new Profil(dfProfil.tbLogin.Text, dfProfil.tbPassword.Text,dfProfil.lbUSBDevices.SelectedItems[0].ToString());
+                _myProfil.WriteToFile();
             }
         }
 

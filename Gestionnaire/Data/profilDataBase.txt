@@ -1,0 +1,2 @@
+Test;8E06915D5F5D4F8754F51892D884C477;Device ID:USB\VID_174F&PID_118D\200901010001 , PNP Device ID: , Description: Périphérique USB composite;srnoq5qj.txt
+Charle;43CA76B38EC94D6DD82E4223D0E71DDD;Device ID:USB\VID_174F&PID_118D\200901010001 , PNP Device ID: , Description: Périphérique USB composite;raebakd2.txt

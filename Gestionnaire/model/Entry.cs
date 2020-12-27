@@ -3,6 +3,8 @@ namespace Gestionnaire.model
 {
     public class Entry
     {
+        public static string folderName = @"../../../Data";
+        
         private string _name;
         public string Name
         {
@@ -32,16 +34,16 @@ namespace Gestionnaire.model
             set => _password = value;
         }
 
-        public Entry()
-        {
-            
-        }
-
         public Entry(string name, string url, string password)
         {
             Name = name;
             Url = url;
             Password = password;
+        }
+
+        public string ToDataBase()
+        {
+            return Name + MyUtils.SEPARATOR + Url + MyUtils.SEPARATOR + UserName + MyUtils.SEPARATOR + Password;
         }
     }
 }

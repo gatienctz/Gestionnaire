@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
+using Gestionnaire.manager;
 using Gestionnaire.model;
 
 namespace Gestionnaire
@@ -82,7 +83,7 @@ namespace Gestionnaire
             }
             else
             {
-                if (!Profil.IsValidLogin(tbPassword.Text))
+                if (!PasswordManager.IsPasswordRegexValide(tbPassword.Text))
                 {
                     _errorProvider.SetError(tbPassword, "Le mot de passe est mal formaté.");
                     status = false;
@@ -102,17 +103,17 @@ namespace Gestionnaire
 
         private void tbLogin_TextChanged(object sender, EventArgs e)
         {
-            //loginValidating();
+            LoginValidating();
         }
 
         private void tbPassword_TextChanged(object sender, EventArgs e)
         {
-            //passwordValidating();
+            PasswordValidating();
         }
 
         private void lbUSBDevices_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //throw new System.NotImplementedException();
+            btnValidate.Enabled = IsFormValid();
         }
     }
 }

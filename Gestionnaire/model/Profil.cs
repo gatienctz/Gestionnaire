@@ -13,12 +13,13 @@ namespace Gestionnaire.model
         private string _login;
         private string _password;
         private string _idUSB;
-        //SURTOUT TE CASSE PAS LES COUILLES A FAIRE UN CHEMIN RELATIF,C'EST PAS COMME SI ON TRAVAILLAIT EN GROUPE FDP
-        //PAS DE SOUCIS FDP JAVAIS OUBLIE
-        public static string path = "..\\..\\..\\Data\\base2profil.txt";
+        private string _pathFileEntries;
         
+        private static string folderName = @"../../../Data";
+        private static string fileName = "profilDataBase.txt";
+        private static string path = Path.Combine(folderName, fileName);
         
-        public string login
+        public string Login
         {
             get => _login;
             set
@@ -34,7 +35,7 @@ namespace Gestionnaire.model
             }
         }
         
-        public string idUSB
+        public string IdUsb
         {
             get => _idUSB;
             set
@@ -43,7 +44,13 @@ namespace Gestionnaire.model
             }
         }
 
-        public string password
+        public string PathFileEntries
+        {
+            get => _pathFileEntries;
+            set => _pathFileEntries = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public string Password
         {
             get => _password;
             set
@@ -63,16 +70,25 @@ namespace Gestionnaire.model
 
         public Profil(string login, string password,string idUSB)
         {
-            this.login = login;
-            this.password = password;
-            this.idUSB = idUSB;
+            Login = login;
+            Password = password;
+            IdUsb = idUSB;
         }
 
-        public void WriteProfilToFile()
+        public void WriteToFile()
         {
+            //Vérification de l'existance du fichier des profils
+            if (!File.Exists(path))
+            {
+                //Création du fichier des profils
+                fileName = MyUtils.CreateFile(folderName, fileName, true);
+            }
+            //Génération d'un fichier d'entrées pour le profil
+            _pathFileEntries = MyUtils.CreateFile(Entry.folderName, _pathFileEntries, false);
+            //Ajout du profil dans la base de donnée
             using (StreamWriter sw = new StreamWriter(path,true))
             {
-                sw.WriteLine(login + ";" + password + ";" + idUSB);
+                sw.WriteLine(Login + ";" + Password + ";" + IdUsb + ";" + PathFileEntries);
             }
         }
 
@@ -94,11 +110,11 @@ namespace Gestionnaire.model
             return isLoginExist;
         }
 
-        public static bool IsConnectionCorrect(string login, string password)
+        public static Profil? Connection(string login, string password)
         {
             bool correct; 
             if (!File.Exists(path))
-                return false;
+                return null;
 
             using (StreamReader sr = new StreamReader(path))
             {
@@ -118,13 +134,19 @@ namespace Gestionnaire.model
                                                  entry.PnpDeviceID +
                                                  ", Description: " + entry.Description)) cleInsert = true;
                         }
-                        if(!cleInsert) MessageBox.Show("Erreur, clé non connectée !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return cleInsert;
+
+                        if (cleInsert)
+                        {
+                            Profil p = new Profil(profil[0], profil[1], profil[2]);
+                            return p;
+                        }
+                        MessageBox.Show("Erreur, clé non connectée !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return null;
                     }
                 }
             }
             MessageBox.Show("Erreur, nom d'utilisateur ou mot de passe incorrect !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return false;
+            return null;
         }
         
         public static bool IsValidLoginRegex(string login)

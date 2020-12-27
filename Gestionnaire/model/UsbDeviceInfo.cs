@@ -31,7 +31,7 @@ namespace Gestionnaire.model
             List<USBDeviceInfo> devices = new List<USBDeviceInfo>();
 
             ManagementObjectCollection collection;
-            using (var searcher = new ManagementObjectSearcher(@"Select * From Win32_USBHub WHERE Description = 'Dispositif de stockage de masse USB'"))
+            using (var searcher = new ManagementObjectSearcher(@"Select * From Win32_USBHub "))//WHERE Description = 'Dispositif de stockage de masse USB'"))
                 collection = searcher.Get();      
 
             foreach (var device in collection)
