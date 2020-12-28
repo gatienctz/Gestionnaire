@@ -8,7 +8,7 @@ namespace Gestionnaire
     public static class MyUtils
     {
         public const char SEPARATOR = ';';
-        public const string EXTENSION = ".txt";
+        public const string EXTENSION = ".xml";
         public static string CreateFile(string filePath, string fileName, bool isProfilFile)
         {
             try
