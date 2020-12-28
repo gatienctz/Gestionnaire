@@ -40,10 +40,5 @@ namespace Gestionnaire.model
             Url = url;
             Password = password;
         }
-
-        public string ToDataBase()
-        {
-            return Name + MyUtils.SEPARATOR + Url + MyUtils.SEPARATOR + UserName + MyUtils.SEPARATOR + Password;
-        }
     }
 }

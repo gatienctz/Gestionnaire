@@ -16,7 +16,7 @@ namespace Gestionnaire.model
         private string _pathFileEntries;
         
         private static string folderName = @"../../../Data";
-        private static string fileName = "profilDataBase.txt";
+        private static string fileName = "profilDataBase.xml";
         private static string path = Path.Combine(folderName, fileName);
         
         public string Login
@@ -86,10 +86,7 @@ namespace Gestionnaire.model
             //Génération d'un fichier d'entrées pour le profil
             _pathFileEntries = MyUtils.CreateFile(Entry.folderName, _pathFileEntries, false);
             //Ajout du profil dans la base de donnée
-            using (StreamWriter sw = new StreamWriter(path,true))
-            {
-                sw.WriteLine(Login + ";" + Password + ";" + IdUsb + ";" + PathFileEntries);
-            }
+            MyUtils.CreateNodeProfil(path, this);
         }
 
         public static bool IsLoginExist(string login)
