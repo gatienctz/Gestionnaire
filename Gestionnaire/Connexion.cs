@@ -20,7 +20,7 @@ namespace Gestionnaire
             //Vérification des informations de connection.
             if ((user = Profil.Connection(tbLogin.Text, PasswordManager.EncryptMd5(tbPassword.Text))) != null)
             {//Si l'utilisateur à rentré les bonnes informations, son profil est connecté au gestionnaire.
-                
+                Console.WriteLine("Connexion de l'utilisateur : " + user);
                 Hide();//On cache la fenêtre de connexion.
                 Gestionnaire gest = new Gestionnaire(user);//Création de la fenêtre du gestionnaire.
                 var dialogResult = gest.ShowDialog();
@@ -42,7 +42,9 @@ namespace Gestionnaire
 
             if (dialogResult == DialogResult.OK)
             {
-                _myProfil = new Profil(dfProfil.tbLogin.Text, dfProfil.tbPassword.Text,dfProfil.lbUSBDevices.SelectedItems[0].ToString());
+                var myUsb = (USBDeviceInfo) dfProfil.lbUSBDevices.SelectedItem;
+                _myProfil = new Profil(dfProfil.tbLogin.Text, dfProfil.tbPassword.Text,
+                    myUsb.DeviceID);
                 _myProfil.WriteToFile();
             }
         }

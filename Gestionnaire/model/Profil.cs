@@ -4,6 +4,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.XPath;
 using Gestionnaire.manager;
 
 namespace Gestionnaire.model
@@ -40,7 +42,7 @@ namespace Gestionnaire.model
             get => _idUSB;
             set
             {
-               _idUSB = value;
+                _idUSB = value;
             }
         }
 
@@ -86,60 +88,65 @@ namespace Gestionnaire.model
             //Génération d'un fichier d'entrées pour le profil
             _pathFileEntries = MyUtils.CreateFile(Entry.folderName, _pathFileEntries, false);
             //Ajout du profil dans la base de donnée
-            MyUtils.CreateNodeProfil(path, this);
+            MyUtils.AddProfil(path, this);
         }
 
         public static bool IsLoginExist(string login)
         {
-            bool isLoginExist = false; 
             if (!File.Exists(path))
-                return isLoginExist;
+                return false;
             
-            using (StreamReader sr = new StreamReader(path))
+            using (XmlTextReader xtr = new XmlTextReader(path))
             {
-                while (!sr.EndOfStream)
+                while (xtr.Read())
                 {
-                    string[] profil = sr.ReadLine()!.Split(';');
-                    isLoginExist = profil[0].Equals(login);
+                    if (xtr.NodeType == XmlNodeType.Text)
+                    {
+                        if (login.Equals(xtr.Value))
+                            return true;
+                    }
                 }
             }
 
-            return isLoginExist;
+            return false;
         }
 
         public static Profil? Connection(string login, string password)
         {
-            bool correct; 
             if (!File.Exists(path))
                 return null;
 
-            using (StreamReader sr = new StreamReader(path))
-            {
-                var usbDevices = UsbDeviceInfoMain.GetUSBDevices();
-                while (!sr.EndOfStream)
-                {
-                    string[] profil = sr.ReadLine()!.Split(';');
-                    correct = profil[0].Equals(login) && profil[1].Equals(password);
-                    
-                    //On rajoute la vérif de la clé
-                    if (correct)
-                    {
-                        bool cleInsert = false;
-                        foreach (var entry in usbDevices)
-                        {
-                            if (profil[2].Equals("Device ID:" + entry.DeviceID + " , PNP Device ID: " +
-                                                 entry.PnpDeviceID +
-                                                 ", Description: " + entry.Description)) cleInsert = true;
-                        }
+            var usbDevices = UsbDeviceInfoMain.GetUSBDevices();
 
-                        if (cleInsert)
-                        {
-                            Profil p = new Profil(profil[0], profil[1], profil[2]);
-                            return p;
-                        }
-                        MessageBox.Show("Erreur, clé non connectée !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return null;
+            XPathDocument doc = new XPathDocument(path);
+            XPathNavigator nav = doc.CreateNavigator();
+            //Vérification du login/mot de passe
+            var nodes = nav.Select("//Profil[Login = '"+login+"' and Password = '"+password+"']");
+            
+            if (nodes.MoveNext())//Si le login/mot de passe est correct
+            {
+
+                //On reprend la navigation à partir du noeud profil correct
+                XPathNavigator navGoodLogin = nodes.Current;
+                //La clé est initialement non insérée
+                bool cleInsert = false;
+                
+                foreach (var entry in usbDevices)//On parcourt les clé USB branchées à l'ordinateur
+                {
+                    //On vérifie que la clé USB de connexion est bien branchée à l'ordinateur
+                    var nodeUsb = navGoodLogin.Select("./IdUsb[text() = '" + entry.DeviceID + "']");
+                    if (nodeUsb.MoveNext())//La clé USB est bien branchée
+                    {
+                        //On désérialise le XML du profil en objet Profil
+                        Profil p = MyUtils.DeserializeFragment<Profil>(navGoodLogin.ToString());
+                        return p;
                     }
+                }
+
+                if (!cleInsert)
+                {
+                    MessageBox.Show("Clé USB non branchée !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
                 }
             }
             MessageBox.Show("Erreur, nom d'utilisateur ou mot de passe incorrect !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

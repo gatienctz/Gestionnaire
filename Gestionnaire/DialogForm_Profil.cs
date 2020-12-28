@@ -17,7 +17,7 @@ namespace Gestionnaire
             int selected_item = -1; //Ici on va prendre le dernier ayant Disposotif de stockage de masse USB comme description
             foreach (var entry in listUSB)
             {
-                lbUSBDevices.Items.Add("Device ID:"+entry.DeviceID+" , PNP Device ID: "+entry.PnpDeviceID+", Description: "+entry.Description);
+                lbUSBDevices.Items.Add(entry);
                 if (entry.Description == "Dispositif de stockage de masse USB") selected_item = cmp;
                 cmp++;
             }
