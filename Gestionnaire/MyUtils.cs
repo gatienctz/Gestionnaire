@@ -72,7 +72,18 @@ namespace Gestionnaire
         {
             if (File.Exists(filePath))
             {
-                
+                string[] readText = File.ReadAllLines(filePath);  
+                File.WriteAllText(filePath, String.Empty);
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    foreach (string s in readText)
+                    {
+                        if (!s.Equals(e))
+                        {
+                            writer.WriteLine(s);
+                        }
+                    }
+                }  
             }
 
             return false;
