@@ -1,7 +1,10 @@
 ﻿
+using System.Xml.Serialization;
+using Accessibility;
+
 namespace Gestionnaire.model
 {
-    public class Entry
+    public class Entry: IGestionnaire
     {
         public static string folderName = @"../../../Data";
         
@@ -34,11 +37,30 @@ namespace Gestionnaire.model
             set => _password = value;
         }
 
-        public Entry(string name, string url, string password)
+        private int _id;
+        [XmlAttribute(AttributeName = "id")]
+        public int Id
+        {
+            get => _id;
+            set => _id = value;
+        }
+
+        public Entry()
+        {
+            
+        }
+
+        public Entry(string name, string url, string password, int id)
         {
             Name = name;
             Url = url;
             Password = password;
+            _id = id;
+        }
+
+        public int GetId()
+        {
+            return Id;
         }
     }
 }

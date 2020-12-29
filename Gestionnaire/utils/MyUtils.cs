@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Xml.XPath;
 using Gestionnaire.model;
 
 namespace Gestionnaire
@@ -40,12 +42,29 @@ namespace Gestionnaire
                 };
 
                 XmlWriter xtw = XmlWriter.Create(pathString, settings);
+                
                 if (isProfilFile)
                 {
+                    xtw.WriteDocType("Profils", null, null,
+                        "<!ELEMENT Profils     (Profil*)>" +
+                        "<!ELEMENT Profil  (Login,IdUsb, Password)>" +
+                        "<!ATTLIST Profil id ID #REQUIRED>" +
+                        "<!ELEMENT Login       (#PCDATA)>" +
+                        "<!ELEMENT Password    (#PCDATA)>" +
+                        "<!ELEMENT IdUsb (#PCDATA)>");
                     xtw.WriteStartElement("Profils");
                 }
                 else
                 {
+                    xtw.WriteDocType("Database", null, null, 
+                        "<!ELEMENT Database (Entries)>" +
+                        "<!ELEMENT Entries  (Entry*)>" +
+                        "<!ELEMENT Entry (Name, UserName, Url, Password)>" +
+                        "<!ATTLIST Entry id ID #REQUIRED>" +
+                        "<!ELEMENT Name    (#PCDATA)>" +
+                        "<!ELEMENT UserName    (#PCDATA)>" +
+                        "<!ELEMENT Url    (#PCDATA)>" +
+                        "<!ELEMENT Password (#PCDATA)>");
                     xtw.WriteStartElement("Database");
                     xtw.WriteStartElement("Entries");
                     xtw.WriteEndElement();
@@ -62,15 +81,6 @@ namespace Gestionnaire
             return fileName;
         }
 
-       /*private static string XmlFragmentoToString(string filePath, string parent)
-        {
-            XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.Load(filePath);
-
-            XmlNode nodeRoot = xmlDocument.GetElementsByTagName("Profils")[0];
-            nodeRoot.InnerXml.ToString();
-        }*/
-
         public static T DeserializeFragment<T>(string xmlFragment)
         {
             // Add a root element using the type name e.g. <Profil>...</Profil>
@@ -80,6 +90,22 @@ namespace Gestionnaire
             {
                 return (T)mySerializer.Deserialize(reader);
             }
+        }
+
+        public static Entries ExtractEntries(string filePath)
+        {
+            Entries myList = new Entries();
+            
+            XPathDocument doc = new XPathDocument(filePath);
+            XPathNavigator nav = doc.CreateNavigator();
+            var nodes = nav.Select("//Entries");
+            if (nodes.MoveNext())
+            {
+                XPathNavigator myEntries = nodes.Current;
+                myList = DeserializeFragment<Entries>(myEntries.InnerXml);
+            }
+
+            return myList;
         }
         public static XmlDocumentFragment ToXmlDocumentFragment(XmlDocument doc, object o)
         {
@@ -147,9 +173,30 @@ namespace Gestionnaire
             return AddFragment(filePath, "Entries", entry);
         }
 
+        public static bool DeleteFragment(string filePath, string parent, IGestionnaire o)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            try
+            {
+                xmlDoc.Load(filePath);
+            }
+            catch (FileNotFoundException e)
+            {
+                return false;
+            }
+
+            XmlNode parentNode = xmlDoc.GetElementsByTagName(parent)[0];
+            XmlNode objectNode = xmlDoc.GetElementById(o.GetId().ToString());
+
+            var deletedNode = parentNode.RemoveChild(objectNode);
+            Console.WriteLine("Node supprimée : " + deletedNode.InnerXml);
+
+            return true;
+        }
+
         public static bool DeleteEntry(string filePath, Entry e)
         {
-            return false;
+            return DeleteFragment(filePath, "Entries", e);
         }
 
         public static bool UpdateEntry(string filePath, Entry e)

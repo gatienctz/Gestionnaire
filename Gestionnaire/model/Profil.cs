@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml;
+using System.Xml.Serialization;
 using System.Xml.XPath;
 using Gestionnaire.manager;
 
@@ -16,7 +17,7 @@ namespace Gestionnaire.model
         private string _password;
         private string _idUSB;
         private string _pathFileEntries;
-        
+
         private static string folderName = @"../../../Data";
         private static string fileName = "profilDataBase.xml";
         private static string path = Path.Combine(folderName, fileName);
@@ -45,7 +46,7 @@ namespace Gestionnaire.model
                 _idUSB = value;
             }
         }
-
+        
         public string PathFileEntries
         {
             get => _pathFileEntries;
@@ -138,7 +139,7 @@ namespace Gestionnaire.model
                     if (nodeUsb.MoveNext())//La clé USB est bien branchée
                     {
                         //On désérialise le XML du profil en objet Profil
-                        Profil p = MyUtils.DeserializeFragment<Profil>(navGoodLogin.ToString());
+                        Profil p = MyUtils.DeserializeFragment<Profil>(navGoodLogin.InnerXml);
                         return p;
                     }
                 }
@@ -162,6 +163,11 @@ namespace Gestionnaire.model
         public static bool IsValidLogin(string login)
         {
             return IsValidLoginRegex(login);
+        }
+
+        public override string ToString()
+        {
+            return Login + ";" + fileName + ";" + PathFileEntries;
         }
     }
 }

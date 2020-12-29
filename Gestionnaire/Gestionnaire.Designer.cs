@@ -38,14 +38,14 @@ namespace Gestionnaire
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gestionnaire));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.col_Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_URL = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.col_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.col_Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_URL = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.col_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -81,33 +81,6 @@ namespace Gestionnaire
             this.dataGridView1.Size = new System.Drawing.Size(583, 365);
             this.dataGridView1.TabIndex = 1;
             // 
-            // col_Title
-            // 
-            this.col_Title.HeaderText = "Titre";
-            this.col_Title.Name = "col_Title";
-            this.col_Title.ReadOnly = true;
-            // 
-            // col_Username
-            // 
-            this.col_Username.FillWeight = 150F;
-            this.col_Username.HeaderText = "Nom d\'utilisateur";
-            this.col_Username.Name = "col_Username";
-            this.col_Username.ReadOnly = true;
-            // 
-            // col_URL
-            // 
-            this.col_URL.HeaderText = "URL";
-            this.col_URL.Name = "col_URL";
-            this.col_URL.ReadOnly = true;
-            // 
-            // col_password
-            // 
-            this.col_password.HeaderText = "Mot de passe";
-            this.col_password.Name = "col_password";
-            this.col_password.ReadOnly = true;
-            this.col_password.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_password.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.fichierToolStripMenuItem});
@@ -140,6 +113,37 @@ namespace Gestionnaire
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // col_Title
+            // 
+            this.col_Title.DataPropertyName = "Name";
+            this.col_Title.HeaderText = "Titre";
+            this.col_Title.Name = "col_Title";
+            this.col_Title.ReadOnly = true;
+            // 
+            // col_Username
+            // 
+            this.col_Username.DataPropertyName = "UserName";
+            this.col_Username.FillWeight = 150F;
+            this.col_Username.HeaderText = "Nom d\'utilisateur";
+            this.col_Username.Name = "col_Username";
+            this.col_Username.ReadOnly = true;
+            // 
+            // col_URL
+            // 
+            this.col_URL.DataPropertyName = "Url";
+            this.col_URL.HeaderText = "URL";
+            this.col_URL.Name = "col_URL";
+            this.col_URL.ReadOnly = true;
+            // 
+            // col_password
+            // 
+            this.col_password.DataPropertyName = "Password";
+            this.col_password.HeaderText = "Mot de passe";
+            this.col_password.Name = "col_password";
+            this.col_password.ReadOnly = true;
+            this.col_password.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_password.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Gestionnaire
             // 
