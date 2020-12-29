@@ -47,6 +47,7 @@ namespace Gestionnaire
             // 
             // btConfirmer
             // 
+            this.btConfirmer.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btConfirmer.Location = new System.Drawing.Point(120, 165);
             this.btConfirmer.Name = "btConfirmer";
             this.btConfirmer.Size = new System.Drawing.Size(166, 52);

@@ -8,30 +8,30 @@ namespace Gestionnaire.model
     {
         public static string folderName = @"../../../Data";
         
-        private string _name;
-        public string Name
+        private static string _name;
+        public static string Name
         {
             get => _name;
             set => _name = value;
         }
 
-        private string _userName;
+        private static string _userName;
 
-        public string UserName
+        public static string UserName
         {
             get => _userName;
             set => _userName = value;
         }
 
-        private string _url;
-        public string Url
+        private static string _url;
+        public static string Url
         {
             get => _url;
             set => _url = value;
         }
         
-        private string _password;
-        public string Password
+        private static string _password;
+        public static string Password
         {
             get => _password;
             set => _password = value;

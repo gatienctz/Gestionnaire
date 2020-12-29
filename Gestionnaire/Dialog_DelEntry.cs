@@ -13,12 +13,10 @@ namespace Gestionnaire
 
         private void btConfirmer_Click(object sender, EventArgs e)
         {
-            
         }
 
         private void btAnnuler_Click(object sender, EventArgs e)
         {
-            
         }
     }
 }

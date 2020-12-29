@@ -4,7 +4,14 @@
     <projectFile>Gestionnaire/Gestionnaire.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a9c54e7-e852-4e16-ae68-b50614f9b140" name="Default Changelist" comment="Update" />
+    <list default="true" id="9a9c54e7-e852-4e16-ae68-b50614f9b140" name="Default Changelist" comment="formulaire de suppression d'entrée">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gestionnaire/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gestionnaire/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestionnaire/Dialog_DelEntry.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gestionnaire/Dialog_DelEntry.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestionnaire/Dialog_DelEntry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gestionnaire/Dialog_DelEntry.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestionnaire/Gestionnaire.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gestionnaire/Gestionnaire.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestionnaire/model/Entries.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gestionnaire/model/Entries.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestionnaire/model/Entry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gestionnaire/model/Entry.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,11 +20,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://E:/Gestionnaire/Gestionnaire/Dialog_DelEntry.cs" root0="SKIP_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
+      <option value="$PROJECT_DIR$/Gestionnaire/model/Entries.cs" />
+      <option value="$PROJECT_DIR$/Gestionnaire/model/Entry.cs" />
+      <option value="$PROJECT_DIR$/Gestionnaire/Gestionnaire.cs" />
       <option value="$PROJECT_DIR$/Gestionnaire/Dialog_DelEntry.cs" />
     </changedPaths>
   </component>
@@ -70,7 +77,8 @@
       <workItem from="1608741422588" duration="6397000" />
       <workItem from="1608829322087" duration="1456000" />
       <workItem from="1608895344906" duration="7270000" />
-      <workItem from="1609268352825" duration="1917000" />
+      <workItem from="1609268352825" duration="2852000" />
+      <workItem from="1609277076009" duration="2806000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout du formulaire de suppression d'entrée">
       <created>1609269445403</created>
@@ -86,7 +94,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609270163527</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="abir">
+      <created>1609270337743</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609270337743</updated>
+    </task>
+    <task id="LOCAL-00004" summary="formulaire de suppression d'entrée">
+      <created>1609270503664</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609270503664</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,11 +126,14 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Ajout du formulaire de suppression d'entrée" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="abir" />
+    <MESSAGE value="formulaire de suppression d'entrée" />
+    <option name="LAST_COMMIT_MESSAGE" value="formulaire de suppression d'entrée" />
   </component>
 </project>

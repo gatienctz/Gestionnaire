@@ -20,7 +20,21 @@ namespace Gestionnaire
 
         private void tsbtn_deleteEntry_Click(object sender, EventArgs e)
         {
-            
+            Dialog_DelEntry dde = new Dialog_DelEntry();
+            DialogResult res = dde.ShowDialog();
+            //affichage de la boîte de dialogue et attente...
+            if (res== DialogResult.OK)
+            {
+
+                string name = Entry.Name;
+                string username = Entry.UserName;
+                string url = Entry.Url;
+                string password = Entry.Password;
+                Entry entry = new Entry(name, username, url, password, id++);
+                Console.WriteLine("Delete entry");
+                _entries.DeleteEntry(entry);
+            }
+
         }
 
         private void tsbtn_addEntry_Click(object sender, EventArgs e)
