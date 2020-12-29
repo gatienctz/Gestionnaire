@@ -4,10 +4,7 @@
     <projectFile>Gestionnaire/Gestionnaire.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a9c54e7-e852-4e16-ae68-b50614f9b140" name="Default Changelist" comment="Ajout du formulaire de suppression d'entrée">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gestionnaire/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gestionnaire/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gestionnaire/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gestionnaire/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="9a9c54e7-e852-4e16-ae68-b50614f9b140" name="Default Changelist" comment="Update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +12,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://E:/Gestionnaire/Gestionnaire/Dialog_DelEntry.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -70,7 +70,7 @@
       <workItem from="1608741422588" duration="6397000" />
       <workItem from="1608829322087" duration="1456000" />
       <workItem from="1608895344906" duration="7270000" />
-      <workItem from="1609268352825" duration="1595000" />
+      <workItem from="1609268352825" duration="1917000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout du formulaire de suppression d'entrée">
       <created>1609269445403</created>
@@ -79,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609269445403</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update">
+      <created>1609270163527</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609270163527</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,6 +108,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Ajout du formulaire de suppression d'entrée" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout du formulaire de suppression d'entrée" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
 </project>
