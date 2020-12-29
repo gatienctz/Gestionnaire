@@ -50,9 +50,10 @@ namespace Gestionnaire.model
             
         }
 
-        public Entry(string name, string url, string password, int id)
+        public Entry(string name, string username, string url, string password, int id)
         {
             Name = name;
+            UserName = username;
             Url = url;
             Password = password;
             _id = id;

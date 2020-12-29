@@ -38,14 +38,15 @@ namespace Gestionnaire
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gestionnaire));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.col_Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_URL = new System.Windows.Forms.DataGridViewLinkColumn();
             this.col_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbtn_addEntry = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_deleteEntry = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -81,39 +82,6 @@ namespace Gestionnaire
             this.dataGridView1.Size = new System.Drawing.Size(583, 365);
             this.dataGridView1.TabIndex = 1;
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.fichierToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fichierToolStripMenuItem
-            // 
-            this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
-            this.fichierToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
-            this.fichierToolStripMenuItem.Text = "Fichier";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.toolStripButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image) (resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
             // col_Title
             // 
             this.col_Title.DataPropertyName = "Name";
@@ -145,6 +113,50 @@ namespace Gestionnaire
             this.col_password.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.col_password.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.fichierToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fichierToolStripMenuItem
+            // 
+            this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
+            this.fichierToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.fichierToolStripMenuItem.Text = "Fichier";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.tsbtn_addEntry, this.tsbtn_deleteEntry});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbtn_addEntry
+            // 
+            this.tsbtn_addEntry.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtn_addEntry.Image = ((System.Drawing.Image) (resources.GetObject("tsbtn_addEntry.Image")));
+            this.tsbtn_addEntry.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_addEntry.Name = "tsbtn_addEntry";
+            this.tsbtn_addEntry.Size = new System.Drawing.Size(23, 22);
+            this.tsbtn_addEntry.Text = "toolStripButton1";
+            this.tsbtn_addEntry.Click += new System.EventHandler(this.tsbtn_addEntry_Click);
+            // 
+            // tsbtn_deleteEntry
+            // 
+            this.tsbtn_deleteEntry.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtn_deleteEntry.Image = ((System.Drawing.Image) (resources.GetObject("tsbtn_deleteEntry.Image")));
+            this.tsbtn_deleteEntry.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_deleteEntry.Name = "tsbtn_deleteEntry";
+            this.tsbtn_deleteEntry.Size = new System.Drawing.Size(23, 22);
+            this.tsbtn_deleteEntry.Text = "toolStripButton2";
+            this.tsbtn_deleteEntry.Click += new System.EventHandler(this.tsbtn_deleteEntry_Click);
+            // 
             // Gestionnaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -167,7 +179,8 @@ namespace Gestionnaire
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton tsbtn_addEntry;
+        private System.Windows.Forms.ToolStripButton tsbtn_deleteEntry;
 
         private System.Windows.Forms.ToolStrip toolStrip1;
 
