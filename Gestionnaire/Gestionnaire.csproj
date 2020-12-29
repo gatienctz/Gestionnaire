@@ -17,6 +17,9 @@
       <Compile Update="Dialog_AddEntry.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="Dialog_DelEntry.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>

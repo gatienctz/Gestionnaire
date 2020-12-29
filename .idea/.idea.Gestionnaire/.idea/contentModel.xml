@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\gatin\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\gatin\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Gestionnaire.416677521.00" t="ExcludeRecursive" />
-    <e p="C:\Users\gatin\Documents\Cours OPSIE\Programmation avancée\Projet\Gestionnaire" t="IncludeFlat">
+    <e p="C:\Users\HP\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\HP\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Gestionnaire.1368871311.00" t="ExcludeRecursive" />
+    <e p="E:\Gestionnaire" t="IncludeFlat">
       <e p="Gestionnaire" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Connexion.cs" t="Include" />
         <e p="Connexion.Designer.cs" t="Include" />
         <e p="Connexion.resx" t="Include" />
         <e p="Data" t="Include">
-          <e p="base2profil.txt" t="Include" />
           <e p="Logo_Université_Lumière_Lyon_2.png" t="Include" />
           <e p="profil.pdb" t="Include" />
+          <e p="profilDataBase.txt" t="Include" />
         </e>
         <e p="DeviceInfo.cs" t="Include" />
+        <e p="Dialog_AddEntry.cs" t="Include" />
+        <e p="Dialog_AddEntry.Designer.cs" t="Include" />
+        <e p="Dialog_AddEntry.resx" t="Include" />
+        <e p="Dialog_DelEntry.cs" t="Include" />
+        <e p="Dialog_DelEntry.Designer.cs" t="Include" />
         <e p="DialogForm_Profil.cs" t="Include" />
         <e p="DialogForm_Profil.Designer.cs" t="Include" />
         <e p="DialogForm_Profil.resx" t="Include" />
@@ -28,8 +33,8 @@
           <e p="PasswordManager.cs" t="Include" />
         </e>
         <e p="model" t="Include">
+          <e p="Entries.cs" t="Include" />
           <e p="Entry.cs" t="Include" />
-          <e p="ListOfEntry.cs" t="Include" />
           <e p="Password.cs" t="Include" />
           <e p="Profil.cs" t="Include" />
           <e p="UsbDeviceInfo.cs" t="Include" />
@@ -42,8 +47,16 @@
           </e>
         </e>
         <e p="Program.cs" t="Include" />
+        <e p="resources" t="Include">
+          <e p="key_plus_icon_138450.png" t="Include" />
+          <e p="key_remove_icon_138449.png" t="Include" />
+        </e>
         <e p="UsbDevice.cs" t="Include" />
         <e p="UsbDevice.Designer.cs" t="Include" />
+        <e p="utils" t="Include">
+          <e p="IGestionnaire.cs" t="Include" />
+          <e p="MyUtils.cs" t="Include" />
+        </e>
       </e>
       <e p="Gestionnaire.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />

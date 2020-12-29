@@ -4,7 +4,13 @@
     <projectFile>Gestionnaire/Gestionnaire.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a9c54e7-e852-4e16-ae68-b50614f9b140" name="Default Changelist" comment="" />
+    <list default="true" id="9a9c54e7-e852-4e16-ae68-b50614f9b140" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Gestionnaire/Dialog_DelEntry.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gestionnaire/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gestionnaire/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gestionnaire/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gestionnaire/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gestionnaire/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gestionnaire/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestionnaire/Gestionnaire.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Gestionnaire/Gestionnaire.csproj" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,32 +20,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/Gestionnaire/Form_Profil.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/Form_Profil.Designer.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/manager/FileProfilManager.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/manager/FileManager.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/manager/ManagedAesFile.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/DialogForm_Profil.Designer.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/DialogForm_Profil.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/manager/PasswordManager.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/model/Entry.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/model/ListOfEntry.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/model/Password.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/Gestionnaire.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/Connexion.Designer.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/Connexion.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/UsbDevice.Designer.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/model/Profil.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/DeviceInfo.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/DeviceDetector.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/USBDevices.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/Program.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/UsbDevice.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/model/UsbDeviceInfo.cs" />
-      </list>
-    </option>
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Gestionnaire/Dialog_DelEntry.cs" />
+    </changedPaths>
   </component>
   <component name="ProjectId" id="1ljQF5TJOyTT4Bwf8bPAM7QOKqL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -90,6 +73,7 @@
       <workItem from="1608741422588" duration="6397000" />
       <workItem from="1608829322087" duration="1456000" />
       <workItem from="1608895344906" duration="7270000" />
+      <workItem from="1609268352825" duration="970000" />
     </task>
     <servers />
   </component>
@@ -98,6 +82,17 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
