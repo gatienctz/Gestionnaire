@@ -20,6 +20,7 @@
         <e p="Dialog_AddEntry.resx" t="Include" />
         <e p="Dialog_DelEntry.cs" t="Include" />
         <e p="Dialog_DelEntry.Designer.cs" t="Include" />
+        <e p="Dialog_DelEntry.resx" t="Include" />
         <e p="DialogForm_Profil.cs" t="Include" />
         <e p="DialogForm_Profil.Designer.cs" t="Include" />
         <e p="DialogForm_Profil.resx" t="Include" />
