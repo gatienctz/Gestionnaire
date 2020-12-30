@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
@@ -47,8 +48,8 @@ namespace Gestionnaire
                 {
                     xtw.WriteDocType("Profils", null, null,
                         "<!ELEMENT Profils     (Profil*)>" +
-                        "<!ELEMENT Profil  (Login,IdUsb, Password)>" +
-                        "<!ATTLIST Profil id ID #REQUIRED>" +
+                        "<!ELEMENT Profil  (Login,IdUsb,PathFileEntries, Password)>" +
+                        "<!ELEMENT PathFileEntries (#PCDATA)>" +
                         "<!ELEMENT Login       (#PCDATA)>" +
                         "<!ELEMENT Password    (#PCDATA)>" +
                         "<!ELEMENT IdUsb (#PCDATA)>");
@@ -202,6 +203,94 @@ namespace Gestionnaire
         public static bool UpdateEntry(string filePath, Entry e)
         {
             return false;
+        }
+
+        public static char RandomizeLowerLetter()
+        {
+            return (char)new Random().Next('a', 'z');
+        }
+        
+        public static char RandomizeUpperLetter()
+        {
+            return (char)new Random().Next('A', 'Z');
+        }
+        
+        public static char RandomizeDigit()
+        {
+            return Char.Parse(new Random().Next(0, 9).ToString());
+        }
+        
+        public static char RandomizeSpecialChar(string specialChar)
+        {
+            var randIndex = new Random().Next(0, specialChar.Length - 1);
+            return specialChar[randIndex];
+        }
+
+        public static string GeneratePassword(int length, bool maj, bool digit, string specialChar)
+        {
+            bool hasSpecialChar = true;
+            
+            List<int> functionUse = new List<int>();
+            functionUse.Add(1);
+            if (maj)
+                functionUse.Add(2);
+            if (digit)
+                functionUse.Add(3);
+            if (!String.IsNullOrEmpty(specialChar))
+            {
+                functionUse.Add(4);
+                hasSpecialChar = false;
+            }
+                
+            string password = "";
+            for (int i = 0; i < length; i++)
+            {
+                var randomizerIndex = new Random().Next(0, functionUse.Count);
+                Console.WriteLine("Indice random : " + randomizerIndex);
+                switch (functionUse[randomizerIndex])
+                {
+                    case 1:
+                    {
+                        Console.WriteLine("Lower letter");
+                        password += RandomizeLowerLetter();
+                    }
+                        break;
+                    case 2:
+                    {
+                        Console.WriteLine("Upper letter");
+                        password += RandomizeUpperLetter();
+                    }
+                        break;
+                    case 3:
+                    {
+                        Console.WriteLine("Digit");
+                        password += RandomizeDigit();
+                    }
+                        break;
+                    case 4:
+                    {
+                        Console.WriteLine("Special Char");
+                        password += RandomizeSpecialChar(specialChar);
+                        hasSpecialChar = true;
+                    }
+                        break;
+                }
+
+                Console.WriteLine(password);
+            }
+            
+            //Si l'utilisateur a selectionné des caractères spéciaux et que le générateur n'en a pas mis alors on remplace
+            //une lettre au hasard pas un caractère spécial. 
+            if (!hasSpecialChar)
+            {
+                Console.WriteLine("Oublie de caractères spéciaux ");
+                var indexLetterToChange = new Random().Next(0, password.Length - 1);
+                StringBuilder str = new StringBuilder(password);
+                str[indexLetterToChange] = RandomizeSpecialChar(specialChar);
+                password = str.ToString();
+            }
+
+            return password;
         }
     }
 

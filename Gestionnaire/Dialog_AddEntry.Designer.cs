@@ -43,6 +43,17 @@ namespace Gestionnaire
             this.lblPwdGenerated = new System.Windows.Forms.Label();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkInterro = new System.Windows.Forms.CheckBox();
+            this.checkBVirgule = new System.Windows.Forms.CheckBox();
+            this.checkBPoint = new System.Windows.Forms.CheckBox();
+            this.checkBMulti = new System.Windows.Forms.CheckBox();
+            this.checkBDollar = new System.Windows.Forms.CheckBox();
+            this.checkBDeuxPoints = new System.Windows.Forms.CheckBox();
+            this.checkBPourcent = new System.Windows.Forms.CheckBox();
+            this.checkBCircon = new System.Windows.Forms.CheckBox();
+            this.checkBHashTag = new System.Windows.Forms.CheckBox();
+            this.checkBPointVir = new System.Windows.Forms.CheckBox();
+            this.checkBArobaze = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblLengthPwd = new System.Windows.Forms.Label();
@@ -51,7 +62,7 @@ namespace Gestionnaire
             this.checkDigit = new System.Windows.Forms.CheckBox();
             this.checkMaj = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkChar = new System.Windows.Forms.CheckBox();
+            this.checkBExclamation = new System.Windows.Forms.CheckBox();
             this.rbtnSaisie = new System.Windows.Forms.RadioButton();
             this.rbtnGenerate = new System.Windows.Forms.RadioButton();
             this.tbUsername = new System.Windows.Forms.TextBox();
@@ -60,11 +71,13 @@ namespace Gestionnaire
             this.tbUrl = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
+            this.groupBSpecialChar = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.panelSaisie.SuspendLayout();
             this.panelGenerator.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.trackbarLengthPwd)).BeginInit();
+            this.groupBSpecialChar.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOk
@@ -170,9 +183,11 @@ namespace Gestionnaire
             this.btnGenerate.TabIndex = 9;
             this.btnGenerate.Text = "Générer un mot de passe";
             this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.groupBSpecialChar);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.lblLengthPwd);
@@ -181,13 +196,125 @@ namespace Gestionnaire
             this.groupBox2.Controls.Add(this.checkDigit);
             this.groupBox2.Controls.Add(this.checkMaj);
             this.groupBox2.Controls.Add(this.checkBox3);
-            this.groupBox2.Controls.Add(this.checkChar);
             this.groupBox2.Location = new System.Drawing.Point(3, 93);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(435, 226);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Options";
+            // 
+            // checkInterro
+            // 
+            this.checkInterro.Location = new System.Drawing.Point(153, 21);
+            this.checkInterro.Name = "checkInterro";
+            this.checkInterro.Size = new System.Drawing.Size(39, 24);
+            this.checkInterro.TabIndex = 25;
+            this.checkInterro.Text = "?";
+            this.checkInterro.UseVisualStyleBackColor = true;
+            // 
+            // checkBVirgule
+            // 
+            this.checkBVirgule.Checked = true;
+            this.checkBVirgule.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBVirgule.Location = new System.Drawing.Point(108, 81);
+            this.checkBVirgule.Name = "checkBVirgule";
+            this.checkBVirgule.Size = new System.Drawing.Size(44, 24);
+            this.checkBVirgule.TabIndex = 24;
+            this.checkBVirgule.Text = ",";
+            this.checkBVirgule.UseVisualStyleBackColor = true;
+            // 
+            // checkBPoint
+            // 
+            this.checkBPoint.Checked = true;
+            this.checkBPoint.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBPoint.Location = new System.Drawing.Point(108, 51);
+            this.checkBPoint.Name = "checkBPoint";
+            this.checkBPoint.Size = new System.Drawing.Size(44, 24);
+            this.checkBPoint.TabIndex = 23;
+            this.checkBPoint.Text = ".";
+            this.checkBPoint.UseVisualStyleBackColor = true;
+            // 
+            // checkBMulti
+            // 
+            this.checkBMulti.Location = new System.Drawing.Point(108, 21);
+            this.checkBMulti.Name = "checkBMulti";
+            this.checkBMulti.Size = new System.Drawing.Size(44, 24);
+            this.checkBMulti.TabIndex = 22;
+            this.checkBMulti.Text = "*";
+            this.checkBMulti.UseVisualStyleBackColor = true;
+            // 
+            // checkBDollar
+            // 
+            this.checkBDollar.Checked = true;
+            this.checkBDollar.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBDollar.Location = new System.Drawing.Point(152, 81);
+            this.checkBDollar.Name = "checkBDollar";
+            this.checkBDollar.Size = new System.Drawing.Size(40, 24);
+            this.checkBDollar.TabIndex = 21;
+            this.checkBDollar.Text = "$";
+            this.checkBDollar.UseVisualStyleBackColor = true;
+            // 
+            // checkBDeuxPoints
+            // 
+            this.checkBDeuxPoints.Checked = true;
+            this.checkBDeuxPoints.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBDeuxPoints.Location = new System.Drawing.Point(58, 51);
+            this.checkBDeuxPoints.Name = "checkBDeuxPoints";
+            this.checkBDeuxPoints.Size = new System.Drawing.Size(47, 24);
+            this.checkBDeuxPoints.TabIndex = 20;
+            this.checkBDeuxPoints.Text = ":";
+            this.checkBDeuxPoints.UseVisualStyleBackColor = true;
+            // 
+            // checkBPourcent
+            // 
+            this.checkBPourcent.Checked = true;
+            this.checkBPourcent.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBPourcent.Location = new System.Drawing.Point(58, 81);
+            this.checkBPourcent.Name = "checkBPourcent";
+            this.checkBPourcent.Size = new System.Drawing.Size(44, 24);
+            this.checkBPourcent.TabIndex = 19;
+            this.checkBPourcent.Text = "%";
+            this.checkBPourcent.UseVisualStyleBackColor = true;
+            // 
+            // checkBCircon
+            // 
+            this.checkBCircon.Location = new System.Drawing.Point(58, 21);
+            this.checkBCircon.Name = "checkBCircon";
+            this.checkBCircon.Size = new System.Drawing.Size(48, 24);
+            this.checkBCircon.TabIndex = 18;
+            this.checkBCircon.Text = "^";
+            this.checkBCircon.UseVisualStyleBackColor = true;
+            // 
+            // checkBHashTag
+            // 
+            this.checkBHashTag.Checked = true;
+            this.checkBHashTag.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBHashTag.Location = new System.Drawing.Point(5, 21);
+            this.checkBHashTag.Name = "checkBHashTag";
+            this.checkBHashTag.Size = new System.Drawing.Size(47, 24);
+            this.checkBHashTag.TabIndex = 17;
+            this.checkBHashTag.Text = "#";
+            this.checkBHashTag.UseVisualStyleBackColor = true;
+            // 
+            // checkBPointVir
+            // 
+            this.checkBPointVir.Checked = true;
+            this.checkBPointVir.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBPointVir.Location = new System.Drawing.Point(4, 81);
+            this.checkBPointVir.Name = "checkBPointVir";
+            this.checkBPointVir.Size = new System.Drawing.Size(48, 24);
+            this.checkBPointVir.TabIndex = 15;
+            this.checkBPointVir.Text = ";";
+            this.checkBPointVir.UseVisualStyleBackColor = true;
+            // 
+            // checkBArobaze
+            // 
+            this.checkBArobaze.Location = new System.Drawing.Point(5, 51);
+            this.checkBArobaze.Name = "checkBArobaze";
+            this.checkBArobaze.Size = new System.Drawing.Size(48, 24);
+            this.checkBArobaze.TabIndex = 14;
+            this.checkBArobaze.Text = "@";
+            this.checkBArobaze.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -235,18 +362,18 @@ namespace Gestionnaire
             // 
             // checkDigit
             // 
-            this.checkDigit.Location = new System.Drawing.Point(12, 173);
+            this.checkDigit.Location = new System.Drawing.Point(12, 179);
             this.checkDigit.Name = "checkDigit";
-            this.checkDigit.Size = new System.Drawing.Size(160, 24);
+            this.checkDigit.Size = new System.Drawing.Size(68, 24);
             this.checkDigit.TabIndex = 3;
             this.checkDigit.Text = "0-9";
             this.checkDigit.UseVisualStyleBackColor = true;
             // 
             // checkMaj
             // 
-            this.checkMaj.Location = new System.Drawing.Point(12, 143);
+            this.checkMaj.Location = new System.Drawing.Point(12, 149);
             this.checkMaj.Name = "checkMaj";
-            this.checkMaj.Size = new System.Drawing.Size(160, 24);
+            this.checkMaj.Size = new System.Drawing.Size(67, 24);
             this.checkMaj.TabIndex = 0;
             this.checkMaj.Text = "A-Z";
             this.checkMaj.UseVisualStyleBackColor = true;
@@ -256,21 +383,23 @@ namespace Gestionnaire
             this.checkBox3.Checked = true;
             this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox3.Enabled = false;
-            this.checkBox3.Location = new System.Drawing.Point(12, 113);
+            this.checkBox3.Location = new System.Drawing.Point(12, 119);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(104, 24);
+            this.checkBox3.Size = new System.Drawing.Size(68, 24);
             this.checkBox3.TabIndex = 2;
             this.checkBox3.Text = "a-z";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
-            // checkChar
+            // checkBExclamation
             // 
-            this.checkChar.Location = new System.Drawing.Point(12, 203);
-            this.checkChar.Name = "checkChar";
-            this.checkChar.Size = new System.Drawing.Size(160, 24);
-            this.checkChar.TabIndex = 1;
-            this.checkChar.Text = "!&#@!;*^:%$,.";
-            this.checkChar.UseVisualStyleBackColor = true;
+            this.checkBExclamation.Checked = true;
+            this.checkBExclamation.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBExclamation.Location = new System.Drawing.Point(153, 51);
+            this.checkBExclamation.Name = "checkBExclamation";
+            this.checkBExclamation.Size = new System.Drawing.Size(39, 24);
+            this.checkBExclamation.TabIndex = 1;
+            this.checkBExclamation.Text = "!";
+            this.checkBExclamation.UseVisualStyleBackColor = true;
             // 
             // rbtnSaisie
             // 
@@ -339,6 +468,27 @@ namespace Gestionnaire
             this.tbName.Size = new System.Drawing.Size(145, 22);
             this.tbName.TabIndex = 1;
             // 
+            // groupBSpecialChar
+            // 
+            this.groupBSpecialChar.Controls.Add(this.checkBDeuxPoints);
+            this.groupBSpecialChar.Controls.Add(this.checkBDollar);
+            this.groupBSpecialChar.Controls.Add(this.checkInterro);
+            this.groupBSpecialChar.Controls.Add(this.checkBPourcent);
+            this.groupBSpecialChar.Controls.Add(this.checkBVirgule);
+            this.groupBSpecialChar.Controls.Add(this.checkBCircon);
+            this.groupBSpecialChar.Controls.Add(this.checkBPoint);
+            this.groupBSpecialChar.Controls.Add(this.checkBHashTag);
+            this.groupBSpecialChar.Controls.Add(this.checkBMulti);
+            this.groupBSpecialChar.Controls.Add(this.checkBPointVir);
+            this.groupBSpecialChar.Controls.Add(this.checkBArobaze);
+            this.groupBSpecialChar.Controls.Add(this.checkBExclamation);
+            this.groupBSpecialChar.Location = new System.Drawing.Point(86, 98);
+            this.groupBSpecialChar.Name = "groupBSpecialChar";
+            this.groupBSpecialChar.Size = new System.Drawing.Size(197, 122);
+            this.groupBSpecialChar.TabIndex = 26;
+            this.groupBSpecialChar.TabStop = false;
+            this.groupBSpecialChar.Text = "Charactères spéciaux";
+            // 
             // Dialog_AddEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -362,9 +512,26 @@ namespace Gestionnaire
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize) (this.trackbarLengthPwd)).EndInit();
+            this.groupBSpecialChar.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.GroupBox groupBSpecialChar;
+
+        private System.Windows.Forms.CheckBox checkInterro;
+
+        private System.Windows.Forms.CheckBox checkBArobaze;
+        private System.Windows.Forms.CheckBox checkBCircon;
+        private System.Windows.Forms.CheckBox checkBDeuxPoints;
+        private System.Windows.Forms.CheckBox checkBDollar;
+        private System.Windows.Forms.CheckBox checkBExclamation;
+        private System.Windows.Forms.CheckBox checkBHashTag;
+        private System.Windows.Forms.CheckBox checkBMulti;
+        private System.Windows.Forms.CheckBox checkBPoint;
+        private System.Windows.Forms.CheckBox checkBPointVir;
+        private System.Windows.Forms.CheckBox checkBPourcent;
+        private System.Windows.Forms.CheckBox checkBVirgule;
 
         public System.Windows.Forms.RadioButton rbtnGenerate;
         public System.Windows.Forms.RadioButton rbtnSaisie;
@@ -379,7 +546,6 @@ namespace Gestionnaire
 
         private System.Windows.Forms.TextBox tbPwd_second;
 
-        private System.Windows.Forms.CheckBox checkChar;
         private System.Windows.Forms.CheckBox checkDigit;
         private System.Windows.Forms.CheckBox checkMaj;
         public System.Windows.Forms.TextBox tbPwd;

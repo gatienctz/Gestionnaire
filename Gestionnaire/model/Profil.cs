@@ -13,10 +13,10 @@ namespace Gestionnaire.model
 {
     public class Profil
     {
-        private string _login;
-        private string _password;
-        private string _idUSB;
-        private string _pathFileEntries;
+        private string _login = null!;
+        private string _password = null!;
+        private string _idUSB = null!;
+        private string _pathFileEntries = null!;
 
         private static string folderName = @"../../../Data";
         private static string fileName = "profilDataBase.xml";
