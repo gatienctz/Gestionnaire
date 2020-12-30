@@ -73,7 +73,7 @@ namespace Gestionnaire
             this.btnOk.Location = new System.Drawing.Point(12, 653);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(82, 29);
-            this.btnOk.TabIndex = 0;
+            this.btnOk.TabIndex = 6;
             this.btnOk.Text = "Ajouter";
             this.btnOk.UseVisualStyleBackColor = true;
             // 
@@ -83,7 +83,7 @@ namespace Gestionnaire
             this.btnCancel.Location = new System.Drawing.Point(375, 653);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(82, 29);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -116,7 +116,7 @@ namespace Gestionnaire
             this.tbPwd_second.Location = new System.Drawing.Point(186, 63);
             this.tbPwd_second.Name = "tbPwd_second";
             this.tbPwd_second.Size = new System.Drawing.Size(246, 22);
-            this.tbPwd_second.TabIndex = 9;
+            this.tbPwd_second.TabIndex = 5;
             this.tbPwd_second.UseSystemPasswordChar = true;
             // 
             // label5
@@ -132,7 +132,7 @@ namespace Gestionnaire
             this.tbPwd.Location = new System.Drawing.Point(186, 12);
             this.tbPwd.Name = "tbPwd";
             this.tbPwd.Size = new System.Drawing.Size(246, 22);
-            this.tbPwd.TabIndex = 7;
+            this.tbPwd.TabIndex = 4;
             this.tbPwd.UseSystemPasswordChar = true;
             // 
             // label4
@@ -231,6 +231,7 @@ namespace Gestionnaire
             this.trackbarLengthPwd.Size = new System.Drawing.Size(325, 56);
             this.trackbarLengthPwd.TabIndex = 4;
             this.trackbarLengthPwd.Value = 6;
+            this.trackbarLengthPwd.Scroll += new System.EventHandler(this.trackbarLengthPwd_Scroll);
             // 
             // checkDigit
             // 
@@ -298,7 +299,7 @@ namespace Gestionnaire
             this.tbUsername.Location = new System.Drawing.Point(210, 102);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(246, 22);
-            this.tbUsername.TabIndex = 0;
+            this.tbUsername.TabIndex = 3;
             // 
             // label1
             // 
@@ -321,7 +322,7 @@ namespace Gestionnaire
             this.tbUrl.Location = new System.Drawing.Point(210, 69);
             this.tbUrl.Name = "tbUrl";
             this.tbUrl.Size = new System.Drawing.Size(246, 22);
-            this.tbUrl.TabIndex = 6;
+            this.tbUrl.TabIndex = 2;
             // 
             // label3
             // 
@@ -336,7 +337,7 @@ namespace Gestionnaire
             this.tbName.Location = new System.Drawing.Point(210, 19);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(145, 22);
-            this.tbName.TabIndex = 8;
+            this.tbName.TabIndex = 1;
             // 
             // Dialog_AddEntry
             // 

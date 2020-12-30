@@ -19,5 +19,10 @@ namespace Gestionnaire
         {
             panelSaisie.Enabled = rbtnSaisie.Checked;
         }
+
+        private void trackbarLengthPwd_Scroll(object sender, EventArgs e)
+        {
+            pan
+        }
     }
 }
