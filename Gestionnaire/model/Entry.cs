@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Xml.Serialization;
 using Accessibility;
 
@@ -23,8 +24,8 @@ namespace Gestionnaire.model
             set => _userName = value;
         }
 
-        private static string _url;
-        public static string Url
+        private static Uri _url;
+        public static Uri Url
         {
             get => _url;
             set => _url = value;
@@ -50,7 +51,7 @@ namespace Gestionnaire.model
             
         }
 
-        public Entry(string name, string username, string url, string password, int id)
+        public Entry(string name, string username, Uri url, string password, int id)
         {
             Name = name;
             UserName = username;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
@@ -246,44 +247,36 @@ namespace Gestionnaire
             for (int i = 0; i < length; i++)
             {
                 var randomizerIndex = new Random().Next(0, functionUse.Count);
-                Console.WriteLine("Indice random : " + randomizerIndex);
                 switch (functionUse[randomizerIndex])
                 {
                     case 1:
                     {
-                        Console.WriteLine("Lower letter");
                         password += RandomizeLowerLetter();
                     }
                         break;
                     case 2:
                     {
-                        Console.WriteLine("Upper letter");
                         password += RandomizeUpperLetter();
                     }
                         break;
                     case 3:
                     {
-                        Console.WriteLine("Digit");
                         password += RandomizeDigit();
                     }
                         break;
                     case 4:
                     {
-                        Console.WriteLine("Special Char");
                         password += RandomizeSpecialChar(specialChar);
                         hasSpecialChar = true;
                     }
                         break;
                 }
-
-                Console.WriteLine(password);
             }
             
             //Si l'utilisateur a selectionné des caractères spéciaux et que le générateur n'en a pas mis alors on remplace
             //une lettre au hasard pas un caractère spécial. 
             if (!hasSpecialChar)
             {
-                Console.WriteLine("Oublie de caractères spéciaux ");
                 var indexLetterToChange = new Random().Next(0, password.Length - 1);
                 StringBuilder str = new StringBuilder(password);
                 str[indexLetterToChange] = RandomizeSpecialChar(specialChar);
@@ -292,45 +285,19 @@ namespace Gestionnaire
 
             return password;
         }
-    }
-
-    public static class UtilsGestionnaire
-    {
-        public static bool AddEntry(string filePath, Entry e)
+        
+        public static bool ValidHttpURL(string s, out Uri resultURI)
         {
-            if (File.Exists(filePath))
-            {
-               
-            }
+            if (!Regex.IsMatch(s, @"^https?:\/\/", RegexOptions.IgnoreCase))
+                s = "http://" + s;
 
+            if (Uri.TryCreate(s, UriKind.Absolute, out resultURI))
+            {
+                Console.WriteLine(resultURI);
+                return resultURI.Scheme == Uri.UriSchemeHttp || resultURI.Scheme == Uri.UriSchemeHttps;
+            }
+            
             return false;
         }
-
-        public static bool DeleteEntry(string filePath, Entry e)
-        {
-            if (File.Exists(filePath))
-            {
-                string[] readText = File.ReadAllLines(filePath);  
-                File.WriteAllText(filePath, String.Empty);
-                using (StreamWriter writer = new StreamWriter(filePath))
-                {
-                    foreach (string s in readText)
-                    {
-                        if (!s.Equals(e))
-                        {
-                            writer.WriteLine(s);
-                        }
-                    }
-                }  
-            }
-
-            return false;
-        }
-        
-    }
-
-    public static class UtilsDataBase
-    {
-        
     }
 }
