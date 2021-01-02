@@ -49,8 +49,16 @@ namespace Gestionnaire
                 Console.WriteLine(newEntry);
                 //_entries.AddEntry(newEntry);
                 Console.WriteLine("Ajout de l'entrée : " + MyUtils.AddEntry(Path.Combine(Entry.folderName,_user.PathFileEntries), newEntry));
-                //dataGridView1.Rows.Add(newEntry);
+                //dataGridView1.DataSource = _entries.Entry;
+                dataGridView1.Update();
+                dataGridView1.Refresh();
             }
+        }
+
+        private void rechercheParURLToolStripMenuItem_Click(object sender, EventArgs e)
+        { 
+            Dialog_URLResearch dde =new Dialog_URLResearch();
+            DialogResult res = dde.ShowDialog();
         }
     }
 }

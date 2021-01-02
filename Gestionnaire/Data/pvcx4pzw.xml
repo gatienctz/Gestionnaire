@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Database[<!ELEMENT Database (Entries)><!ELEMENT Entries  (Entry*)><!ELEMENT Entry (Name, UserName, Url, Password)><!ELEMENT Name    (#PCDATA)><!ELEMENT UserName    (#PCDATA)><!ELEMENT Url    (#PCDATA)><!ELEMENT Password (#PCDATA)>]>
+<Database>
+  <Entries>
+    <Entry>
+      <Name>test</Name>
+      <UserName>test</UserName>
+      <Url>test</Url>
+      <Password>kgf,b.</Password>
+    </Entry>
+    <Entry>
+      <Name>test2</Name>
+      <UserName>tee</UserName>
+      <Url>te</Url>
+      <Password>whk;;a</Password>
+    </Entry>
+    <Entry>
+      <Name>test23</Name>
+      <UserName>test</UserName>
+      <Url>test</Url>
+      <Password>,wpl.;</Password>
+    </Entry>
+  </Entries>
+</Database>
