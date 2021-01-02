@@ -1,25 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace Gestionnaire.model
 {
     public class Entries
     {
-        public BindingList<Entry> MyEntries;
+        private List<Entry> _entry;
+
+        [XmlElement("Entry")]
+        public List<Entry> Entry
+        {
+            get => _entry;
+            set => _entry = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
         public Entries()
         {
-            MyEntries = new BindingList<Entry>();
+            Entry = new List<Entry>();
         }
 
         public void AddEntry(Entry e)
         {
-            MyEntries.Add(e);
+            Entry.Add(e);
         }
 
         public bool DeleteEntry(Entry e)
         {
-            return MyEntries.Remove(e);
+            return Entry.Remove(e);
         }
     }
 }

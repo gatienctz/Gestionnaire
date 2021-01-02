@@ -105,7 +105,7 @@ namespace Gestionnaire
                 XPathNavigator myEntries = nodes.Current;
                 myList = DeserializeFragment<Entries>(myEntries.InnerXml);
             }
-
+            
             return myList;
         }
         public static XmlDocumentFragment ToXmlDocumentFragment(XmlDocument doc, object o)

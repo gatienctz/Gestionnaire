@@ -15,7 +15,11 @@ namespace Gestionnaire
             InitializeComponent();
             _user = p;
             _entries = MyUtils.ExtractEntries(Path.Combine(Entry.folderName,_user.PathFileEntries));
-            dataGridView1.DataSource = _entries;
+            foreach (var e in _entries.Entry)
+            {
+                Console.WriteLine(e);
+            }
+            dataGridView1.DataSource = _entries.Entry;
         }
 
         private void tsbtn_deleteEntry_Click(object sender, EventArgs e)
