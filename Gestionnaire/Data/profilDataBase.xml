@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Profils[<!ELEMENT Profils     (Profil*)><!ELEMENT Profil  (Login,IdUsb,PathFileEntries, Password)><!ELEMENT PathFileEntries (#PCDATA)><!ELEMENT Login       (#PCDATA)><!ELEMENT Password    (#PCDATA)><!ELEMENT IdUsb (#PCDATA)>]>
+<Profils>
+  <Profil>
+    <Login>test</Login>
+    <IdUsb>USB\VID_090C_PID_1000\AA00000000007541</IdUsb>
+    <PathFileEntries>pvcx4pzw.xml</PathFileEntries>
+    <Password>C8059E2EC7419F590E79D7F1B774BFE6</Password>
+  </Profil>
+</Profils>

@@ -47,5 +47,11 @@ namespace Gestionnaire
                 dataGridView1.Rows.Add(newEntry);
             }
         }
+
+        private void rechercheParURLToolStripMenuItem_Click(object sender, EventArgs e)
+        { 
+            Dialog_URLResearch dde =new Dialog_URLResearch();
+            DialogResult res = dde.ShowDialog();
+        }
     }
 }

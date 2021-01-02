@@ -20,6 +20,13 @@
       <Compile Update="Dialog_DelEntry.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Remove="Dialog_recherche.cs" />
+      <Compile Update="Dialog_URLResearch.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Dialog_Password.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>
