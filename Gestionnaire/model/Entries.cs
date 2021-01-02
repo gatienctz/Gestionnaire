@@ -9,7 +9,6 @@ namespace Gestionnaire.model
     {
         private List<Entry> _entry;
 
-        [XmlElement("Entry")]
         public List<Entry> Entry
         {
             get => _entry;
