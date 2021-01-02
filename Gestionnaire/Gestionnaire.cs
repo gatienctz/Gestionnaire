@@ -14,7 +14,8 @@ namespace Gestionnaire
         {
             InitializeComponent();
             _user = p;
-            _entries = MyUtils.ExtractEntries(Path.Combine(Entry.folderName,_user.PathFileEntries));
+            _entries = new Entries();
+            _entries.Entry = MyUtils.ExtractEntries(Path.Combine(Entry.folderName,_user.PathFileEntries));
             foreach (var e in _entries.Entry)
             {
                 Console.WriteLine(e);

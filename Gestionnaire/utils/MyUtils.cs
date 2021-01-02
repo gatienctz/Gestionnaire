@@ -93,9 +93,9 @@ namespace Gestionnaire
             }
         }
 
-        public static Entries ExtractEntries(string filePath)
+        public static List<Entry> ExtractEntries(string filePath)
         {
-            Entries myList = new Entries();
+            List<Entry> myList = new List<Entry>();
             
             XPathDocument doc = new XPathDocument(filePath);
             XPathNavigator nav = doc.CreateNavigator();
@@ -103,7 +103,7 @@ namespace Gestionnaire
             if (nodes.MoveNext())
             {
                 XPathNavigator myEntries = nodes.Current;
-                myList = DeserializeFragment<Entries>(myEntries.InnerXml);
+                myList = DeserializeFragment<List<Entry>>(myEntries.InnerXml);
             }
             
             return myList;
