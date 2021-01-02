@@ -62,7 +62,6 @@ namespace Gestionnaire
                         "<!ELEMENT Database (Entries)>" +
                         "<!ELEMENT Entries  (Entry*)>" +
                         "<!ELEMENT Entry (Name, UserName, Url, Password)>" +
-                        "<!ATTLIST Entry id ID #REQUIRED>" +
                         "<!ELEMENT Name    (#PCDATA)>" +
                         "<!ELEMENT UserName    (#PCDATA)>" +
                         "<!ELEMENT Url    (#PCDATA)>" +
@@ -118,7 +117,7 @@ namespace Gestionnaire
                     XmlQualifiedName.Empty
                 });
 
-            //Chaine de charactère de sortie du XML créé à partir d'un objet profil
+            //Chaine de charactère de sortie du XML créé à partir de l'objet
             StringBuilder output = new StringBuilder();
 
             //Initialisation d'un XmlWriter qui omet la déclaration
@@ -127,7 +126,7 @@ namespace Gestionnaire
                 {
                     OmitXmlDeclaration = true
                 });
-            //Initialisation du sérialiseur avec le type Profil
+            //Initialisation du sérialiseur avec le type de l'objet
             var ser = new XmlSerializer(o.GetType());
             //Sérialisation sans déclaration ni espace de nom
             ser.Serialize(writer, o, xmlSerializerNamespaces);
@@ -135,6 +134,7 @@ namespace Gestionnaire
             XmlDocumentFragment fragmentProfil = doc.CreateDocumentFragment();
             //Ajout du XML généré à l'aide du sérialiseur dans le fragment
             fragmentProfil.InnerXml = output.ToString();
+            Console.WriteLine(fragmentProfil.InnerXml);
             //Fermeture du writer
             writer.Close();
             
@@ -148,8 +148,9 @@ namespace Gestionnaire
             {
                 xmlDoc.Load(filePath);
             }
-            catch (FileNotFoundException e)
+            catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 return false;
             }
             
@@ -175,7 +176,7 @@ namespace Gestionnaire
             return AddFragment(filePath, "Entries", entry);
         }
 
-        public static bool DeleteFragment(string filePath, string parent, IGestionnaire o)
+        public static bool DeleteFragment(string filePath, string parent, object o)
         {
             XmlDocument xmlDoc = new XmlDocument();
             try
@@ -188,10 +189,10 @@ namespace Gestionnaire
             }
 
             XmlNode parentNode = xmlDoc.GetElementsByTagName(parent)[0];
-            XmlNode objectNode = xmlDoc.GetElementById(o.GetId().ToString());
+            //XmlNode objectNode = xmlDoc.GetElementById(o.GetId().ToString());
 
-            var deletedNode = parentNode.RemoveChild(objectNode);
-            Console.WriteLine("Node supprimée : " + deletedNode.InnerXml);
+            //var deletedNode = parentNode.RemoveChild(objectNode);
+            ///Console.WriteLine("Node supprimée : " + deletedNode.InnerXml);
 
             return true;
         }

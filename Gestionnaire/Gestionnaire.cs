@@ -39,11 +39,13 @@ namespace Gestionnaire
             {
                 string name = dae.tbName.Text;
                 string username = dae.tbUsername.Text;
-                Uri url = dae.UrlString;
+                string url = dae.tbUrl.Text;
                 string password = dae.rbtnGenerate.Checked ? dae.lblPwdGenerated.Text : dae.tbPwd.Text;
-                Entry newEntry = new Entry(name, username, url, password, id++);
-                _entries.AddEntry(newEntry);
-                dataGridView1.Rows.Add(newEntry);
+                Entry newEntry = new Entry(name, username, url, password);
+                Console.WriteLine(newEntry);
+                //_entries.AddEntry(newEntry);
+                Console.WriteLine("Ajout de l'entrée : " + MyUtils.AddEntry(Path.Combine(Entry.folderName,_user.PathFileEntries), newEntry));
+                //dataGridView1.Rows.Add(newEntry);
             }
         }
     }

@@ -5,45 +5,37 @@ using Accessibility;
 
 namespace Gestionnaire.model
 {
-    public class Entry: IGestionnaire
+    public class Entry
     {
         public static string folderName = @"../../../Data";
         
-        private static string _name;
-        public static string Name
+        private string _name;
+        public string Name
         {
             get => _name;
             set => _name = value;
         }
 
-        private static string _userName;
+        private string _userName;
 
-        public static string UserName
+        public string UserName
         {
             get => _userName;
             set => _userName = value;
         }
 
-        private static Uri _url;
-        public static Uri Url
+        private string _url;
+        public string Url
         {
             get => _url;
             set => _url = value;
         }
         
-        private static string _password;
-        public static string Password
+        private string _password;
+        public string Password
         {
             get => _password;
             set => _password = value;
-        }
-
-        private int _id;
-        [XmlAttribute(AttributeName = "id")]
-        public int Id
-        {
-            get => _id;
-            set => _id = value;
         }
 
         public Entry()
@@ -51,18 +43,17 @@ namespace Gestionnaire.model
             
         }
 
-        public Entry(string name, string username, Uri url, string password, int id)
+        public Entry(string name, string username, string url, string password)
         {
             Name = name;
             UserName = username;
             Url = url;
             Password = password;
-            _id = id;
         }
 
-        public int GetId()
+        public override string ToString()
         {
-            return Id;
+            return Name + ";" + UserName + ";" + Url + ";" + _password;
         }
     }
 }
