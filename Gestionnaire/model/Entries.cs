@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace Gestionnaire.model
@@ -29,6 +30,11 @@ namespace Gestionnaire.model
         public bool DeleteEntry(Entry e)
         {
             return Entry.Remove(e);
+        }
+
+        public void SaveToXmlDocument(XmlDocument xmlDoc)
+        {
+            MyUtils.ToXmlDocumentFragment(xmlDoc, Entry);
         }
     }
 }
