@@ -48,6 +48,7 @@ namespace Gestionnaire
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbtn_addEntry = new System.Windows.Forms.ToolStripButton();
             this.tsbtn_deleteEntry = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnUpdateEntry = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -143,7 +144,7 @@ namespace Gestionnaire
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.tsbtn_addEntry, this.tsbtn_deleteEntry});
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.tsbtn_addEntry, this.tsbtn_deleteEntry, this.tsBtnUpdateEntry});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
@@ -170,6 +171,16 @@ namespace Gestionnaire
             this.tsbtn_deleteEntry.Text = "toolStripButton2";
             this.tsbtn_deleteEntry.Click += new System.EventHandler(this.tsbtn_deleteEntry_Click);
             // 
+            // tsBtnUpdateEntry
+            // 
+            this.tsBtnUpdateEntry.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsBtnUpdateEntry.Image = ((System.Drawing.Image) (resources.GetObject("tsBtnUpdateEntry.Image")));
+            this.tsBtnUpdateEntry.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnUpdateEntry.Name = "tsBtnUpdateEntry";
+            this.tsBtnUpdateEntry.Size = new System.Drawing.Size(23, 22);
+            this.tsBtnUpdateEntry.Text = "Modifier une entrée";
+            this.tsBtnUpdateEntry.Click += new System.EventHandler(this.tsBtnUpdateEntry_Click);
+            // 
             // Gestionnaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -192,6 +203,8 @@ namespace Gestionnaire
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ToolStripButton tsBtnUpdateEntry;
 
         private System.Windows.Forms.ToolStripMenuItem rechercheParURLToolStripMenuItem;
 

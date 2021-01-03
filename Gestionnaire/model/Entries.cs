@@ -22,19 +22,23 @@ namespace Gestionnaire.model
             Entry = new BindingList<Entry>();
         }
 
-        public void AddEntry(Entry e)
+        public void AddEntry(XmlDocument xmlDoc, Entry e)
         {
             Entry.Add(e);
+            MyUtils.AddEntryToXmlDocument(xmlDoc, e);
         }
 
-        public bool DeleteEntry(Entry e)
+        public bool DeleteEntry(XmlDocument xmlDoc, Entry e)
         {
-            return Entry.Remove(e);
+            return Entry.Remove(e)
+                   && MyUtils.DeleteEntryToXmlDocument(xmlDoc, e);
         }
 
-        public void SaveToXmlDocument(XmlDocument xmlDoc)
+        public bool UpdateEntry(XmlDocument xmlDoc, Entry e)
         {
-            MyUtils.ToXmlDocumentFragment(xmlDoc, Entry);
+            e.Name = "Ceci est un test de modification";
+            return true;
         }
+        
     }
 }

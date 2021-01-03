@@ -93,12 +93,11 @@ namespace Gestionnaire
             }
         }
 
-        public static Entries ExtractEntries(string filePath)
+        public static Entries ExtractEntries(XmlDocument xmlDoc)
         {
             Entries myList = new Entries();
             
-            XPathDocument doc = new XPathDocument(filePath);
-            XPathNavigator nav = doc.CreateNavigator();
+            XPathNavigator nav = xmlDoc.CreateNavigator();
             var nodes = nav.Select("//Entries");
             if (nodes.MoveNext())
             {
@@ -134,11 +133,41 @@ namespace Gestionnaire
             XmlDocumentFragment fragmentProfil = doc.CreateDocumentFragment();
             //Ajout du XML généré à l'aide du sérialiseur dans le fragment
             fragmentProfil.InnerXml = output.ToString();
-            Console.WriteLine(fragmentProfil.InnerXml);
             //Fermeture du writer
             writer.Close();
             
             return fragmentProfil;
+        }
+
+        public static void AddFragmentToXmlDocument(XmlDocument xmlDoc, string parent, object o)
+        {
+            //Récupération du noeud racine dans le fichier des profils
+            XmlNode rootNode = xmlDoc.GetElementsByTagName(parent)[0];
+            //Sérialisation de l'objet en fragment XML
+            XmlDocumentFragment fragmentNode = ToXmlDocumentFragment(xmlDoc, o);
+            //Ajout du fragment dans le document
+            rootNode.AppendChild(fragmentNode);
+        }
+
+        public static void AddProfilToXmlDocument(XmlDocument xmlDoc, Profil p)
+        {
+            AddFragmentToXmlDocument(xmlDoc, "Profils", p);
+        }
+        
+        public static void AddEntryToXmlDocument(XmlDocument xmlDoc, Entry e)
+        {
+            AddFragmentToXmlDocument(xmlDoc, "Entries", e);
+        }
+
+        public static void SaveXmlDocToFile(string filePath, XmlDocument xmlDoc)
+        {
+            xmlDoc.Save(filePath);
+        }
+
+        public static void LoadFileToXmlDoc(string filePath, out XmlDocument xmlDoc)
+        {
+            xmlDoc = new XmlDocument();
+            xmlDoc.Load(filePath);
         }
 
         public static bool AddFragment(string filePath, string parent, object o)
@@ -176,34 +205,33 @@ namespace Gestionnaire
             return AddFragment(filePath, "Entries", entry);
         }
 
-        public static bool DeleteFragment(string filePath, string parent, object o)
+        public static bool DeleteEntryToXmlDocument(XmlDocument xmlDoc, Entry e)
         {
-            XmlDocument xmlDoc = new XmlDocument();
-            try
+            XPathNavigator nav = xmlDoc.CreateNavigator();
+            var nodeToDel = nav.SelectSingleNode("//Entry[Url ='" + e.Url + "']");
+            if (nodeToDel != null)
             {
-                xmlDoc.Load(filePath);
+                try
+                {
+                    nodeToDel.DeleteSelf();
+                }
+                catch
+                {
+                    return false;
+                }
             }
-            catch (FileNotFoundException e)
-            {
-                return false;
-            }
-
-            XmlNode parentNode = xmlDoc.GetElementsByTagName(parent)[0];
-            //XmlNode objectNode = xmlDoc.GetElementById(o.GetId().ToString());
-
-            //var deletedNode = parentNode.RemoveChild(objectNode);
-            ///Console.WriteLine("Node supprimée : " + deletedNode.InnerXml);
-
+            Console.WriteLine("Node supprimée ! "); 
             return true;
         }
 
-        public static bool DeleteEntry(string filePath, Entry e)
+        public static bool UpdateEntryToXmlDocument(XmlDocument xmlDoc, Entry e)
         {
-            return DeleteFragment(filePath, "Entries", e);
-        }
+            if (DeleteEntryToXmlDocument(xmlDoc, e))
+            {
+                AddEntryToXmlDocument(xmlDoc, e);
+                return true;
+            }
 
-        public static bool UpdateEntry(string filePath, Entry e)
-        {
             return false;
         }
 
