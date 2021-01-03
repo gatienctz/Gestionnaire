@@ -86,10 +86,10 @@ namespace Gestionnaire
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.Enabled = false;
             this.btnOk.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnOk.Location = new System.Drawing.Point(9, 531);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOk.Location = new System.Drawing.Point(12, 654);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(62, 24);
+            this.btnOk.Size = new System.Drawing.Size(83, 30);
             this.btnOk.TabIndex = 6;
             this.btnOk.Text = "Ajouter";
             this.btnOk.UseVisualStyleBackColor = false;
@@ -99,10 +99,10 @@ namespace Gestionnaire
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCancel.Location = new System.Drawing.Point(281, 531);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancel.Location = new System.Drawing.Point(375, 654);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(62, 24);
+            this.btnCancel.Size = new System.Drawing.Size(83, 30);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Annuler";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -113,11 +113,11 @@ namespace Gestionnaire
             this.groupBox1.Controls.Add(this.panelGenerator);
             this.groupBox1.Controls.Add(this.rbtnSaisie);
             this.groupBox1.Controls.Add(this.rbtnGenerate);
-            this.groupBox1.Location = new System.Drawing.Point(9, 106);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(12, 130);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(333, 419);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(444, 516);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mot de passe";
@@ -128,47 +128,45 @@ namespace Gestionnaire
             this.panelSaisie.Controls.Add(this.label5);
             this.panelSaisie.Controls.Add(this.tbPwd);
             this.panelSaisie.Controls.Add(this.label4);
-            this.panelSaisie.Location = new System.Drawing.Point(3, 332);
-            this.panelSaisie.Margin = new System.Windows.Forms.Padding(2);
+            this.panelSaisie.Location = new System.Drawing.Point(4, 409);
+            this.panelSaisie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSaisie.Name = "panelSaisie";
-            this.panelSaisie.Size = new System.Drawing.Size(328, 82);
+            this.panelSaisie.Size = new System.Drawing.Size(437, 101);
             this.panelSaisie.TabIndex = 3;
             // 
             // tbPwd_second
             // 
-            this.tbPwd_second.Location = new System.Drawing.Point(140, 51);
-            this.tbPwd_second.Margin = new System.Windows.Forms.Padding(2);
+            this.tbPwd_second.Location = new System.Drawing.Point(187, 63);
+            this.tbPwd_second.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPwd_second.Name = "tbPwd_second";
-            this.tbPwd_second.Size = new System.Drawing.Size(163, 20);
+            this.tbPwd_second.Size = new System.Drawing.Size(216, 22);
             this.tbPwd_second.TabIndex = 5;
             this.tbPwd_second.UseSystemPasswordChar = true;
             this.tbPwd_second.TextChanged += new System.EventHandler(this.tbPwd_second_TextChanged);
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(2, 54);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(3, 66);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(137, 19);
+            this.label5.Size = new System.Drawing.Size(183, 23);
             this.label5.TabIndex = 8;
             this.label5.Text = "Répéter le mot de passe : ";
             // 
             // tbPwd
             // 
-            this.tbPwd.Location = new System.Drawing.Point(140, 10);
-            this.tbPwd.Margin = new System.Windows.Forms.Padding(2);
+            this.tbPwd.Location = new System.Drawing.Point(187, 12);
+            this.tbPwd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPwd.Name = "tbPwd";
-            this.tbPwd.Size = new System.Drawing.Size(163, 20);
+            this.tbPwd.Size = new System.Drawing.Size(216, 22);
             this.tbPwd.TabIndex = 4;
             this.tbPwd.UseSystemPasswordChar = true;
             this.tbPwd.TextChanged += new System.EventHandler(this.tbPwd_TextChanged);
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(2, 12);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(3, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 19);
+            this.label4.Size = new System.Drawing.Size(140, 23);
             this.label4.TabIndex = 6;
             this.label4.Text = "Mot de passe : ";
             // 
@@ -178,28 +176,27 @@ namespace Gestionnaire
             this.panelGenerator.Controls.Add(this.btnGenerate);
             this.panelGenerator.Controls.Add(this.groupBox2);
             this.panelGenerator.Enabled = false;
-            this.panelGenerator.Location = new System.Drawing.Point(3, 41);
-            this.panelGenerator.Margin = new System.Windows.Forms.Padding(2);
+            this.panelGenerator.Location = new System.Drawing.Point(4, 50);
+            this.panelGenerator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelGenerator.Name = "panelGenerator";
-            this.panelGenerator.Size = new System.Drawing.Size(326, 262);
+            this.panelGenerator.Size = new System.Drawing.Size(435, 322);
             this.panelGenerator.TabIndex = 2;
             // 
             // lblPwdGenerated
             // 
             this.lblPwdGenerated.BackColor = System.Drawing.Color.Moccasin;
-            this.lblPwdGenerated.Location = new System.Drawing.Point(19, 20);
-            this.lblPwdGenerated.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPwdGenerated.Location = new System.Drawing.Point(25, 25);
             this.lblPwdGenerated.Name = "lblPwdGenerated";
-            this.lblPwdGenerated.Size = new System.Drawing.Size(293, 19);
+            this.lblPwdGenerated.Size = new System.Drawing.Size(391, 23);
             this.lblPwdGenerated.TabIndex = 10;
             // 
             // btnGenerate
             // 
             this.btnGenerate.BackColor = System.Drawing.Color.OldLace;
-            this.btnGenerate.Location = new System.Drawing.Point(67, 50);
-            this.btnGenerate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGenerate.Location = new System.Drawing.Point(89, 62);
+            this.btnGenerate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(197, 21);
+            this.btnGenerate.Size = new System.Drawing.Size(263, 26);
             this.btnGenerate.TabIndex = 9;
             this.btnGenerate.Text = "Générer un mot de passe";
             this.btnGenerate.UseVisualStyleBackColor = false;
@@ -216,11 +213,11 @@ namespace Gestionnaire
             this.groupBox2.Controls.Add(this.checkDigit);
             this.groupBox2.Controls.Add(this.checkMaj);
             this.groupBox2.Controls.Add(this.checkBox3);
-            this.groupBox2.Location = new System.Drawing.Point(2, 76);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Location = new System.Drawing.Point(3, 94);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(321, 184);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(428, 226);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Options";
@@ -239,11 +236,11 @@ namespace Gestionnaire
             this.groupBSpecialChar.Controls.Add(this.checkBPointVir);
             this.groupBSpecialChar.Controls.Add(this.checkBArobaze);
             this.groupBSpecialChar.Controls.Add(this.checkBExclamation);
-            this.groupBSpecialChar.Location = new System.Drawing.Point(64, 80);
-            this.groupBSpecialChar.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBSpecialChar.Location = new System.Drawing.Point(85, 98);
+            this.groupBSpecialChar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBSpecialChar.Name = "groupBSpecialChar";
-            this.groupBSpecialChar.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBSpecialChar.Size = new System.Drawing.Size(148, 99);
+            this.groupBSpecialChar.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBSpecialChar.Size = new System.Drawing.Size(197, 122);
             this.groupBSpecialChar.TabIndex = 26;
             this.groupBSpecialChar.TabStop = false;
             this.groupBSpecialChar.Text = "Charactères spéciaux";
@@ -252,10 +249,10 @@ namespace Gestionnaire
             // 
             this.checkBDeuxPoints.Checked = true;
             this.checkBDeuxPoints.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBDeuxPoints.Location = new System.Drawing.Point(44, 41);
-            this.checkBDeuxPoints.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBDeuxPoints.Location = new System.Drawing.Point(59, 50);
+            this.checkBDeuxPoints.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBDeuxPoints.Name = "checkBDeuxPoints";
-            this.checkBDeuxPoints.Size = new System.Drawing.Size(35, 20);
+            this.checkBDeuxPoints.Size = new System.Drawing.Size(47, 25);
             this.checkBDeuxPoints.TabIndex = 20;
             this.checkBDeuxPoints.Text = ":";
             this.checkBDeuxPoints.UseVisualStyleBackColor = true;
@@ -264,20 +261,20 @@ namespace Gestionnaire
             // 
             this.checkBDollar.Checked = true;
             this.checkBDollar.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBDollar.Location = new System.Drawing.Point(114, 66);
-            this.checkBDollar.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBDollar.Location = new System.Drawing.Point(152, 81);
+            this.checkBDollar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBDollar.Name = "checkBDollar";
-            this.checkBDollar.Size = new System.Drawing.Size(30, 20);
+            this.checkBDollar.Size = new System.Drawing.Size(40, 25);
             this.checkBDollar.TabIndex = 21;
             this.checkBDollar.Text = "$";
             this.checkBDollar.UseVisualStyleBackColor = true;
             // 
             // checkInterro
             // 
-            this.checkInterro.Location = new System.Drawing.Point(115, 17);
-            this.checkInterro.Margin = new System.Windows.Forms.Padding(2);
+            this.checkInterro.Location = new System.Drawing.Point(153, 21);
+            this.checkInterro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkInterro.Name = "checkInterro";
-            this.checkInterro.Size = new System.Drawing.Size(29, 20);
+            this.checkInterro.Size = new System.Drawing.Size(39, 25);
             this.checkInterro.TabIndex = 25;
             this.checkInterro.Text = "?";
             this.checkInterro.UseVisualStyleBackColor = true;
@@ -286,10 +283,10 @@ namespace Gestionnaire
             // 
             this.checkBPourcent.Checked = true;
             this.checkBPourcent.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBPourcent.Location = new System.Drawing.Point(44, 66);
-            this.checkBPourcent.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBPourcent.Location = new System.Drawing.Point(59, 81);
+            this.checkBPourcent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBPourcent.Name = "checkBPourcent";
-            this.checkBPourcent.Size = new System.Drawing.Size(33, 20);
+            this.checkBPourcent.Size = new System.Drawing.Size(44, 25);
             this.checkBPourcent.TabIndex = 19;
             this.checkBPourcent.Text = "%";
             this.checkBPourcent.UseVisualStyleBackColor = true;
@@ -298,20 +295,20 @@ namespace Gestionnaire
             // 
             this.checkBVirgule.Checked = true;
             this.checkBVirgule.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBVirgule.Location = new System.Drawing.Point(81, 66);
-            this.checkBVirgule.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBVirgule.Location = new System.Drawing.Point(108, 81);
+            this.checkBVirgule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBVirgule.Name = "checkBVirgule";
-            this.checkBVirgule.Size = new System.Drawing.Size(33, 20);
+            this.checkBVirgule.Size = new System.Drawing.Size(44, 25);
             this.checkBVirgule.TabIndex = 24;
             this.checkBVirgule.Text = ",";
             this.checkBVirgule.UseVisualStyleBackColor = true;
             // 
             // checkBCircon
             // 
-            this.checkBCircon.Location = new System.Drawing.Point(44, 17);
-            this.checkBCircon.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBCircon.Location = new System.Drawing.Point(59, 21);
+            this.checkBCircon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBCircon.Name = "checkBCircon";
-            this.checkBCircon.Size = new System.Drawing.Size(36, 20);
+            this.checkBCircon.Size = new System.Drawing.Size(48, 25);
             this.checkBCircon.TabIndex = 18;
             this.checkBCircon.Text = "^";
             this.checkBCircon.UseVisualStyleBackColor = true;
@@ -320,10 +317,10 @@ namespace Gestionnaire
             // 
             this.checkBPoint.Checked = true;
             this.checkBPoint.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBPoint.Location = new System.Drawing.Point(81, 41);
-            this.checkBPoint.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBPoint.Location = new System.Drawing.Point(108, 50);
+            this.checkBPoint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBPoint.Name = "checkBPoint";
-            this.checkBPoint.Size = new System.Drawing.Size(33, 20);
+            this.checkBPoint.Size = new System.Drawing.Size(44, 25);
             this.checkBPoint.TabIndex = 23;
             this.checkBPoint.Text = ".";
             this.checkBPoint.UseVisualStyleBackColor = true;
@@ -332,20 +329,20 @@ namespace Gestionnaire
             // 
             this.checkBHashTag.Checked = true;
             this.checkBHashTag.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBHashTag.Location = new System.Drawing.Point(4, 17);
-            this.checkBHashTag.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBHashTag.Location = new System.Drawing.Point(5, 21);
+            this.checkBHashTag.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBHashTag.Name = "checkBHashTag";
-            this.checkBHashTag.Size = new System.Drawing.Size(35, 20);
+            this.checkBHashTag.Size = new System.Drawing.Size(47, 25);
             this.checkBHashTag.TabIndex = 17;
             this.checkBHashTag.Text = "#";
             this.checkBHashTag.UseVisualStyleBackColor = true;
             // 
             // checkBMulti
             // 
-            this.checkBMulti.Location = new System.Drawing.Point(81, 17);
-            this.checkBMulti.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBMulti.Location = new System.Drawing.Point(108, 21);
+            this.checkBMulti.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBMulti.Name = "checkBMulti";
-            this.checkBMulti.Size = new System.Drawing.Size(33, 20);
+            this.checkBMulti.Size = new System.Drawing.Size(44, 25);
             this.checkBMulti.TabIndex = 22;
             this.checkBMulti.Text = "*";
             this.checkBMulti.UseVisualStyleBackColor = true;
@@ -354,20 +351,20 @@ namespace Gestionnaire
             // 
             this.checkBPointVir.Checked = true;
             this.checkBPointVir.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBPointVir.Location = new System.Drawing.Point(3, 66);
-            this.checkBPointVir.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBPointVir.Location = new System.Drawing.Point(4, 81);
+            this.checkBPointVir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBPointVir.Name = "checkBPointVir";
-            this.checkBPointVir.Size = new System.Drawing.Size(36, 20);
+            this.checkBPointVir.Size = new System.Drawing.Size(48, 25);
             this.checkBPointVir.TabIndex = 15;
             this.checkBPointVir.Text = ";";
             this.checkBPointVir.UseVisualStyleBackColor = true;
             // 
             // checkBArobaze
             // 
-            this.checkBArobaze.Location = new System.Drawing.Point(4, 41);
-            this.checkBArobaze.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBArobaze.Location = new System.Drawing.Point(5, 50);
+            this.checkBArobaze.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBArobaze.Name = "checkBArobaze";
-            this.checkBArobaze.Size = new System.Drawing.Size(36, 20);
+            this.checkBArobaze.Size = new System.Drawing.Size(48, 25);
             this.checkBArobaze.TabIndex = 14;
             this.checkBArobaze.Text = "@";
             this.checkBArobaze.UseVisualStyleBackColor = true;
@@ -376,79 +373,75 @@ namespace Gestionnaire
             // 
             this.checkBExclamation.Checked = true;
             this.checkBExclamation.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBExclamation.Location = new System.Drawing.Point(115, 41);
-            this.checkBExclamation.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBExclamation.Location = new System.Drawing.Point(153, 50);
+            this.checkBExclamation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBExclamation.Name = "checkBExclamation";
-            this.checkBExclamation.Size = new System.Drawing.Size(29, 20);
+            this.checkBExclamation.Size = new System.Drawing.Size(39, 25);
             this.checkBExclamation.TabIndex = 1;
             this.checkBExclamation.Text = "!";
             this.checkBExclamation.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(229, 68);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(305, 84);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(19, 19);
+            this.label8.Size = new System.Drawing.Size(25, 23);
             this.label8.TabIndex = 12;
             this.label8.Text = "40";
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(16, 69);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(21, 85);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(12, 19);
+            this.label7.Size = new System.Drawing.Size(16, 23);
             this.label7.TabIndex = 11;
             this.label7.Text = "6";
             // 
             // lblLengthPwd
             // 
-            this.lblLengthPwd.Location = new System.Drawing.Point(130, 20);
-            this.lblLengthPwd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLengthPwd.Location = new System.Drawing.Point(173, 25);
             this.lblLengthPwd.Name = "lblLengthPwd";
-            this.lblLengthPwd.Size = new System.Drawing.Size(47, 19);
+            this.lblLengthPwd.Size = new System.Drawing.Size(63, 23);
             this.lblLengthPwd.TabIndex = 7;
             this.lblLengthPwd.Text = "6";
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(4, 20);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(5, 25);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(124, 19);
+            this.label6.Size = new System.Drawing.Size(165, 23);
             this.label6.TabIndex = 10;
             this.label6.Text = "Taille du mot de passe :";
             // 
             // trackbarLengthPwd
             // 
             this.trackbarLengthPwd.BackColor = System.Drawing.Color.PapayaWhip;
-            this.trackbarLengthPwd.Location = new System.Drawing.Point(9, 41);
-            this.trackbarLengthPwd.Margin = new System.Windows.Forms.Padding(2);
+            this.trackbarLengthPwd.Location = new System.Drawing.Point(12, 50);
+            this.trackbarLengthPwd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.trackbarLengthPwd.Maximum = 40;
             this.trackbarLengthPwd.Minimum = 6;
             this.trackbarLengthPwd.Name = "trackbarLengthPwd";
-            this.trackbarLengthPwd.Size = new System.Drawing.Size(244, 45);
+            this.trackbarLengthPwd.Size = new System.Drawing.Size(325, 56);
             this.trackbarLengthPwd.TabIndex = 4;
             this.trackbarLengthPwd.Value = 6;
             this.trackbarLengthPwd.Scroll += new System.EventHandler(this.trackbarLengthPwd_Scroll);
             // 
             // checkDigit
             // 
-            this.checkDigit.Location = new System.Drawing.Point(9, 145);
-            this.checkDigit.Margin = new System.Windows.Forms.Padding(2);
+            this.checkDigit.Location = new System.Drawing.Point(12, 178);
+            this.checkDigit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkDigit.Name = "checkDigit";
-            this.checkDigit.Size = new System.Drawing.Size(51, 20);
+            this.checkDigit.Size = new System.Drawing.Size(68, 25);
             this.checkDigit.TabIndex = 3;
             this.checkDigit.Text = "0-9";
             this.checkDigit.UseVisualStyleBackColor = true;
             // 
             // checkMaj
             // 
-            this.checkMaj.Location = new System.Drawing.Point(9, 121);
-            this.checkMaj.Margin = new System.Windows.Forms.Padding(2);
+            this.checkMaj.Location = new System.Drawing.Point(12, 149);
+            this.checkMaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkMaj.Name = "checkMaj";
-            this.checkMaj.Size = new System.Drawing.Size(50, 20);
+            this.checkMaj.Size = new System.Drawing.Size(67, 25);
             this.checkMaj.TabIndex = 0;
             this.checkMaj.Text = "A-Z";
             this.checkMaj.UseVisualStyleBackColor = true;
@@ -458,10 +451,10 @@ namespace Gestionnaire
             this.checkBox3.Checked = true;
             this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox3.Enabled = false;
-            this.checkBox3.Location = new System.Drawing.Point(9, 97);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBox3.Location = new System.Drawing.Point(12, 119);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(51, 20);
+            this.checkBox3.Size = new System.Drawing.Size(68, 25);
             this.checkBox3.TabIndex = 2;
             this.checkBox3.Text = "a-z";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -469,10 +462,10 @@ namespace Gestionnaire
             // rbtnSaisie
             // 
             this.rbtnSaisie.Checked = true;
-            this.rbtnSaisie.Location = new System.Drawing.Point(4, 308);
-            this.rbtnSaisie.Margin = new System.Windows.Forms.Padding(2);
+            this.rbtnSaisie.Location = new System.Drawing.Point(5, 379);
+            this.rbtnSaisie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnSaisie.Name = "rbtnSaisie";
-            this.rbtnSaisie.Size = new System.Drawing.Size(158, 20);
+            this.rbtnSaisie.Size = new System.Drawing.Size(211, 25);
             this.rbtnSaisie.TabIndex = 1;
             this.rbtnSaisie.TabStop = true;
             this.rbtnSaisie.Text = "Saisir un mot de passe";
@@ -481,10 +474,10 @@ namespace Gestionnaire
             // 
             // rbtnGenerate
             // 
-            this.rbtnGenerate.Location = new System.Drawing.Point(4, 17);
-            this.rbtnGenerate.Margin = new System.Windows.Forms.Padding(2);
+            this.rbtnGenerate.Location = new System.Drawing.Point(5, 21);
+            this.rbtnGenerate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnGenerate.Name = "rbtnGenerate";
-            this.rbtnGenerate.Size = new System.Drawing.Size(173, 20);
+            this.rbtnGenerate.Size = new System.Drawing.Size(231, 25);
             this.rbtnGenerate.TabIndex = 0;
             this.rbtnGenerate.Text = "Générer un mot de passe";
             this.rbtnGenerate.UseVisualStyleBackColor = true;
@@ -492,64 +485,61 @@ namespace Gestionnaire
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(158, 83);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(2);
+            this.tbUsername.Location = new System.Drawing.Point(211, 102);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(157, 20);
+            this.tbUsername.Size = new System.Drawing.Size(208, 22);
             this.tbUsername.TabIndex = 3;
             this.tbUsername.TextChanged += new System.EventHandler(this.tbUsername_TextChanged);
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(9, 85);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(12, 105);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 19);
+            this.label1.Size = new System.Drawing.Size(140, 23);
             this.label1.TabIndex = 4;
             this.label1.Text = "Nom d\'utilisateur : ";
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(9, 58);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(12, 71);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 19);
+            this.label2.Size = new System.Drawing.Size(140, 23);
             this.label2.TabIndex = 5;
             this.label2.Text = "URL du site : ";
             // 
             // tbUrl
             // 
-            this.tbUrl.Location = new System.Drawing.Point(158, 56);
-            this.tbUrl.Margin = new System.Windows.Forms.Padding(2);
+            this.tbUrl.Location = new System.Drawing.Point(211, 69);
+            this.tbUrl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbUrl.Name = "tbUrl";
-            this.tbUrl.Size = new System.Drawing.Size(157, 20);
+            this.tbUrl.Size = new System.Drawing.Size(208, 22);
             this.tbUrl.TabIndex = 2;
             this.tbUrl.TextChanged += new System.EventHandler(this.tbUrl_TextChanged);
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(9, 18);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(12, 22);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 19);
+            this.label3.Size = new System.Drawing.Size(192, 23);
             this.label3.TabIndex = 7;
             this.label3.Text = "Nom de l\'enregistrement : ";
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(158, 15);
-            this.tbName.Margin = new System.Windows.Forms.Padding(2);
+            this.tbName.Location = new System.Drawing.Point(211, 18);
+            this.tbName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(110, 20);
+            this.tbName.Size = new System.Drawing.Size(145, 22);
             this.tbName.TabIndex = 1;
             this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
             // Dialog_AddEntry
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PapayaWhip;
-            this.ClientSize = new System.Drawing.Size(352, 564);
+            this.ClientSize = new System.Drawing.Size(469, 694);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbUrl);
@@ -559,7 +549,7 @@ namespace Gestionnaire
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Dialog_AddEntry";
             this.Text = "Ajouter une entrée";
             this.groupBox1.ResumeLayout(false);
@@ -597,11 +587,11 @@ namespace Gestionnaire
         public System.Windows.Forms.TextBox tbUsername;
 
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnOk;
+        public System.Windows.Forms.Button btnOk;
 
         public System.Windows.Forms.Label lblPwdGenerated;
 
-        private System.Windows.Forms.TextBox tbPwd_second;
+        public System.Windows.Forms.TextBox tbPwd_second;
 
         private System.Windows.Forms.CheckBox checkDigit;
         private System.Windows.Forms.CheckBox checkMaj;

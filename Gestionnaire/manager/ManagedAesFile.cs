@@ -1,6 +1,7 @@
 ﻿using System;  
 using System.IO;  
 using System.Security.Cryptography;
+using System.Xml;
 
 namespace Gestionnaire.manager
 {
@@ -105,6 +106,31 @@ namespace Gestionnaire.manager
             }
 
             return plaintext;
+        }
+
+        public static byte[] GenerateRandomSalt()
+        {
+            byte[] data = new byte[32];
+
+            using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    rng.GetBytes(data);
+                }
+            }
+
+            return data;
+        }
+        
+        public static void EncryptXmlDocumentToFile()
+        {
+            
+        }
+        
+        public static XmlDocument DecryptFileToXmlDocument()
+        {
+            
         }
     }
 }

@@ -34,10 +34,13 @@ namespace Gestionnaire.model
                    && MyUtils.DeleteEntryToXmlDocument(xmlDoc, e);
         }
 
-        public bool UpdateEntry(XmlDocument xmlDoc, Entry e)
+        public bool UpdateEntry(XmlDocument xmlDoc,Entry e, string name, string username, string url, string password)
         {
-            e.Name = "Ceci est un test de modification";
-            return true;
+            e.Name = name;
+            e.UserName = username;
+            e.Url = url;
+            e.Password = password;
+            return MyUtils.UpdateEntryToXmlDocument(xmlDoc, e);
         }
         
     }
