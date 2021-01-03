@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace Gestionnaire
@@ -8,8 +9,19 @@ namespace Gestionnaire
         public Dialog_Password(string password)
         {
             InitializeComponent();
-            label1.Text = password;
+            richTextBox1.Text = password;
         }
-        
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectAll();
+            richTextBox1.Copy();
+        }
+
+        private void timer1_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            Close();
+        }
     }
 }
