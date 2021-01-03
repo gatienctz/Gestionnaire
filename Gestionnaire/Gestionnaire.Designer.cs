@@ -44,10 +44,10 @@ namespace Gestionnaire
             this.col_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rechercheParURLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbtn_addEntry = new System.Windows.Forms.ToolStripButton();
             this.tsbtn_deleteEntry = new System.Windows.Forms.ToolStripButton();
-            this.rechercheParURLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -56,8 +56,8 @@ namespace Gestionnaire
             // treeView1
             // 
             this.treeView1.BackColor = System.Drawing.Color.PapayaWhip;
-            this.treeView1.Location = new System.Drawing.Point(9, 59);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treeView1.Location = new System.Drawing.Point(12, 73);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "Nœud3";
             treeNode1.Text = "Internet";
@@ -68,7 +68,7 @@ namespace Gestionnaire
             treeNode4.Name = "node_root";
             treeNode4.Text = "Mon coffre fort";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {treeNode4});
-            this.treeView1.Size = new System.Drawing.Size(141, 297);
+            this.treeView1.Size = new System.Drawing.Size(187, 365);
             this.treeView1.TabIndex = 0;
             // 
             // dataGridView1
@@ -78,11 +78,12 @@ namespace Gestionnaire
             this.dataGridView1.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.col_Title, this.col_Username, this.col_URL, this.col_password});
-            this.dataGridView1.Location = new System.Drawing.Point(154, 59);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(205, 73);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(437, 297);
+            this.dataGridView1.Size = new System.Drawing.Size(583, 366);
             this.dataGridView1.TabIndex = 1;
             // 
             // col_Title
@@ -121,8 +122,8 @@ namespace Gestionnaire
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.fichierToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(600, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -130,15 +131,22 @@ namespace Gestionnaire
             // 
             this.fichierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.rechercheParURLToolStripMenuItem});
             this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
-            this.fichierToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.fichierToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.fichierToolStripMenuItem.Text = "Fichier";
+            // 
+            // rechercheParURLToolStripMenuItem
+            // 
+            this.rechercheParURLToolStripMenuItem.Name = "rechercheParURLToolStripMenuItem";
+            this.rechercheParURLToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.rechercheParURLToolStripMenuItem.Text = "Recherche par URL";
+            this.rechercheParURLToolStripMenuItem.Click += new System.EventHandler(this.rechercheParURLToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.tsbtn_addEntry, this.tsbtn_deleteEntry});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(600, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -162,25 +170,18 @@ namespace Gestionnaire
             this.tsbtn_deleteEntry.Text = "toolStripButton2";
             this.tsbtn_deleteEntry.Click += new System.EventHandler(this.tsbtn_deleteEntry_Click);
             // 
-            // rechercheParURLToolStripMenuItem
-            // 
-            this.rechercheParURLToolStripMenuItem.Name = "rechercheParURLToolStripMenuItem";
-            this.rechercheParURLToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.rechercheParURLToolStripMenuItem.Text = "Recherche par URL";
-            this.rechercheParURLToolStripMenuItem.Click += new System.EventHandler(this.rechercheParURLToolStripMenuItem_Click);
-            // 
             // Gestionnaire
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Moccasin;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Gestionnaire";
             this.Text = "Gestionnaire";
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).EndInit();

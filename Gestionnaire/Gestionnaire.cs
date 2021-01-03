@@ -26,7 +26,12 @@ namespace Gestionnaire
             //affichage de la boîte de dialogue et attente...
             if (res== DialogResult.OK)
             {
-                
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    Entry entryToDel = (Entry) dataGridView1.CurrentRow.DataBoundItem;
+                    _entries.DeleteEntry(entryToDel);
+                    //TODO Delete Entry to file XML
+                }
             }
 
         }
@@ -49,7 +54,7 @@ namespace Gestionnaire
 
         private void rechercheParURLToolStripMenuItem_Click(object sender, EventArgs e)
         { 
-            Dialog_URLResearch dde =new Dialog_URLResearch(_entries);
+            Dialog_URLResearch dde =new Dialog_URLResearch();
             DialogResult res = dde.ShowDialog();
         }
     }
