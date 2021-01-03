@@ -44,9 +44,10 @@ namespace Gestionnaire
             this.btnConnecte.BackColor = System.Drawing.Color.DarkGreen;
             this.btnConnecte.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.btnConnecte.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnConnecte.Location = new System.Drawing.Point(119, 183);
+            this.btnConnecte.Location = new System.Drawing.Point(89, 149);
+            this.btnConnecte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnConnecte.Name = "btnConnecte";
-            this.btnConnecte.Size = new System.Drawing.Size(122, 37);
+            this.btnConnecte.Size = new System.Drawing.Size(97, 30);
             this.btnConnecte.TabIndex = 0;
             this.btnConnecte.Text = "Connexion";
             this.btnConnecte.UseVisualStyleBackColor = false;
@@ -55,44 +56,49 @@ namespace Gestionnaire
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label1.Location = new System.Drawing.Point(68, 32);
+            this.label1.Location = new System.Drawing.Point(51, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(228, 23);
+            this.label1.Size = new System.Drawing.Size(171, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nom d\'utilisateur :";
             // 
             // tbLogin
             // 
-            this.tbLogin.Location = new System.Drawing.Point(68, 58);
+            this.tbLogin.Location = new System.Drawing.Point(51, 47);
+            this.tbLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbLogin.Name = "tbLogin";
-            this.tbLogin.Size = new System.Drawing.Size(228, 22);
+            this.tbLogin.Size = new System.Drawing.Size(172, 20);
             this.tbLogin.TabIndex = 2;
             this.tbLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label2.Location = new System.Drawing.Point(68, 92);
+            this.label2.Location = new System.Drawing.Point(51, 75);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(228, 23);
+            this.label2.Size = new System.Drawing.Size(171, 19);
             this.label2.TabIndex = 3;
             this.label2.Text = "Mot de passe : ";
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(68, 118);
+            this.tbPassword.Location = new System.Drawing.Point(51, 96);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(228, 22);
+            this.tbPassword.Size = new System.Drawing.Size(172, 20);
             this.tbPassword.TabIndex = 4;
             this.tbPassword.UseSystemPasswordChar = true;
             this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             // 
             // linklCreateProfil
             // 
-            this.linklCreateProfil.Location = new System.Drawing.Point(68, 143);
+            this.linklCreateProfil.Location = new System.Drawing.Point(51, 116);
+            this.linklCreateProfil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linklCreateProfil.Name = "linklCreateProfil";
-            this.linklCreateProfil.Size = new System.Drawing.Size(228, 23);
+            this.linklCreateProfil.Size = new System.Drawing.Size(171, 19);
             this.linklCreateProfil.TabIndex = 5;
             this.linklCreateProfil.TabStop = true;
             this.linklCreateProfil.Text = "Nouveau? Créer votre profil";
@@ -100,16 +106,17 @@ namespace Gestionnaire
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Moccasin;
-            this.ClientSize = new System.Drawing.Size(359, 258);
+            this.ClientSize = new System.Drawing.Size(269, 210);
             this.Controls.Add(this.linklCreateProfil);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbLogin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConnecte);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Connexion";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

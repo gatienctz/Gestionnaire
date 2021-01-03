@@ -38,44 +38,56 @@ namespace Gestionnaire
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(29, 94);
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label1.Location = new System.Drawing.Point(19, 41);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(732, 42);
+            this.label1.Size = new System.Drawing.Size(488, 47);
             this.label1.TabIndex = 0;
             this.label1.Text = "Voulez-vous vraiment supprimer la selection?";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btConfirmer
             // 
+            this.btConfirmer.BackColor = System.Drawing.Color.DarkGreen;
             this.btConfirmer.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btConfirmer.Location = new System.Drawing.Point(120, 165);
+            this.btConfirmer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btConfirmer.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btConfirmer.Location = new System.Drawing.Point(80, 107);
+            this.btConfirmer.Margin = new System.Windows.Forms.Padding(2);
             this.btConfirmer.Name = "btConfirmer";
-            this.btConfirmer.Size = new System.Drawing.Size(166, 52);
+            this.btConfirmer.Size = new System.Drawing.Size(111, 34);
             this.btConfirmer.TabIndex = 1;
             this.btConfirmer.Text = "Confirmer";
-            this.btConfirmer.UseVisualStyleBackColor = true;
+            this.btConfirmer.UseVisualStyleBackColor = false;
             this.btConfirmer.Click += new System.EventHandler(this.btConfirmer_Click);
             // 
             // btAnnuler
             // 
-            this.btAnnuler.Location = new System.Drawing.Point(470, 165);
+            this.btAnnuler.BackColor = System.Drawing.Color.Red;
+            this.btAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btAnnuler.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btAnnuler.Location = new System.Drawing.Point(313, 107);
+            this.btAnnuler.Margin = new System.Windows.Forms.Padding(2);
             this.btAnnuler.Name = "btAnnuler";
-            this.btAnnuler.Size = new System.Drawing.Size(156, 52);
+            this.btAnnuler.Size = new System.Drawing.Size(104, 34);
             this.btAnnuler.TabIndex = 2;
             this.btAnnuler.Text = "Annuler";
-            this.btAnnuler.UseVisualStyleBackColor = true;
+            this.btAnnuler.UseVisualStyleBackColor = false;
             this.btAnnuler.Click += new System.EventHandler(this.btAnnuler_Click);
             // 
             // Dialog_DelEntry
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 275);
+            this.BackColor = System.Drawing.Color.PapayaWhip;
+            this.ClientSize = new System.Drawing.Size(533, 179);
             this.Controls.Add(this.btAnnuler);
             this.Controls.Add(this.btConfirmer);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Dialog_DelEntry";
-            this.Text = "Dialog_DelEntry";
+            this.Text = "Supprimer l\'entrée";
             this.ResumeLayout(false);
         }
 
