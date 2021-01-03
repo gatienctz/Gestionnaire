@@ -93,9 +93,9 @@ namespace Gestionnaire
             }
         }
 
-        public static List<Entry> ExtractEntries(string filePath)
+        public static Entries ExtractEntries(string filePath)
         {
-            List<Entry> myList = new List<Entry>();
+            Entries myList = new Entries();
             
             XPathDocument doc = new XPathDocument(filePath);
             XPathNavigator nav = doc.CreateNavigator();
@@ -103,7 +103,7 @@ namespace Gestionnaire
             if (nodes.MoveNext())
             {
                 XPathNavigator myEntries = nodes.Current;
-                myList = DeserializeFragment<List<Entry>>(myEntries.InnerXml);
+                myList = DeserializeFragment<Entries>(myEntries.InnerXml);
             }
             
             return myList;
@@ -294,7 +294,6 @@ namespace Gestionnaire
 
             if (Uri.TryCreate(s, UriKind.Absolute, out resultURI))
             {
-                Console.WriteLine(resultURI);
                 return resultURI.Scheme == Uri.UriSchemeHttp || resultURI.Scheme == Uri.UriSchemeHttps;
             }
             

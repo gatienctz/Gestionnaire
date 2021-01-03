@@ -9,17 +9,12 @@ namespace Gestionnaire
     {
         private Profil _user;
         private Entries _entries;
-        private static int id = 2;
+        
         public Gestionnaire(Profil p)
         {
             InitializeComponent();
             _user = p;
-            _entries = new Entries();
-            _entries.Entry = MyUtils.ExtractEntries(Path.Combine(Entry.folderName,_user.PathFileEntries));
-            foreach (var e in _entries.Entry)
-            {
-                Console.WriteLine(e);
-            }
+            _entries = MyUtils.ExtractEntries(Path.Combine(Entry.folderName,_user.PathFileEntries));
             dataGridView1.DataSource = _entries.Entry;
         }
 
@@ -47,12 +42,8 @@ namespace Gestionnaire
                 string url = dae.tbUrl.Text;
                 string password = dae.rbtnGenerate.Checked ? dae.lblPwdGenerated.Text : dae.tbPwd.Text;
                 Entry newEntry = new Entry(name, username, url, password);
-                Console.WriteLine(newEntry);
-                //_entries.AddEntry(newEntry);
-                Console.WriteLine("Ajout de l'entrée : " + MyUtils.AddEntry(Path.Combine(Entry.folderName,_user.PathFileEntries), newEntry));
-                //dataGridView1.DataSource = _entries.Entry;
-                dataGridView1.Update();
-                dataGridView1.Refresh();
+                _entries.AddEntry(newEntry);
+                MyUtils.AddEntry(Path.Combine(Entry.folderName, _user.PathFileEntries), newEntry);
             }
         }
 

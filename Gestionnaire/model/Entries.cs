@@ -7,9 +7,10 @@ namespace Gestionnaire.model
 {
     public class Entries
     {
-        private List<Entry> _entry;
+        private BindingList<Entry> _entry;
 
-        public List<Entry> Entry
+        [XmlElement("Entry")]
+        public BindingList<Entry> Entry
         {
             get => _entry;
             set => _entry = value ?? throw new ArgumentNullException(nameof(value));
@@ -17,7 +18,7 @@ namespace Gestionnaire.model
 
         public Entries()
         {
-            Entry = new List<Entry>();
+            Entry = new BindingList<Entry>();
         }
 
         public void AddEntry(Entry e)

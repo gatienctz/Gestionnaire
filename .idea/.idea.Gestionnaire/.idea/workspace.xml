@@ -50,9 +50,9 @@
         <option value="$PROJECT_DIR$/Gestionnaire/Dialog_recherche.cs" />
         <option value="$PROJECT_DIR$/Gestionnaire/Dialog_Password.Designer.cs" />
         <option value="$PROJECT_DIR$/Gestionnaire/Dialog_URLResearch.Designer.cs" />
-        <option value="$PROJECT_DIR$/Gestionnaire/Gestionnaire.cs" />
         <option value="$PROJECT_DIR$/Gestionnaire/Dialog_URLResearch.cs" />
         <option value="$PROJECT_DIR$/Gestionnaire/Dialog_Password.cs" />
+        <option value="$PROJECT_DIR$/Gestionnaire/Gestionnaire.cs" />
       </list>
     </option>
   </component>

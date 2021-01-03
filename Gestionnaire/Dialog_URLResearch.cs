@@ -21,6 +21,7 @@ namespace Gestionnaire
         {
             //TODO Parcourir le bon xml pour trouver le mdp correspondant à
             //textBox1.Text;
+            //TODO Utilise XPathNavigator xnav |||| xnav.Select(Xpath) et tu récupéres très facilement le mdp avec un xpath comme en cours
             
             //return le mdp
             return "jtebez";
