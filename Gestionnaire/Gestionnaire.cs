@@ -54,7 +54,7 @@ namespace Gestionnaire
 
         private void rechercheParURLToolStripMenuItem_Click(object sender, EventArgs e)
         { 
-            Dialog_URLResearch dde =new Dialog_URLResearch();
+            Dialog_URLResearch dde =new Dialog_URLResearch(_entries);
             DialogResult res = dde.ShowDialog();
         }
     }
