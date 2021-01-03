@@ -20,5 +20,11 @@
       <Url>test</Url>
       <Password>,wpl.;</Password>
     </Entry>
+    <Entry>
+      <Name>abc</Name>
+      <UserName>abc</UserName>
+      <Url>abc</Url>
+      <Password>;h:u;n</Password>
+    </Entry>
   </Entries>
 </Database>
