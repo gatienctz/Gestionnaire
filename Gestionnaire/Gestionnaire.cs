@@ -44,7 +44,6 @@ namespace Gestionnaire
                 Entry newEntry = new Entry(name, username, url, password);
                 _entries.AddEntry(newEntry);
                 MyUtils.AddEntry(Path.Combine(Entry.folderName, _user.PathFileEntries), newEntry);
-                dataGridView1.Rows.Add(newEntry);
             }
         }
 
