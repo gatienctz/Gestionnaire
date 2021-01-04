@@ -136,6 +136,16 @@
     <value>137, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="tsbtnSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB0AAAAgCAYAAADud3N8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAADqSURBVEhL7da/asJQGIfh4Gb9cy11FhXnCl5A6dCt4NhV
+        78BdHcSO4gW4O0hLl9JF6OLkINJJxVXfD44QTxLh5EQUOT94MDmQvFNAz83tEsvgF1P1K57Q9N3r2qhq
+        Z1mM8YMyzi6HT6QwxB7P6KjrMCPUtbM85up6gxIiJ9ElXvEHecg2KtYoInQS9T8skoiKLkJ3U9EX9CO8
+        oaCdpWEV/UAjhn/432MUTYqLBqIrLCzsYBSdyYHlajCKfqv7bUwSqcA4Kh/58d7UAC56MheNw0UDu0r0
+        AROlB/l3+BVTC484vu8dbnc5zzsAvwytwpclSM4AAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="tsbtn_addEntry.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8

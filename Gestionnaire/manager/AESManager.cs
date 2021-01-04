@@ -240,7 +240,7 @@ namespace Gestionnaire.manager
             byte[] salt = GenerateRandomSalt();
 
             //create output file name
-            FileStream fsCrypt = new FileStream(filePath, File.Exists(filePath) ? FileMode.Open : FileMode.Create);
+            FileStream fsCrypt = new FileStream(filePath, File.Exists(filePath) ? FileMode.Truncate : FileMode.Create);
 
             //convert password string to byte arrray
             byte[] passwordBytes = System.Text.Encoding.UTF8.GetBytes(password);

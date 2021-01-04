@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
@@ -12,7 +13,7 @@ namespace Gestionnaire
         private Profil _user;
         private Entries _entries;
         private XmlDocument _dbXmlDoc;
-        private bool _saved = false;
+        private bool _saved = true;
         public Gestionnaire(Profil p)
         {
             InitializeComponent();
@@ -20,8 +21,16 @@ namespace Gestionnaire
             MyUtils.LoadFileToXmlDoc(Path.Combine(Entry.folderName,_user.PathFileEntries), _user.IdUsb, out _dbXmlDoc);
             _entries = MyUtils.ExtractEntries(_dbXmlDoc);
             dataGridView1.DataSource = _entries.Entry;
+            _entries.Entry.ListChanged += ListChanged;
+            tsbtnSave.Enabled = !_saved;
         }
 
+        private void ListChanged(object o, ListChangedEventArgs eArgs)
+        {
+            _saved = false;
+            tsbtnSave.Enabled = !_saved;
+        }
+        
         private void tsbtn_deleteEntry_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -34,7 +43,6 @@ namespace Gestionnaire
                     if (res == DialogResult.OK)
                     {
                         _entries.DeleteEntry(_dbXmlDoc, entryToDel);
-                        //MyUtils.SaveXmlDocToFile(Path.Combine(Entry.folderName, _user.PathFileEntries), _dbXmlDoc, _user.IdUsb);
                     }
                 }
             }
@@ -55,7 +63,6 @@ namespace Gestionnaire
                     Entry newEntry = new Entry(name, username, url, password);
                     _entries.AddEntry(_dbXmlDoc, newEntry);
                 }
-                //MyUtils.SaveXmlDocToFile(Path.Combine(Entry.folderName,_user.PathFileEntries), _dbXmlDoc, _user.IdUsb);
             }
         }
 
@@ -67,8 +74,7 @@ namespace Gestionnaire
 
         private void tsBtnUpdateEntry_Click(object sender, EventArgs e)
         {
-            MyUtils.SaveXmlDocToFile(Path.Combine(Entry.folderName,_user.PathFileEntries), _dbXmlDoc, _user.IdUsb);
-            /*if (dataGridView1.SelectedRows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 if (dataGridView1.CurrentRow != null)
                 {
@@ -92,13 +98,19 @@ namespace Gestionnaire
 
                         _entries.UpdateEntry(_dbXmlDoc, entryToUpdate, name, username, url, password);
                         dataGridView1.Refresh();
-                        //MyUtils.SaveXmlDocToFile(Path.Combine(Entry.folderName,_user.PathFileEntries), _dbXmlDoc, _user.IdUsb);
+                        _saved = false;
+                        tsbtnSave.Enabled = !_saved;
                     }
                 }
-            }*/
+            }
         }
 
-        
+        private void SaveGestionnaire()
+        {
+            MyUtils.SaveXmlDocToFile(Path.Combine(Entry.folderName,_user.PathFileEntries), _dbXmlDoc, _user.IdUsb);
+            _saved = true;
+            tsbtnSave.Enabled = !_saved;
+        }
         private static bool IsValidUri(string uri)
         {
             if (!Uri.IsWellFormedUriString(uri, UriKind.Absolute))
@@ -119,7 +131,7 @@ namespace Gestionnaire
                 Console.WriteLine(uri);
                 System.Diagnostics.Process.Start(uri);
             }
-            catch (System.ComponentModel.Win32Exception noBrowser)
+            catch (Win32Exception noBrowser)
             {
                 if (noBrowser.ErrorCode==-2147467259)
                     MessageBox.Show(noBrowser.Message);
@@ -143,6 +155,50 @@ namespace Gestionnaire
                         OpenUri(uriString);
                     }
             }
+        }
+
+        private bool Quitter()
+        {
+            if (!_saved)
+            {
+                var resSave = MessageBox.Show(
+                    "Des modifications n'ont pas été sauvegarder.\nVoulez-vous les sauvegarder avant de quitter ?",
+                    "Quitter", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                switch (resSave)
+                {
+                    case DialogResult.Yes:
+                    {
+                        SaveGestionnaire();
+                        return true;
+                    }
+                    case DialogResult.No:
+                    {
+                        return true;
+                    }
+                    case DialogResult.Cancel:
+                    {
+                        return false;
+                    }
+                }
+            }
+            var resQuit = MessageBox.Show("Voulez-vous vraiment quitter ?", "Quitter", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+            return resQuit == DialogResult.Yes;
+        }
+        private void Gestionnaire_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var wantToLeave = Quitter();
+            e.Cancel = !wantToLeave;
+        }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void tsbtnSave_Click(object sender, EventArgs e)
+        {
+            SaveGestionnaire();
         }
     }
 }
