@@ -45,7 +45,7 @@ namespace Gestionnaire
             this.btnConnecte.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.btnConnecte.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnConnecte.Location = new System.Drawing.Point(89, 149);
-            this.btnConnecte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConnecte.Margin = new System.Windows.Forms.Padding(2);
             this.btnConnecte.Name = "btnConnecte";
             this.btnConnecte.Size = new System.Drawing.Size(97, 30);
             this.btnConnecte.TabIndex = 0;
@@ -66,7 +66,7 @@ namespace Gestionnaire
             // tbLogin
             // 
             this.tbLogin.Location = new System.Drawing.Point(51, 47);
-            this.tbLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbLogin.Margin = new System.Windows.Forms.Padding(2);
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(172, 20);
             this.tbLogin.TabIndex = 2;
@@ -85,7 +85,7 @@ namespace Gestionnaire
             // tbPassword
             // 
             this.tbPassword.Location = new System.Drawing.Point(51, 96);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(172, 20);
@@ -116,7 +116,7 @@ namespace Gestionnaire
             this.Controls.Add(this.tbLogin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConnecte);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Connexion";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

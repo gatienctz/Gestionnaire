@@ -5,7 +5,7 @@ using Gestionnaire.model;
 
 namespace Gestionnaire
 {
-    public partial class Gestionnaire : Form
+    public partial class Gestionnaire :  
     {
         private Profil _user;
         private Entries _entries;
