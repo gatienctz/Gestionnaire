@@ -123,10 +123,10 @@ namespace Gestionnaire.model
 
             XPathDocument doc = new XPathDocument(Path);
             XPathNavigator nav = doc.CreateNavigator();
-            //Vérification du login/mot de passe
-            var nodes = nav.Select("//Profil[Login = '"+login+"' and Password = '"+password+"']");
+            //Vérification du login
+            var nodes = nav.Select("//Profil[Login = '"+login+"' and Password ='"+password+"']");
             
-            if (nodes.MoveNext())//Si le login/mot de passe est correct
+            if (nodes.MoveNext())//Si le login
             {
 
                 //On reprend la navigation à partir du noeud profil correct
@@ -152,7 +152,7 @@ namespace Gestionnaire.model
                     return null;
                 }
             }
-            MessageBox.Show("Erreur, nom d'utilisateur ou mot de passe incorrect !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Erreur, nom d'utilisateur incorrect !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return null;
         }
         

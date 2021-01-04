@@ -20,7 +20,6 @@ namespace Gestionnaire
             //Vérification des informations de connection.
             if ((user = Profil.Connection(tbLogin.Text, PasswordManager.EncryptMd5(tbPassword.Text))) != null)
             {//Si l'utilisateur à rentré les bonnes informations, son profil est connecté au gestionnaire.
-                Console.WriteLine("Connexion de l'utilisateur : " + user);
                 Hide();//On cache la fenêtre de connexion.
                 Gestionnaire gest = new Gestionnaire(user);//Création de la fenêtre du gestionnaire.
                 var dialogResult = gest.ShowDialog();
