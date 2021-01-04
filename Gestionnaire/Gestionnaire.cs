@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.IO;
-using System.Net;
 using System.Windows.Forms;
 using System.Xml;
 using Gestionnaire.model;
@@ -18,11 +17,26 @@ namespace Gestionnaire
         {
             InitializeComponent();
             _user = p;
+            
             MyUtils.LoadFileToXmlDoc(Path.Combine(Entry.folderName,_user.PathFileEntries), _user.IdUsb, out _dbXmlDoc);
             _entries = MyUtils.ExtractEntries(_dbXmlDoc);
+            
             dataGridView1.DataSource = _entries.Entry;
             _entries.Entry.ListChanged += ListChanged;
             tsbtnSave.Enabled = !_saved;
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // If the column is the Artist column, check the
+            // value.
+            if (e.ColumnIndex == 3)
+            {
+                if (e.Value != null)
+                {
+                    e.Value = new string('*', e.Value.ToString().Length);
+                }
+            }
         }
 
         private void ListChanged(object o, ListChangedEventArgs eArgs)
@@ -54,15 +68,12 @@ namespace Gestionnaire
             DialogResult res = dae.ShowDialog();
             if (res == DialogResult.OK)
             {
-                for (int i = 0; i < 100; i++)
-                {
-                    string name = dae.tbName.Text;
-                    string username = dae.tbUsername.Text;
-                    string url = dae.UrlString;
-                    string password = dae.rbtnGenerate.Checked ? dae.lblPwdGenerated.Text : dae.tbPwd.Text;
-                    Entry newEntry = new Entry(name, username, url, password);
-                    _entries.AddEntry(_dbXmlDoc, newEntry);
-                }
+                string name = dae.tbName.Text;
+                string username = dae.tbUsername.Text;
+                string url = dae.UrlString;
+                string password = dae.rbtnGenerate.Checked ? dae.lblPwdGenerated.Text : dae.tbPwd.Text;
+                Entry newEntry = new Entry(name, username, url, password);
+                _entries.AddEntry(_dbXmlDoc, newEntry);
             }
         }
 
@@ -182,7 +193,7 @@ namespace Gestionnaire
                 }
             }
             var resQuit = MessageBox.Show("Voulez-vous vraiment quitter ?", "Quitter", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                MessageBoxIcon.Question);
             return resQuit == DialogResult.Yes;
         }
         private void Gestionnaire_FormClosing(object sender, FormClosingEventArgs e)

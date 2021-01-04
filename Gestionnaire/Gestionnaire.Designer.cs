@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace Gestionnaire
 {
@@ -32,10 +33,7 @@ namespace Gestionnaire
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Internet");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Cloud");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("eMail");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Mon coffre fort", new System.Windows.Forms.TreeNode[] {treeNode1, treeNode2, treeNode3});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Mon coffre fort");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gestionnaire));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -64,12 +62,6 @@ namespace Gestionnaire
             this.treeView1.Location = new System.Drawing.Point(12, 73);
             this.treeView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Nœud3";
-            treeNode1.Text = "Internet";
-            treeNode2.Name = "Nœud4";
-            treeNode2.Text = "Cloud";
-            treeNode3.Name = "Nœud5";
-            treeNode3.Text = "eMail";
             treeNode4.Name = "node_root";
             treeNode4.Text = "Mon coffre fort";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {treeNode4});
@@ -79,6 +71,7 @@ namespace Gestionnaire
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -91,6 +84,7 @@ namespace Gestionnaire
             this.dataGridView1.Size = new System.Drawing.Size(583, 366);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellFormatting += new DataGridViewCellFormattingEventHandler(dataGridView1_CellFormatting);
             // 
             // col_Title
             // 
