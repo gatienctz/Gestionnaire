@@ -270,21 +270,17 @@ namespace Gestionnaire.manager
             memoryStream.Flush();
             memoryStream.Position = 0;
             
-            Console.WriteLine("Save into memoryStream : " + memoryStream.Length);
-            
             //create a buffer (1mb) so only this amount will allocate in the memory and not the whole file
             byte[] buffer = new byte[1048576];
             int read;
             int total = 0;
             try
             {
-                Console.WriteLine("Avant de lire");
                 while ((read = memoryStream.Read(buffer, 0, buffer.Length)) > 0)
                 {
                     total += read;
                     cs.Write(buffer, 0, read);
                 }
-                Console.WriteLine("Après de lire  = " + total);
                 // Close up
                 memoryStream.Close();
             }
@@ -302,7 +298,7 @@ namespace Gestionnaire.manager
         //Decrypt a file into a XML Document
         public static XmlDocument DecryptFileToXmlDocument(string filePath, string password)
         {
-            byte[] passwordBytes = System.Text.Encoding.UTF8.GetBytes(password);
+            byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
             byte[] salt = new byte[32];
 
             FileStream fsCrypt = new FileStream(filePath, FileMode.Open);
@@ -329,15 +325,11 @@ namespace Gestionnaire.manager
             try
             {
                 cs.Read(buffer, 0, 3);
-                Console.WriteLine("Il y a "+fsCrypt.Length+" a lire");
                 while ((read = cs.Read(buffer, 0, buffer.Length)) > 0)
                 {
                     total += read;
                     memoryStream.Write(buffer, 0, read);
                 }
-                Console.WriteLine("Lecture de = "+total);
-                Console.WriteLine("Save into memoryStream : " + memoryStream.Length);
-                Console.WriteLine("Data in MemoryStream :" + Encoding.Default.GetString(memoryStream.ToArray()));
                 xmlDocument.LoadXml(Encoding.Default.GetString(memoryStream.ToArray()));
             }
             catch (CryptographicException ex_CryptographicException)
