@@ -10,7 +10,7 @@ namespace Gestionnaire
         private ErrorProvider _errorProvider = new ErrorProvider();
         private Uri _UrlString;
 
-        public Uri UrlString => _UrlString;
+        public string UrlString => _UrlString.ToString();
 
         public Dialog_AddEntry()
         {

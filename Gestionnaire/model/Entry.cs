@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Xml.Serialization;
 using Accessibility;
 
@@ -49,6 +48,14 @@ namespace Gestionnaire.model
             UserName = username;
             Url = url;
             Password = password;
+        }
+
+        public string deleteMessage()
+        {
+            return "Entrée : \n"
+                   + "Nom : " + Name
+                   + "\nURL : " + Url
+                   + "\nNom d'utilisateur : " + UserName;
         }
 
         public override string ToString()

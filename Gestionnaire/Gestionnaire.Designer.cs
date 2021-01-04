@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace Gestionnaire
 {
@@ -45,9 +46,13 @@ namespace Gestionnaire
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rechercheParURLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbtnSave = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtn_addEntry = new System.Windows.Forms.ToolStripButton();
             this.tsbtn_deleteEntry = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnUpdateEntry = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -85,6 +90,7 @@ namespace Gestionnaire
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(583, 366);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // col_Title
             // 
@@ -107,6 +113,8 @@ namespace Gestionnaire
             this.col_URL.HeaderText = "URL";
             this.col_URL.Name = "col_URL";
             this.col_URL.ReadOnly = true;
+            this.col_URL.TrackVisitedState = false;
+            this.col_URL.VisitedLinkColor = System.Drawing.Color.Blue;
             // 
             // col_password
             // 
@@ -129,7 +137,7 @@ namespace Gestionnaire
             // 
             // fichierToolStripMenuItem
             // 
-            this.fichierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.rechercheParURLToolStripMenuItem});
+            this.fichierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.rechercheParURLToolStripMenuItem, this.quitterToolStripMenuItem});
             this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
             this.fichierToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.fichierToolStripMenuItem.Text = "Fichier";
@@ -141,14 +149,36 @@ namespace Gestionnaire
             this.rechercheParURLToolStripMenuItem.Text = "Recherche par URL";
             this.rechercheParURLToolStripMenuItem.Click += new System.EventHandler(this.rechercheParURLToolStripMenuItem_Click);
             // 
+            // quitterToolStripMenuItem
+            // 
+            this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.quitterToolStripMenuItem.Text = "Quitter";
+            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
+            // 
             // toolStrip1
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.tsbtn_addEntry, this.tsbtn_deleteEntry});
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.tsbtnSave, this.toolStripSeparator1, this.tsbtn_addEntry, this.tsbtn_deleteEntry, this.tsBtnUpdateEntry});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbtnSave
+            // 
+            this.tsbtnSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnSave.Image = ((System.Drawing.Image) (resources.GetObject("tsbtnSave.Image")));
+            this.tsbtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnSave.Name = "tsbtnSave";
+            this.tsbtnSave.Size = new System.Drawing.Size(23, 22);
+            this.tsbtnSave.Text = "tsbtnSave";
+            this.tsbtnSave.Click += new EventHandler(tsbtnSave_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // tsbtn_addEntry
             // 
@@ -170,6 +200,16 @@ namespace Gestionnaire
             this.tsbtn_deleteEntry.Text = "toolStripButton2";
             this.tsbtn_deleteEntry.Click += new System.EventHandler(this.tsbtn_deleteEntry_Click);
             // 
+            // tsBtnUpdateEntry
+            // 
+            this.tsBtnUpdateEntry.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsBtnUpdateEntry.Image = ((System.Drawing.Image) (resources.GetObject("tsBtnUpdateEntry.Image")));
+            this.tsBtnUpdateEntry.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnUpdateEntry.Name = "tsBtnUpdateEntry";
+            this.tsBtnUpdateEntry.Size = new System.Drawing.Size(23, 22);
+            this.tsBtnUpdateEntry.Text = "Modifier une entrée";
+            this.tsBtnUpdateEntry.Click += new System.EventHandler(this.tsBtnUpdateEntry_Click);
+            // 
             // Gestionnaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -184,6 +224,7 @@ namespace Gestionnaire
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Gestionnaire";
             this.Text = "Gestionnaire";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Gestionnaire_FormClosing);
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -192,6 +233,14 @@ namespace Gestionnaire
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+        
+        private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
+
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+
+        private System.Windows.Forms.ToolStripButton tsbtnSave;
+
+        private System.Windows.Forms.ToolStripButton tsBtnUpdateEntry;
 
         private System.Windows.Forms.ToolStripMenuItem rechercheParURLToolStripMenuItem;
 

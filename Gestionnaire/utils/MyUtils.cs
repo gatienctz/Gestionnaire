@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Xml.XPath;
+using Gestionnaire.manager;
 using Gestionnaire.model;
 
 namespace Gestionnaire
@@ -28,7 +29,7 @@ namespace Gestionnaire
                 var pathString = Path.Combine(filePath, fileName);
             
                 //Vérification de l'existance du nom de fichier, regénération aléatoire tant qu'il existe.
-                while (File.Exists(filePath))
+                while (File.Exists(fileName))
                 {
                     fileName = Path.GetRandomFileName();
                     fileName = Path.ChangeExtension(fileName, EXTENSION);
@@ -82,6 +83,37 @@ namespace Gestionnaire
             return fileName;
         }
 
+        public static string GetRandomFileName()
+        {
+            string fileName = Path.GetRandomFileName();
+            fileName = Path.ChangeExtension(fileName, EXTENSION);
+            
+            while (File.Exists(fileName))
+            {
+                fileName = Path.GetRandomFileName();
+                fileName = Path.ChangeExtension(fileName, EXTENSION);
+            }
+
+            return fileName;
+        }
+        
+        public static XmlDocument CreateEntryXmlDocument()
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            var declaration = xmlDoc.CreateXmlDeclaration("1.0", "utf-8", null);
+            xmlDoc.AppendChild(declaration);
+            var docType = xmlDoc.CreateDocumentType("Entries", null, null,
+                "<!ELEMENT Entries  (Entry*)>" +
+                "<!ELEMENT Entry (Name, UserName, Url, Password)>" +
+                "<!ELEMENT Name    (#PCDATA)>" +
+                "<!ELEMENT UserName    (#PCDATA)>" +
+                "<!ELEMENT Url    (#PCDATA)>" +
+                "<!ELEMENT Password (#PCDATA)>");
+            xmlDoc.AppendChild(docType);
+            xmlDoc.AppendChild(xmlDoc.CreateElement("Entries"));
+            return xmlDoc;
+        }
+        
         public static T DeserializeFragment<T>(string xmlFragment)
         {
             // Add a root element using the type name e.g. <Profil>...</Profil>
@@ -93,12 +125,11 @@ namespace Gestionnaire
             }
         }
 
-        public static Entries ExtractEntries(string filePath)
+        public static Entries ExtractEntries(XmlDocument xmlDoc)
         {
             Entries myList = new Entries();
             
-            XPathDocument doc = new XPathDocument(filePath);
-            XPathNavigator nav = doc.CreateNavigator();
+            XPathNavigator nav = xmlDoc.CreateNavigator();
             var nodes = nav.Select("//Entries");
             if (nodes.MoveNext())
             {
@@ -134,11 +165,50 @@ namespace Gestionnaire
             XmlDocumentFragment fragmentProfil = doc.CreateDocumentFragment();
             //Ajout du XML généré à l'aide du sérialiseur dans le fragment
             fragmentProfil.InnerXml = output.ToString();
-            Console.WriteLine(fragmentProfil.InnerXml);
             //Fermeture du writer
             writer.Close();
             
             return fragmentProfil;
+        }
+
+        public static void AddFragmentToXmlDocument(XmlDocument xmlDoc, string parent, object o)
+        {
+            //Récupération du noeud racine dans le fichier des profils
+            XmlNode rootNode = xmlDoc.GetElementsByTagName(parent)[0];
+            //Sérialisation de l'objet en fragment XML
+            XmlDocumentFragment fragmentNode = ToXmlDocumentFragment(xmlDoc, o);
+            //Ajout du fragment dans le document
+            rootNode.AppendChild(fragmentNode);
+        }
+
+        public static void AddProfilToXmlDocument(XmlDocument xmlDoc, Profil p)
+        {
+            AddFragmentToXmlDocument(xmlDoc, "Profils", p);
+        }
+        
+        public static void AddEntryToXmlDocument(XmlDocument xmlDoc, Entry e)
+        {
+            AddFragmentToXmlDocument(xmlDoc, "Entries", e);
+        }
+
+        public static void SaveXmlDocToFile(string filePath, XmlDocument xmlDoc, string password)
+        {
+            AESManager.EncryptXmlDocumentToFile(xmlDoc, filePath, password);
+            //AESManager.EncryptAesManaged(xmlDoc, password);
+        }
+
+        public static void LoadFileToXmlDoc(string filePath, string password, out XmlDocument xmlDoc)
+        {
+            if (File.Exists(filePath))
+            {
+                xmlDoc = AESManager.DecryptFileToXmlDocument(filePath, password);
+            }
+            else
+            {
+                xmlDoc = CreateEntryXmlDocument();
+            }
+
+            Console.WriteLine(xmlDoc.InnerXml);
         }
 
         public static bool AddFragment(string filePath, string parent, object o)
@@ -176,34 +246,33 @@ namespace Gestionnaire
             return AddFragment(filePath, "Entries", entry);
         }
 
-        public static bool DeleteFragment(string filePath, string parent, object o)
+        public static bool DeleteEntryToXmlDocument(XmlDocument xmlDoc, Entry e)
         {
-            XmlDocument xmlDoc = new XmlDocument();
-            try
+            XPathNavigator nav = xmlDoc.CreateNavigator();
+            var nodeToDel = nav.SelectSingleNode("//Entry[Url ='" + e.Url + "']");
+            if (nodeToDel != null)
             {
-                xmlDoc.Load(filePath);
+                try
+                {
+                    nodeToDel.DeleteSelf();
+                }
+                catch
+                {
+                    return false;
+                }
             }
-            catch (FileNotFoundException e)
-            {
-                return false;
-            }
-
-            XmlNode parentNode = xmlDoc.GetElementsByTagName(parent)[0];
-            //XmlNode objectNode = xmlDoc.GetElementById(o.GetId().ToString());
-
-            //var deletedNode = parentNode.RemoveChild(objectNode);
-            ///Console.WriteLine("Node supprimée : " + deletedNode.InnerXml);
-
+            Console.WriteLine("Node supprimée ! "); 
             return true;
         }
 
-        public static bool DeleteEntry(string filePath, Entry e)
+        public static bool UpdateEntryToXmlDocument(XmlDocument xmlDoc, Entry e)
         {
-            return DeleteFragment(filePath, "Entries", e);
-        }
+            if (DeleteEntryToXmlDocument(xmlDoc, e))
+            {
+                AddEntryToXmlDocument(xmlDoc, e);
+                return true;
+            }
 
-        public static bool UpdateEntry(string filePath, Entry e)
-        {
             return false;
         }
 

@@ -13,14 +13,14 @@ namespace Gestionnaire.model
 {
     public class Profil
     {
-        private string _login = null!;
-        private string _password = null!;
-        private string _idUSB = null!;
-        private string _pathFileEntries = null!;
+        private string _login;
+        private string _password;
+        private string _idUsb;
+        private string _fileNameEntries;
 
-        private static string folderName = @"../../../Data";
-        private static string fileName = "profilDataBase.xml";
-        private static string path = Path.Combine(folderName, fileName);
+        private const string FolderName = @"../../../Data";
+        private const string FileName = "profilDataBase.xml";
+        private static readonly string Path = System.IO.Path.Combine(FolderName, FileName);
         
         public string Login
         {
@@ -40,17 +40,17 @@ namespace Gestionnaire.model
         
         public string IdUsb
         {
-            get => _idUSB;
+            get => _idUsb;
             set
             {
-                _idUSB = value;
+                _idUsb = value;
             }
         }
         
         public string PathFileEntries
         {
-            get => _pathFileEntries;
-            set => _pathFileEntries = value ?? throw new ArgumentNullException(nameof(value));
+            get => _fileNameEntries;
+            set => _fileNameEntries = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         public string Password
@@ -81,23 +81,25 @@ namespace Gestionnaire.model
         public void WriteToFile()
         {
             //Vérification de l'existance du fichier des profils
-            if (!File.Exists(path))
+            if (!File.Exists(Path))
             {
                 //Création du fichier des profils
-                fileName = MyUtils.CreateFile(folderName, fileName, true);
+                MyUtils.CreateFile(FolderName, FileName, true);
             }
-            //Génération d'un fichier d'entrées pour le profil
-            _pathFileEntries = MyUtils.CreateFile(Entry.folderName, _pathFileEntries, false);
+            
+            //Génération d'un nom de fichier pour stocker les entrées du profil
+            _fileNameEntries = MyUtils.GetRandomFileName();
+
             //Ajout du profil dans la base de donnée
-            MyUtils.AddProfil(path, this);
+            MyUtils.AddProfil(Path, this);
         }
 
         public static bool IsLoginExist(string login)
         {
-            if (!File.Exists(path))
+            if (!File.Exists(Path))
                 return false;
             
-            using (XmlTextReader xtr = new XmlTextReader(path))
+            using (XmlTextReader xtr = new XmlTextReader(Path))
             {
                 while (xtr.Read())
                 {
@@ -114,12 +116,12 @@ namespace Gestionnaire.model
 
         public static Profil? Connection(string login, string password)
         {
-            if (!File.Exists(path))
+            if (!File.Exists(Path))
                 return null;
 
             var usbDevices = UsbDeviceInfoMain.GetUSBDevices();
 
-            XPathDocument doc = new XPathDocument(path);
+            XPathDocument doc = new XPathDocument(Path);
             XPathNavigator nav = doc.CreateNavigator();
             //Vérification du login/mot de passe
             var nodes = nav.Select("//Profil[Login = '"+login+"' and Password = '"+password+"']");
@@ -167,7 +169,7 @@ namespace Gestionnaire.model
 
         public override string ToString()
         {
-            return Login + ";" + fileName + ";" + PathFileEntries;
+            return Login + ";" + FileName + ";" + PathFileEntries;
         }
     }
 }
