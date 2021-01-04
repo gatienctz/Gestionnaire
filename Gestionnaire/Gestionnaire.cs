@@ -28,8 +28,6 @@ namespace Gestionnaire
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // If the column is the Artist column, check the
-            // value.
             if (e.ColumnIndex == 3)
             {
                 if (e.Value != null)
