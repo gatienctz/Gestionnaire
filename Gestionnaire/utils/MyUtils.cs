@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Xml.XPath;
+using Gestionnaire.manager;
 using Gestionnaire.model;
 
 namespace Gestionnaire
@@ -28,7 +29,7 @@ namespace Gestionnaire
                 var pathString = Path.Combine(filePath, fileName);
             
                 //Vérification de l'existance du nom de fichier, regénération aléatoire tant qu'il existe.
-                while (File.Exists(filePath))
+                while (File.Exists(fileName))
                 {
                     fileName = Path.GetRandomFileName();
                     fileName = Path.ChangeExtension(fileName, EXTENSION);
@@ -82,6 +83,37 @@ namespace Gestionnaire
             return fileName;
         }
 
+        public static string GetRandomFileName()
+        {
+            string fileName = Path.GetRandomFileName();
+            fileName = Path.ChangeExtension(fileName, EXTENSION);
+            
+            while (File.Exists(fileName))
+            {
+                fileName = Path.GetRandomFileName();
+                fileName = Path.ChangeExtension(fileName, EXTENSION);
+            }
+
+            return fileName;
+        }
+        
+        public static XmlDocument CreateEntryXmlDocument()
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            var declaration = xmlDoc.CreateXmlDeclaration("1.0", "utf-8", null);
+            xmlDoc.AppendChild(declaration);
+            var docType = xmlDoc.CreateDocumentType("Entries", null, null,
+                "<!ELEMENT Entries  (Entry*)>" +
+                "<!ELEMENT Entry (Name, UserName, Url, Password)>" +
+                "<!ELEMENT Name    (#PCDATA)>" +
+                "<!ELEMENT UserName    (#PCDATA)>" +
+                "<!ELEMENT Url    (#PCDATA)>" +
+                "<!ELEMENT Password (#PCDATA)>");
+            xmlDoc.AppendChild(docType);
+            xmlDoc.AppendChild(xmlDoc.CreateElement("Entries"));
+            return xmlDoc;
+        }
+        
         public static T DeserializeFragment<T>(string xmlFragment)
         {
             // Add a root element using the type name e.g. <Profil>...</Profil>
@@ -159,15 +191,24 @@ namespace Gestionnaire
             AddFragmentToXmlDocument(xmlDoc, "Entries", e);
         }
 
-        public static void SaveXmlDocToFile(string filePath, XmlDocument xmlDoc)
+        public static void SaveXmlDocToFile(string filePath, XmlDocument xmlDoc, string password)
         {
-            xmlDoc.Save(filePath);
+            AESManager.EncryptXmlDocumentToFile(xmlDoc, filePath, password);
+            //AESManager.EncryptAesManaged(xmlDoc, password);
         }
 
-        public static void LoadFileToXmlDoc(string filePath, out XmlDocument xmlDoc)
+        public static void LoadFileToXmlDoc(string filePath, string password, out XmlDocument xmlDoc)
         {
-            xmlDoc = new XmlDocument();
-            xmlDoc.Load(filePath);
+            if (File.Exists(filePath))
+            {
+                xmlDoc = AESManager.DecryptFileToXmlDocument(filePath, password);
+            }
+            else
+            {
+                xmlDoc = CreateEntryXmlDocument();
+            }
+
+            Console.WriteLine(xmlDoc.InnerXml);
         }
 
         public static bool AddFragment(string filePath, string parent, object o)

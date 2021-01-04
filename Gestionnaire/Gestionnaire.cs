@@ -12,11 +12,12 @@ namespace Gestionnaire
         private Profil _user;
         private Entries _entries;
         private XmlDocument _dbXmlDoc;
+        private bool _saved = false;
         public Gestionnaire(Profil p)
         {
             InitializeComponent();
             _user = p;
-            MyUtils.LoadFileToXmlDoc(Path.Combine(Entry.folderName,_user.PathFileEntries), out _dbXmlDoc);
+            MyUtils.LoadFileToXmlDoc(Path.Combine(Entry.folderName,_user.PathFileEntries), _user.IdUsb, out _dbXmlDoc);
             _entries = MyUtils.ExtractEntries(_dbXmlDoc);
             dataGridView1.DataSource = _entries.Entry;
         }
@@ -33,7 +34,7 @@ namespace Gestionnaire
                     if (res == DialogResult.OK)
                     {
                         _entries.DeleteEntry(_dbXmlDoc, entryToDel);
-                        MyUtils.SaveXmlDocToFile(Path.Combine(Entry.folderName, _user.PathFileEntries), _dbXmlDoc);
+                        //MyUtils.SaveXmlDocToFile(Path.Combine(Entry.folderName, _user.PathFileEntries), _dbXmlDoc, _user.IdUsb);
                     }
                 }
             }
@@ -45,13 +46,16 @@ namespace Gestionnaire
             DialogResult res = dae.ShowDialog();
             if (res == DialogResult.OK)
             {
-                string name = dae.tbName.Text;
-                string username = dae.tbUsername.Text;
-                string url = dae.UrlString;
-                string password = dae.rbtnGenerate.Checked ? dae.lblPwdGenerated.Text : dae.tbPwd.Text;
-                Entry newEntry = new Entry(name, username, url, password);
-                _entries.AddEntry(_dbXmlDoc, newEntry);
-                MyUtils.SaveXmlDocToFile(Path.Combine(Entry.folderName,_user.PathFileEntries), _dbXmlDoc);
+                for (int i = 0; i < 100; i++)
+                {
+                    string name = dae.tbName.Text;
+                    string username = dae.tbUsername.Text;
+                    string url = dae.UrlString;
+                    string password = dae.rbtnGenerate.Checked ? dae.lblPwdGenerated.Text : dae.tbPwd.Text;
+                    Entry newEntry = new Entry(name, username, url, password);
+                    _entries.AddEntry(_dbXmlDoc, newEntry);
+                }
+                //MyUtils.SaveXmlDocToFile(Path.Combine(Entry.folderName,_user.PathFileEntries), _dbXmlDoc, _user.IdUsb);
             }
         }
 
@@ -63,7 +67,8 @@ namespace Gestionnaire
 
         private void tsBtnUpdateEntry_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            MyUtils.SaveXmlDocToFile(Path.Combine(Entry.folderName,_user.PathFileEntries), _dbXmlDoc, _user.IdUsb);
+            /*if (dataGridView1.SelectedRows.Count > 0)
             {
                 if (dataGridView1.CurrentRow != null)
                 {
@@ -87,11 +92,10 @@ namespace Gestionnaire
 
                         _entries.UpdateEntry(_dbXmlDoc, entryToUpdate, name, username, url, password);
                         dataGridView1.Refresh();
-                        MyUtils.SaveXmlDocToFile(Path.Combine(Entry.folderName,_user.PathFileEntries), _dbXmlDoc);
+                        //MyUtils.SaveXmlDocToFile(Path.Combine(Entry.folderName,_user.PathFileEntries), _dbXmlDoc, _user.IdUsb);
                     }
                 }
-                
-            }
+            }*/
         }
 
         
