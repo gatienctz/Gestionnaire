@@ -181,7 +181,7 @@ namespace Gestionnaire
             this.tsbtn_addEntry.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_addEntry.Name = "tsbtn_addEntry";
             this.tsbtn_addEntry.Size = new System.Drawing.Size(23, 22);
-            this.tsbtn_addEntry.Text = "toolStripButton1";
+            this.tsbtn_addEntry.Text = "Ajouter une entrée";
             this.tsbtn_addEntry.Click += new System.EventHandler(this.tsbtn_addEntry_Click);
             // 
             // tsbtn_deleteEntry
@@ -191,7 +191,7 @@ namespace Gestionnaire
             this.tsbtn_deleteEntry.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_deleteEntry.Name = "tsbtn_deleteEntry";
             this.tsbtn_deleteEntry.Size = new System.Drawing.Size(23, 22);
-            this.tsbtn_deleteEntry.Text = "toolStripButton2";
+            this.tsbtn_deleteEntry.Text = "Supprimer une entrée";
             this.tsbtn_deleteEntry.Click += new System.EventHandler(this.tsbtn_deleteEntry_Click);
             // 
             // tsBtnUpdateEntry
