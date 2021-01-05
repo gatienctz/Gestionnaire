@@ -42,8 +42,9 @@ namespace Gestionnaire
             _saved = false;
             tsbtnSave.Enabled = !_saved;
         }
-        
-        private void tsbtn_deleteEntry_Click(object sender, EventArgs e)
+
+
+        private void DeleteEntry()
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -59,8 +60,12 @@ namespace Gestionnaire
                 }
             }
         }
+        private void tsbtn_deleteEntry_Click(object sender, EventArgs e)
+        {
+            DeleteEntry();
+        }
 
-        private void tsbtn_addEntry_Click(object sender, EventArgs e)
+        private void AddEntry()
         {
             Dialog_AddEntry dae = new Dialog_AddEntry();
             DialogResult res = dae.ShowDialog();
@@ -75,13 +80,23 @@ namespace Gestionnaire
             }
         }
 
-        private void rechercheParURLToolStripMenuItem_Click(object sender, EventArgs e)
-        { 
+        private void tsbtn_addEntry_Click(object sender, EventArgs e)
+        {
+            AddEntry();
+        }
+
+        private void RechercheParUrl()
+        {
             Dialog_URLResearch dde =new Dialog_URLResearch(_entries);
             dde.ShowDialog();
         }
+        
+        private void rechercheParURLToolStripMenuItem_Click(object sender, EventArgs e)
+        { 
+            RechercheParUrl();
+        }
 
-        private void tsBtnUpdateEntry_Click(object sender, EventArgs e)
+        private void UpdateEntry()
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -112,6 +127,11 @@ namespace Gestionnaire
                     }
                 }
             }
+        }
+        
+        private void tsBtnUpdateEntry_Click(object sender, EventArgs e)
+        {
+            UpdateEntry();
         }
 
         private void SaveGestionnaire()

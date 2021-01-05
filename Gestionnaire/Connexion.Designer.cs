@@ -109,7 +109,7 @@ namespace Gestionnaire
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(271, 75);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Pour vous connecter veuillez saisir votre login/mot de passe et brancher la clé U" + "SB qui lui est associée.";
+            this.label3.Text = "Pour vous connecter veuillez saisir votre login/mot de passe et brancher la clé U" + "SB qui lui est associé.";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1

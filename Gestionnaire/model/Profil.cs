@@ -114,7 +114,7 @@ namespace Gestionnaire.model
             return false;
         }
 
-        public static Profil? Connection(string login, string password)
+        public static Profil Connection(string login, string password)
         {
             if (!File.Exists(Path))
                 return null;

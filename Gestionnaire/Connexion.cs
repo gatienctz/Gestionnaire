@@ -16,7 +16,7 @@ namespace Gestionnaire
 
         private void Connection()
         {
-            Profil? user;
+            Profil user;
             //Vérification des informations de connection.
             if ((user = Profil.Connection(tbLogin.Text, PasswordManager.EncryptMd5(tbPassword.Text))) != null)
             {//Si l'utilisateur à rentré les bonnes informations, son profil est connecté au gestionnaire.
