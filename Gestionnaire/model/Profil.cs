@@ -119,7 +119,7 @@ namespace Gestionnaire.model
             if (!File.Exists(Path))
                 return null;
 
-            var usbDevices = UsbDeviceInfoMain.GetUSBDevices();
+            var usbDevices = UsbDevice.GetUSBDevices();
 
             XPathDocument doc = new XPathDocument(Path);
             XPathNavigator nav = doc.CreateNavigator();

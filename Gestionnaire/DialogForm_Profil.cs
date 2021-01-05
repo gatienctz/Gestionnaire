@@ -12,7 +12,7 @@ namespace Gestionnaire
         public DialogForm_Profil()
         {
             InitializeComponent();
-            List<USBDeviceInfo> listUSB=UsbDeviceInfoMain.GetUSBDevices();
+            List<UsbDeviceInfo> listUSB=UsbDevice.GetUSBDevices();
             int cmp = 0;
             int selected_item = -1; //Ici on va prendre le dernier ayant Disposotif de stockage de masse USB comme description
             foreach (var entry in listUSB)

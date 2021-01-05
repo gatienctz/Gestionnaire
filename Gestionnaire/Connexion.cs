@@ -34,18 +34,23 @@ namespace Gestionnaire
             Connection();
         }
 
-        private void linklCreateProfil_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void CreateProfil()
         {
             DialogForm_Profil dfProfil = new DialogForm_Profil();
             DialogResult dialogResult = dfProfil.ShowDialog();
 
             if (dialogResult == DialogResult.OK)
             {
-                var myUsb = (USBDeviceInfo) dfProfil.lbUSBDevices.SelectedItem;
+                var myUsb = (UsbDeviceInfo) dfProfil.lbUSBDevices.SelectedItem;
                 _myProfil = new Profil(dfProfil.tbLogin.Text, dfProfil.tbPassword.Text,
                     myUsb.DeviceID);
                 _myProfil.WriteToFile();
             }
+        }
+        private void linklCreateProfil_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CreateProfil();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
