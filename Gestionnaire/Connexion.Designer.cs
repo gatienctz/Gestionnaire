@@ -2,7 +2,7 @@
 
 namespace Gestionnaire
 {
-    partial class Form1
+    partial class Connexion
     {
         /// <summary>
         ///  Required designer variable.
@@ -126,7 +126,7 @@ namespace Gestionnaire
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConnecte);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Form1";
+            this.Name = "Connexion";
             this.Text = "Connexion";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);
