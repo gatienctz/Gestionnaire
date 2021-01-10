@@ -37,6 +37,22 @@ namespace Gestionnaire.manager
             return encryptedPassword;
         }
         
+        public static string EncryptSha_256(string password)
+        {
+            string encryptedPassword;
+            byte[] hashByte = Encoding.Unicode.GetBytes(password);
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                hashByte = sha256.ComputeHash(hashByte);
+                StringBuilder stringBuilder = new StringBuilder();
+                foreach (byte b in hashByte)
+                    stringBuilder.Append(b.ToString("X2"));
+                encryptedPassword = stringBuilder.ToString();
+            }
+
+            return encryptedPassword;
+        }
+        
         
     }
 }
